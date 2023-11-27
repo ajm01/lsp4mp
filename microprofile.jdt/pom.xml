@@ -57,6 +57,7 @@
         <version>${tycho.version}</version>
         <configuration>
           <resolver>p2</resolver>
+	<pomDependencies>consider</pomDependencies>	  
           <target>
             <artifact>
               <groupId>org.eclipse.lsp4mp</groupId>
@@ -67,7 +68,7 @@
               <groupId>org.eclipse.jdt.ls</groupId>
               <artifactId>org.eclipse.jdt.ls.tp</artifactId>
               <version>${jdt.ls.version}</version>
-            </artifact>
+      </artifact>
           </target>
         </configuration>
       </plugin>
@@ -201,7 +202,7 @@
   <modules>
     <module>org.eclipse.lsp4mp.jdt.core</module>
     <module>org.eclipse.lsp4mp.jdt.tp</module>
-    <module>org.eclipse.lsp4mp.jdt.test</module>
+	    <!--    <module>org.eclipse.lsp4mp.jdt.test</module> -->
     <module>org.eclipse.lsp4mp.jdt.site</module>
   </modules>
 

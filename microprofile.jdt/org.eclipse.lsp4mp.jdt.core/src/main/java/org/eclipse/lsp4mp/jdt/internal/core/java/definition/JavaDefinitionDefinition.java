@@ -21,7 +21,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.lsp4mp.commons.MicroProfileDefinition;
 import org.eclipse.lsp4mp.jdt.core.java.definition.IJavaDefinitionParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.definition.JavaDefinitionContext;
+import org.eclipse.lspcommon.jdt.core.java.definition.JavaDefinitionContext;
 import org.eclipse.lsp4mp.jdt.internal.core.java.AbstractJavaFeatureDefinition;
 
 /**

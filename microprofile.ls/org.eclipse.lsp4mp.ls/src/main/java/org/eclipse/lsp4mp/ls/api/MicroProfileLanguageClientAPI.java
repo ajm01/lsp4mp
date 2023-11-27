@@ -13,7 +13,14 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.ls.api;
 
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+import org.eclipse.lsp4j.CompletionItem;
+import org.eclipse.lsp4j.CompletionList;
+import org.eclipse.lsp4j.jsonrpc.messages.Either;
 import org.eclipse.lsp4j.services.LanguageClient;
+import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
 
 /**
  * MicroProfile language client API.

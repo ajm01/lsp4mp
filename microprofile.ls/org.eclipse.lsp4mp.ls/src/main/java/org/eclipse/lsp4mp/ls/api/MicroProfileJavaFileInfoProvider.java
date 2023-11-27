@@ -16,8 +16,8 @@ package org.eclipse.lsp4mp.ls.api;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lsp4mp.commons.JavaFileInfo;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaFileInfoParams;
+import org.eclipse.lspcommon.commons.JavaFileInfo;
+import org.eclipse.lspcommon.commons.JavaFileInfoParams;
 
 /**
  * MicroProfile Java file information provider.
@@ -28,6 +28,6 @@ import org.eclipse.lsp4mp.commons.MicroProfileJavaFileInfoParams;
 public interface MicroProfileJavaFileInfoProvider {
 
 	@JsonRequest("microprofile/java/fileInfo")
-	CompletableFuture<JavaFileInfo> getJavaFileInfo(MicroProfileJavaFileInfoParams javaParams);
+	CompletableFuture<JavaFileInfo> getJavaFileInfo(JavaFileInfoParams javaParams);
 
 }

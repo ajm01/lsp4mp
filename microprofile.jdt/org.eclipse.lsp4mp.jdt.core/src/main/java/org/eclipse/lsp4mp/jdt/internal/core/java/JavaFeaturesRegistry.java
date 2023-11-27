@@ -25,13 +25,13 @@ import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.lsp4mp.jdt.core.MicroProfileCorePlugin;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.IJaxRsInfoProvider;
-import org.eclipse.lsp4mp.jdt.internal.core.java.codeaction.JavaCodeActionDefinition;
-import org.eclipse.lsp4mp.jdt.internal.core.java.codelens.JavaCodeLensDefinition;
-import org.eclipse.lsp4mp.jdt.internal.core.java.completion.JavaCompletionDefinition;
-import org.eclipse.lsp4mp.jdt.internal.core.java.definition.JavaDefinitionDefinition;
-import org.eclipse.lsp4mp.jdt.internal.core.java.diagnostics.JavaDiagnosticsDefinition;
-import org.eclipse.lsp4mp.jdt.internal.core.java.hover.JavaHoverDefinition;
-import org.eclipse.lsp4mp.jdt.internal.core.java.symbols.JavaWorkspaceSymbolsDefinition;
+import org.eclipse.lspcommon.jdt.core.operations.java.codeaction.JavaCodeActionDefinition;
+import org.eclipse.lspcommon.jdt.core.operations.java.codelens.JavaCodeLensDefinition;
+import org.eclipse.lspcommon.jdt.core.operations.java.completion.JavaCompletionDefinition;
+import org.eclipse.lspcommon.jdt.core.operations.java.definition.JavaDefinitionDefinition;
+import org.eclipse.lspcommon.jdt.core.operations.java.diagnostics.JavaDiagnosticsDefinition;
+import org.eclipse.lspcommon.jdt.core.operations.java.hover.JavaHoverDefinition;
+import org.eclipse.lspcommon.jdt.core.operations.java.symbols.JavaWorkspaceSymbolsDefinition;
 import org.eclipse.lsp4mp.jdt.internal.jaxrs.java.DefaultJaxRsInfoProvider;
 
 /**

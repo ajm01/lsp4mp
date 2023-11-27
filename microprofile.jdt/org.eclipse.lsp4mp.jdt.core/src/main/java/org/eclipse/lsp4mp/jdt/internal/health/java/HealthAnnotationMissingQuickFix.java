@@ -20,8 +20,8 @@ import org.eclipse.lsp4j.CodeAction;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
 import org.eclipse.lsp4mp.jdt.core.java.codeaction.InsertAnnotationMissingQuickFix;
-import org.eclipse.lsp4mp.jdt.core.java.codeaction.JavaCodeActionContext;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lspcommon.jdt.core.java.codeaction.JavaCodeActionContext;
+import org.eclipse.lspcommon.jdt.core.utils.JDTTypeUtils;
 import org.eclipse.lsp4mp.jdt.internal.health.MicroProfileHealthConstants;
 
 /**

@@ -21,8 +21,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaProjectLabelsParams;
-import org.eclipse.lsp4mp.jdt.core.ProjectLabelManager;
+import org.eclipse.lsp4mp.jdt.core.MPNewPropertiesManagerForJava;
+import org.eclipse.lspcommon.jdt.core.ProjectLabelManager;
+import org.eclipse.lspcommon.commons.JavaProjectLabelsParams;
+import org.eclipse.lspcommon.jdt.internal.core.ls.JDTUtilsLSImpl;
 
 /**
  * Delegate command handler for Java project information
@@ -42,7 +44,8 @@ public class JavaProjectDelegateCommandHandler extends AbstractMicroProfileDeleg
 		case PROJECT_LABELS_COMMAND_ID:
 			return getProjectLabelInfo(arguments, commandId, progress);
 		case WORKSPACE_LABELS_COMMAND_ID:
-			return ProjectLabelManager.getInstance().getProjectLabelInfo();
+			// not sure using the MPNewPropertiesManagerForJava plugin id is correct?
+			return ProjectLabelManager.getInstance().getProjectLabelInfo(MPNewPropertiesManagerForJava.getInstance().getPluginId());
 		default:
 			throw new UnsupportedOperationException(String.format("Unsupported command '%s'!", commandId));
 		}
@@ -62,9 +65,9 @@ public class JavaProjectDelegateCommandHandler extends AbstractMicroProfileDeleg
 					commandId));
 		}
 		List<String> types = getStringList(obj, "types");
-		MicroProfileJavaProjectLabelsParams params = new MicroProfileJavaProjectLabelsParams();
+		JavaProjectLabelsParams params = new JavaProjectLabelsParams();
 		params.setUri(javaFileUri);
 		params.setTypes(types);
-		return ProjectLabelManager.getInstance().getProjectLabelInfo(params, JDTUtilsLSImpl.getInstance(), monitor);
+		return ProjectLabelManager.getInstance().getProjectLabelInfo(params, MPNewPropertiesManagerForJava.getInstance().getPluginId(), JDTUtilsLSImpl.getInstance(), monitor);
 	}
 }

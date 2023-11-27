@@ -19,7 +19,7 @@ import java.util.Set;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.ITypeRoot;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
 
 /**
  * Provides a list of jax-rs methods in a project or file.

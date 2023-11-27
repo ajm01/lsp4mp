@@ -24,9 +24,9 @@ import java.util.Optional;
 
 import org.eclipse.lsp4j.CompletionItem;
 import org.eclipse.lsp4j.TextDocumentItem;
-import org.eclipse.lsp4mp.commons.JavaCursorContextKind;
-import org.eclipse.lsp4mp.commons.JavaCursorContextResult;
-import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.commons.JavaCursorContextKind;
+import org.eclipse.lspcommon.commons.JavaCursorContextResult;
+import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.ls.commons.snippets.ISnippetContext;
 import org.eclipse.lsp4mp.ls.commons.snippets.Snippet;
 import org.eclipse.lsp4mp.ls.commons.snippets.SnippetRegistry;

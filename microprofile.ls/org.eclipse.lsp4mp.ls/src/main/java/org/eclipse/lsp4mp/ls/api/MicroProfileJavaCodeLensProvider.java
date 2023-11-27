@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.CodeLens;
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
+import org.eclipse.lspcommon.commons.JavaCodeLensParams;
 
 /**
  * MicroProfile Java code lens provider.
@@ -29,6 +29,6 @@ import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
 public interface MicroProfileJavaCodeLensProvider {
 
 	@JsonRequest("microprofile/java/codeLens")
-	CompletableFuture<List<? extends CodeLens>> getJavaCodelens(MicroProfileJavaCodeLensParams javaParams);
+	CompletableFuture<List<? extends CodeLens>> getJavaCodelens(JavaCodeLensParams javaParams);
 
 }

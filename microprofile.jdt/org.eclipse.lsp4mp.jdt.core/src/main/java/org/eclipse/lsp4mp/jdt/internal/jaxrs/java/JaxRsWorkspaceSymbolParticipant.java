@@ -35,7 +35,7 @@ import org.eclipse.lsp4mp.jdt.core.java.symbols.IJavaWorkspaceSymbolsParticipant
 import org.eclipse.lsp4mp.jdt.core.jaxrs.IJaxRsInfoProvider;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsContext;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsMethodInfo;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.core.java.JavaFeaturesRegistry;
 
 /**

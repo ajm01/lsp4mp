@@ -16,8 +16,8 @@ package org.eclipse.lsp4mp.ls.api;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lsp4mp.commons.JavaCursorContextResult;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionParams;
+import org.eclipse.lspcommon.commons.JavaCursorContextResult;
+import org.eclipse.lspcommon.commons.JavaCompletionParams;
 
 /**
  * Returns context related to the cursor location in the given document, or null
@@ -28,6 +28,6 @@ import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionParams;
 public interface MicroProfileJavaCursorContextProvider {
 
 	@JsonRequest("microprofile/java/javaCursorContext")
-	CompletableFuture<JavaCursorContextResult> getJavaCursorContext(MicroProfileJavaCompletionParams context);
+	CompletableFuture<JavaCursorContextResult> getJavaCursorContext(JavaCompletionParams context);
 
 }

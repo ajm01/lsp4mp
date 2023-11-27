@@ -44,7 +44,7 @@ import org.eclipse.lsp4j.TextDocumentClientCapabilities;
 import org.eclipse.lsp4j.TextEdit;
 import org.eclipse.lsp4j.jsonrpc.messages.Either;
 import org.eclipse.lsp4j.services.TextDocumentService;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
+import org.eclipse.lspcommon.commons.DocumentFormat;
 import org.eclipse.lsp4mp.settings.SharedSettings;
 
 /**

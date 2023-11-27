@@ -33,12 +33,10 @@ import org.eclipse.lsp4j.services.LanguageClient;
 import org.eclipse.lsp4j.services.LanguageServer;
 import org.eclipse.lsp4j.services.TextDocumentService;
 import org.eclipse.lsp4j.services.WorkspaceService;
-import org.eclipse.lsp4mp.commons.JavaFileInfo;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaFileInfoParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaProjectLabelsParams;
+import org.eclipse.lspcommon.commons.JavaFileInfo;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfoParams;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesChangeEvent;
-import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaFileInfoProvider;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelsProvider;
 import org.eclipse.lsp4mp.ls.api.MicroProfileLanguageClientAPI;
@@ -60,6 +58,8 @@ import org.eclipse.lsp4mp.settings.MicroProfileValidationSettings;
 import org.eclipse.lsp4mp.settings.SharedSettings;
 import org.eclipse.lsp4mp.settings.capabilities.MicroProfileCapabilityManager;
 import org.eclipse.lsp4mp.settings.capabilities.ServerCapabilitiesInitializer;
+import org.eclipse.lspcommon.commons.JavaFileInfoParams;
+import org.eclipse.lspcommon.commons.JavaProjectLabelsParams;
 
 /**
  * MicroProfile language server.
@@ -232,7 +232,7 @@ public class MicroProfileLanguageServer implements LanguageServer, ProcessLangua
 
 	@Override
 	public CompletableFuture<ProjectLabelInfoEntry> getJavaProjectLabels(
-			MicroProfileJavaProjectLabelsParams javaParams) {
+			JavaProjectLabelsParams javaParams) {
 		return getLanguageClient().getJavaProjectLabels(javaParams);
 	}
 
@@ -242,7 +242,7 @@ public class MicroProfileLanguageServer implements LanguageServer, ProcessLangua
 	}
 
 	@Override
-	public CompletableFuture<JavaFileInfo> getJavaFileInfo(MicroProfileJavaFileInfoParams javaParams) {
+	public CompletableFuture<JavaFileInfo> getJavaFileInfo(JavaFileInfoParams javaParams) {
 		return getLanguageClient().getJavaFileInfo(javaParams);
 	}
 }

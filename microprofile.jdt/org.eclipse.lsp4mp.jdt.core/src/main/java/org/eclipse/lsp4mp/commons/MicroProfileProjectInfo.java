@@ -16,6 +16,7 @@ package org.eclipse.lsp4mp.commons;
 import java.util.Collections;
 
 import org.eclipse.lsp4mp.commons.metadata.ConfigurationMetadata;
+import org.eclipse.lspcommon.commons.ClasspathKind;
 
 /**
  * MicroProfile Project Information

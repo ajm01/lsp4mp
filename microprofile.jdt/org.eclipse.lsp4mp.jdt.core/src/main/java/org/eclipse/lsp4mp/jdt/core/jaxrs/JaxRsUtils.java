@@ -36,7 +36,7 @@ import org.eclipse.lsp4j.CodeLens;
 import org.eclipse.lsp4j.Command;
 import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
 
 /**
  * JAX-RS utilities.

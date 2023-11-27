@@ -32,8 +32,10 @@ import org.eclipse.lsp4j.Range;
 import org.eclipse.lsp4mp.commons.MicroProfileDefinition;
 import org.eclipse.lsp4mp.jdt.core.java.PropertyReplacerStrategy;
 import org.eclipse.lsp4mp.jdt.core.utils.AnnotationMemberInfo;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lspcommon.jdt.core.java.definition.IJavaDefinitionParticipant;
+import org.eclipse.lspcommon.jdt.core.java.definition.JavaDefinitionContext;
+import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
+import org.eclipse.lspcommon.jdt.core.utils.JDTTypeUtils;
 
 /**
  *
@@ -88,7 +90,7 @@ public abstract class AbstractAnnotationDefinitionParticipant implements IJavaDe
 	}
 
 	@Override
-	public List<MicroProfileDefinition> collectDefinitions(JavaDefinitionContext context, IProgressMonitor monitor)
+	public List<Object> collectDefinitions(JavaDefinitionContext context, IProgressMonitor monitor)
 			throws CoreException {
 		ITypeRoot typeRoot = context.getTypeRoot();
 		IJDTUtils utils = context.getUtils();
@@ -168,7 +170,7 @@ public abstract class AbstractAnnotationDefinitionParticipant implements IJavaDe
 	 *         otherwise.
 	 * @throws JavaModelException
 	 */
-	protected abstract List<MicroProfileDefinition> collectDefinitions(String annotationMemberValue,
+	protected abstract List<Object> collectDefinitions(String annotationMemberValue,
 			Range annotationMemberValueRange, IAnnotation annotation, JavaDefinitionContext context,
 			IProgressMonitor monitor) throws JavaModelException;
 }

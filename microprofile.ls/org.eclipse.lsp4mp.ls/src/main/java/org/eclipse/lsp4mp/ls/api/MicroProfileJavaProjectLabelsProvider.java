@@ -17,8 +17,8 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaProjectLabelsParams;
-import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.commons.JavaProjectLabelsParams;
+import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
 
 /**
  * MicroProfile Java project labels provider.
@@ -29,7 +29,7 @@ import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
 public interface MicroProfileJavaProjectLabelsProvider {
 
 	@JsonRequest("microprofile/java/projectLabels")
-	CompletableFuture<ProjectLabelInfoEntry> getJavaProjectLabels(MicroProfileJavaProjectLabelsParams javaParams);
+	CompletableFuture<ProjectLabelInfoEntry> getJavaProjectLabels(JavaProjectLabelsParams javaParams);
 
 	@JsonRequest("microprofile/java/workspaceLabels")
 	CompletableFuture<List<ProjectLabelInfoEntry>> getAllJavaProjectLabels();

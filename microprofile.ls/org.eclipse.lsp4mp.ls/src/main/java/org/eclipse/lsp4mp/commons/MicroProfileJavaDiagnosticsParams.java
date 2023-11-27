@@ -15,17 +15,20 @@ package org.eclipse.lsp4mp.commons;
 
 import java.util.List;
 
+import org.eclipse.lspcommon.commons.DocumentFormat;
+import org.eclipse.lspcommon.commons.JavaDiagnosticsParams;
+
 /**
  * MicroProfile Java diagnostics parameters.
  *
  * @author Angelo ZERR
  *
  */
-public class MicroProfileJavaDiagnosticsParams {
+public class MicroProfileJavaDiagnosticsParams extends JavaDiagnosticsParams {
 
-	private List<String> uris;
+	//transient private List<String> uris;
 
-	private DocumentFormat documentFormat;
+	//private DocumentFormat documentFormat;
 
 	private MicroProfileJavaDiagnosticsSettings settings;
 
@@ -33,12 +36,12 @@ public class MicroProfileJavaDiagnosticsParams {
 		this(null);
 	}
 
-	public MicroProfileJavaDiagnosticsParams(List<String> uris) {
-		this(uris, null);
+	public MicroProfileJavaDiagnosticsParams(List<String> incoming_uris) {
+		this(incoming_uris, null);
 	}
 
-	public MicroProfileJavaDiagnosticsParams(List<String> uris, MicroProfileJavaDiagnosticsSettings settings) {
-		setUris(uris);
+	public MicroProfileJavaDiagnosticsParams(List<String> incoming_uris, MicroProfileJavaDiagnosticsSettings settings) {
+		super.setUris(incoming_uris);
 		this.settings = settings;
 	}
 
@@ -48,7 +51,7 @@ public class MicroProfileJavaDiagnosticsParams {
 	 * @return the java file uris list.
 	 */
 	public List<String> getUris() {
-		return uris;
+		return super.getUris();
 	}
 
 	/**
@@ -56,16 +59,16 @@ public class MicroProfileJavaDiagnosticsParams {
 	 *
 	 * @param uris the java file uris list.
 	 */
-	public void setUris(List<String> uris) {
-		this.uris = uris;
-	}
+	public void setUris(List<String> incoming_uris) {
+		super.setUris(incoming_uris);
+		}
 
 	public DocumentFormat getDocumentFormat() {
-		return documentFormat;
+		return super.getDocumentFormat();
 	}
 
 	public void setDocumentFormat(DocumentFormat documentFormat) {
-		this.documentFormat = documentFormat;
+		super.setDocumentFormat(documentFormat);
 	}
 
 	/**

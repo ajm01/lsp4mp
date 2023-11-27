@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.PublishDiagnosticsParams;
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
+import org.eclipse.lspcommon.commons.JavaDiagnosticsParams;
 
 /**
  * MicroProfile Java diagnostics provider.
@@ -27,6 +27,6 @@ import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
 public interface MicroProfileJavaDiagnosticsProvider {
 
 	@JsonRequest("microprofile/java/diagnostics")
-	CompletableFuture<List<PublishDiagnosticsParams>> getJavaDiagnostics(MicroProfileJavaDiagnosticsParams javaParams);
+	CompletableFuture<List<PublishDiagnosticsParams>> getJavaDiagnostics(Object javaParams);
 
 }

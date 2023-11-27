@@ -12,4 +12,11 @@
 	<packaging>eclipse-plugin</packaging>
 	<name>MicroProfile JDT LS Extension</name>
 	<description>MicroProfile JDT LS Extension - Core</description>
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.lsp4mp</groupId>
+			<artifactId>org.eclipse.lsp4mp.ls</artifactId>
+			<version>0.11.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>

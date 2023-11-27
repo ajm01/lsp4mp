@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.CodeAction;
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
+import org.eclipse.lspcommon.commons.JavaCodeActionParams;
 
 /**
  * MicroProfile Java code action provider.
@@ -29,6 +29,6 @@ import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
 public interface MicroProfileJavaCodeActionProvider {
 
 	@JsonRequest("microprofile/java/codeAction")
-	CompletableFuture<List<CodeAction>> getJavaCodeAction(MicroProfileJavaCodeActionParams javaParams);
+	CompletableFuture<List<CodeAction>> getJavaCodeAction(JavaCodeActionParams javaParams);
 
 }

@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.lspcommon.jdt.core.IProjectLabelProvider;
 
 /**
  * Wrapper class around <code>IProjectLabelProvider</code>

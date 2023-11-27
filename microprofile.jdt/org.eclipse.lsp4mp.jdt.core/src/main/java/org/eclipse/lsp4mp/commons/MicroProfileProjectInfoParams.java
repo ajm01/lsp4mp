@@ -15,6 +15,8 @@ package org.eclipse.lsp4mp.commons;
 
 import java.util.List;
 
+import org.eclipse.lspcommon.commons.DocumentFormat;
+
 /**
  * MicroProfile project information parameters.
  *

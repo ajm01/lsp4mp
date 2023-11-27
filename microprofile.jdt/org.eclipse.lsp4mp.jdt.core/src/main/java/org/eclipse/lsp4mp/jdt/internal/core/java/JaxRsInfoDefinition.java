@@ -26,7 +26,7 @@ import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.IJaxRsInfoProvider;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsContext;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsMethodInfo;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
 
 /**
  * Wrapper class around {@link IJaxRsInfoProvider}

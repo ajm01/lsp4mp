@@ -33,14 +33,14 @@ import org.eclipse.lsp4j.CodeLens;
 import org.eclipse.lsp4j.Command;
 import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
-import org.eclipse.lsp4mp.jdt.core.java.codelens.IJavaCodeLensParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.codelens.JavaCodeLensContext;
+import org.eclipse.lspcommon.commons.JavaCodeLensParams;
+import org.eclipse.lspcommon.jdt.core.java.codelens.IJavaCodeLensParticipant;
+import org.eclipse.lspcommon.jdt.core.java.codelens.JavaCodeLensContext;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.HttpMethod;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.IJaxRsInfoProvider;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsContext;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsMethodInfo;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.core.java.JavaFeaturesRegistry;
 
 /**
@@ -60,7 +60,7 @@ public class JaxRsCodeLensParticipant implements IJavaCodeLensParticipant {
 
 	@Override
 	public boolean isAdaptedForCodeLens(JavaCodeLensContext context, IProgressMonitor monitor) throws CoreException {
-		MicroProfileJavaCodeLensParams params = context.getParams();
+		JavaCodeLensParams params = context.getParams();
 		if (!params.isUrlCodeLensEnabled()) {
 			return false;
 		}
@@ -92,7 +92,7 @@ public class JaxRsCodeLensParticipant implements IJavaCodeLensParticipant {
 		}
 		List<JaxRsMethodInfo> infos = provider.getJaxRsMethodInfo(typeRoot, jaxrsContext, utils, monitor);
 
-		MicroProfileJavaCodeLensParams params = context.getParams();
+		JavaCodeLensParams params = context.getParams();
 		return infos.stream() //
 				.map(methodInfo -> {
 					try {

@@ -19,10 +19,12 @@ import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
+import org.eclipse.lspcommon.commons.DocumentFormat;
 import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsSettings;
 import org.eclipse.lsp4mp.jdt.core.java.AbtractJavaContext;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lspcommon.jdt.core.java.AbstractJavaContext;
+import org.eclipse.lspcommon.jdt.core.java.diagnostics.IJavaErrorCode;
+import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
 
 /**
  * Java diagnostics context for a given compilation unit.
@@ -30,16 +32,17 @@ import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
  * @author Angelo ZERR
  *
  */
-public class JavaDiagnosticsContext extends AbtractJavaContext {
+public class JavaDiagnosticsContext extends AbstractJavaContext {
 
 	private final DocumentFormat documentFormat;
-
 	private final MicroProfileJavaDiagnosticsSettings settings;
 
 	public JavaDiagnosticsContext(String uri, ITypeRoot typeRoot, IJDTUtils utils, DocumentFormat documentFormat,
 			MicroProfileJavaDiagnosticsSettings settings) {
 		super(uri, typeRoot, utils);
+		
 		this.documentFormat = documentFormat;
+		
 		if (settings == null) {
 			this.settings = new MicroProfileJavaDiagnosticsSettings(Collections.emptyList());
 		} else {

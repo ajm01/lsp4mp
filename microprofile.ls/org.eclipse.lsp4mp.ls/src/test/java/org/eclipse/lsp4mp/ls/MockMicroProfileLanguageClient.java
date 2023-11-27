@@ -26,25 +26,29 @@ import org.eclipse.lsp4j.MessageParams;
 import org.eclipse.lsp4j.PublishDiagnosticsParams;
 import org.eclipse.lsp4j.ShowMessageRequestParams;
 import org.eclipse.lsp4j.SymbolInformation;
-import org.eclipse.lsp4mp.commons.JavaCursorContextResult;
-import org.eclipse.lsp4mp.commons.JavaFileInfo;
+import org.eclipse.lspcommon.commons.JavaCursorContextResult;
+import org.eclipse.lspcommon.commons.JavaFileInfo;
 import org.eclipse.lsp4mp.commons.MicroProfileDefinition;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionResult;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDefinitionParams;
+import org.eclipse.lspcommon.commons.JavaCodeActionParams;
+import org.eclipse.lspcommon.commons.JavaCodeLensParams;
+import org.eclipse.lspcommon.commons.JavaCompletionParams;
+import org.eclipse.lspcommon.commons.JavaCodeActionParams;
+import org.eclipse.lspcommon.commons.JavaCodeLensParams;
+import org.eclipse.lspcommon.commons.JavaCompletionParams;
+import org.eclipse.lspcommon.commons.JavaCompletionResult;
+import org.eclipse.lspcommon.commons.JavaDefinitionParams;
+import org.eclipse.lspcommon.commons.JavaDiagnosticsParams;
+import org.eclipse.lspcommon.commons.JavaFileInfoParams;
+import org.eclipse.lspcommon.commons.JavaHoverParams;
+import org.eclipse.lspcommon.commons.JavaProjectLabelsParams;
 import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaFileInfoParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaHoverParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaProjectLabelsParams;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfoParams;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesChangeEvent;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertyDefinitionParams;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertyDocumentationParams;
-import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.commons.metadata.ItemBase;
 import org.eclipse.lsp4mp.commons.metadata.ItemHint;
 import org.eclipse.lsp4mp.commons.metadata.ItemMetadata;
@@ -244,41 +248,41 @@ public class MockMicroProfileLanguageClient implements MicroProfileLanguageClien
 	}
 
 	@Override
-	public CompletableFuture<List<CodeAction>> getJavaCodeAction(MicroProfileJavaCodeActionParams javaParams) {
+	public CompletableFuture<List<CodeAction>> getJavaCodeAction(JavaCodeActionParams javaParams) {
 		return CompletableFuture.completedFuture(null);
 	}
 
 	@Override
-	public CompletableFuture<List<? extends CodeLens>> getJavaCodelens(MicroProfileJavaCodeLensParams javaParams) {
+	public CompletableFuture<List<? extends CodeLens>> getJavaCodelens(JavaCodeLensParams javaParams) {
 		return CompletableFuture.completedFuture(null);
 	}
 
 	@Override
-	public CompletableFuture<MicroProfileJavaCompletionResult> getJavaCompletion(
-			MicroProfileJavaCompletionParams javaParams) {
+	public CompletableFuture<JavaCompletionResult> getJavaCompletion(
+			JavaCompletionParams javaParams) {
 		return CompletableFuture.completedFuture(null);
 	}
 
 	@Override
 	public CompletableFuture<List<PublishDiagnosticsParams>> getJavaDiagnostics(
-			MicroProfileJavaDiagnosticsParams javaParams) {
+			Object javaParams) {
 		return CompletableFuture.completedFuture(null);
 	}
 
 	@Override
 	public CompletableFuture<List<MicroProfileDefinition>> getJavaDefinition(
-			MicroProfileJavaDefinitionParams javaParams) {
+			JavaDefinitionParams javaParams) {
 		return CompletableFuture.completedFuture(null);
 	}
 
 	@Override
-	public CompletableFuture<Hover> getJavaHover(MicroProfileJavaHoverParams javaParams) {
+	public CompletableFuture<Hover> getJavaHover(JavaHoverParams javaParams) {
 		return CompletableFuture.completedFuture(null);
 	}
 
 	@Override
 	public CompletableFuture<ProjectLabelInfoEntry> getJavaProjectLabels(
-			MicroProfileJavaProjectLabelsParams javaParams) {
+			JavaProjectLabelsParams javaParams) {
 		return CompletableFuture.completedFuture(null);
 	}
 
@@ -288,7 +292,7 @@ public class MockMicroProfileLanguageClient implements MicroProfileLanguageClien
 	}
 
 	@Override
-	public CompletableFuture<JavaFileInfo> getJavaFileInfo(MicroProfileJavaFileInfoParams javaParams) {
+	public CompletableFuture<JavaFileInfo> getJavaFileInfo(JavaFileInfoParams javaParams) {
 		return CompletableFuture.completedFuture(null);
 	}
 
@@ -297,13 +301,18 @@ public class MockMicroProfileLanguageClient implements MicroProfileLanguageClien
 		return CompletableFuture.completedFuture(null);
 	}
 
+	//@Override
+	//public CompletableFuture<JavaCursorContextResult> getJavaCursorContext(JavaCompletionParams context) {
+	//	return CompletableFuture.completedFuture(null);
+	//}
+
 	@Override
-	public CompletableFuture<JavaCursorContextResult> getJavaCursorContext(MicroProfileJavaCompletionParams context) {
+	public CompletableFuture<List<SymbolInformation>> getJavaWorkspaceSymbols(String projectUri) {
 		return CompletableFuture.completedFuture(null);
 	}
 
 	@Override
-	public CompletableFuture<List<SymbolInformation>> getJavaWorkspaceSymbols(String projectUri) {
+	public CompletableFuture<JavaCursorContextResult> getJavaCursorContext(JavaCompletionParams context) {
 		return CompletableFuture.completedFuture(null);
 	}
 

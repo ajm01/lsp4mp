@@ -13,7 +13,7 @@
  *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.faulttolerance.java;
 
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.IJavaErrorCode;
+import org.eclipse.lspcommon.jdt.core.java.diagnostics.IJavaErrorCode;
 
 public enum MicroProfileFaultToleranceErrorCode implements IJavaErrorCode {
 

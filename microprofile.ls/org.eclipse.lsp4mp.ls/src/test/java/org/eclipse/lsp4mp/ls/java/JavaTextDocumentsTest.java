@@ -17,8 +17,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import org.eclipse.lsp4j.TextDocumentItem;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaProjectLabelsParams;
-import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.commons.JavaProjectLabelsParams;
+import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelsProvider;
 import org.eclipse.lsp4mp.ls.java.JavaTextDocuments.JavaTextDocument;
 import org.junit.Assert;
@@ -41,7 +41,7 @@ public class JavaTextDocumentsTest {
 
 		@Override
 		public CompletableFuture<ProjectLabelInfoEntry> getJavaProjectLabels(
-				MicroProfileJavaProjectLabelsParams javaParams) {
+				JavaProjectLabelsParams javaParams) {
 			String uri = javaParams.getUri();
 			List<String> labels = null;
 			if (uri.startsWith(MP_PROJECT)) {

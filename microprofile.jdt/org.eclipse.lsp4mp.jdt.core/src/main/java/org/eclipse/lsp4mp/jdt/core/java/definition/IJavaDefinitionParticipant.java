@@ -19,6 +19,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.lsp4mp.commons.MicroProfileDefinition;
+import org.eclipse.lspcommon.jdt.core.java.definition.JavaDefinitionContext;
 
 /**
  * Java definition participants API.

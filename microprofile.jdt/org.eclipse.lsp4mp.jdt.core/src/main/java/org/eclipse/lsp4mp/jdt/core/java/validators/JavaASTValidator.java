@@ -26,8 +26,8 @@ import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.IJavaErrorCode;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.JavaDiagnosticsContext;
+import org.eclipse.lspcommon.jdt.core.java.diagnostics.IJavaErrorCode;
+import org.eclipse.lspcommon.jdt.core.java.diagnostics.JavaDiagnosticsContext;
 
 /**
  * 

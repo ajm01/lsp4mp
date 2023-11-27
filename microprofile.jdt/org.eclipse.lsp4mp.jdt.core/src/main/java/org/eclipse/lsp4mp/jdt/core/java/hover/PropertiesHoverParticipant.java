@@ -33,13 +33,15 @@ import org.eclipse.lsp4j.MarkupContent;
 import org.eclipse.lsp4j.MarkupKind;
 import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
+import org.eclipse.lspcommon.commons.DocumentFormat;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProject;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProjectManager;
 import org.eclipse.lsp4mp.jdt.core.project.MicroProfileConfigPropertyInformation;
 import org.eclipse.lsp4mp.jdt.core.utils.AnnotationMemberInfo;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lspcommon.jdt.core.java.hover.IJavaHoverParticipant;
+import org.eclipse.lspcommon.jdt.core.java.hover.JavaHoverContext;
+import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
+import org.eclipse.lspcommon.jdt.core.utils.JDTTypeUtils;
 
 /**
  *

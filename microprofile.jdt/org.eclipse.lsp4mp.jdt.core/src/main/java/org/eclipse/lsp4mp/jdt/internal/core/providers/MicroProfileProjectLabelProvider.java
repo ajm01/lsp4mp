@@ -18,7 +18,7 @@ import java.util.List;
 
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.lsp4mp.jdt.core.IProjectLabelProvider;
+import org.eclipse.lspcommon.jdt.core.IProjectLabelProvider;
 import org.eclipse.lsp4mp.jdt.core.utils.JDTMicroProfileUtils;;
 
 /**

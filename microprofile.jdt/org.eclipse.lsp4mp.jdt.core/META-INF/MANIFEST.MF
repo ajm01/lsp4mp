@@ -19,12 +19,15 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.buildship.core,
  org.eclipse.ltk.core.refactoring,
  org.eclipse.text,
- org.apache.commons.lang3
+ org.apache.commons.lang3,
+ org.eclipse.lspcommon.jdt.core
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Export-Package: io.quarkus.runtime.util,
  org.eclipse.lsp4mp.commons,
  org.eclipse.lsp4mp.commons.codeaction,
+ org.eclipse.lsp4mp.commons.diagnostics,
+ org.eclipse.lsp4mp.commons.dia
  org.eclipse.lsp4mp.commons.metadata,
  org.eclipse.lsp4mp.jdt.core,
  org.eclipse.lsp4mp.jdt.core.java,

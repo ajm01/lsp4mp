@@ -15,7 +15,7 @@ package org.eclipse.lsp4mp.jdt.core.java.completion;
 
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.lsp4mp.jdt.core.java.AbtractJavaContext;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
 
 /**
  * Represents the context of where completion was triggered

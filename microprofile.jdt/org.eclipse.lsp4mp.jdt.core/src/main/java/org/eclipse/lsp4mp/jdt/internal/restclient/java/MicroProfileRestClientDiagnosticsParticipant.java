@@ -38,12 +38,12 @@ import org.eclipse.jdt.core.search.SearchPattern;
 import org.eclipse.jdt.core.search.SearchRequestor;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.JavaDiagnosticsContext;
+import org.eclipse.lspcommon.commons.DocumentFormat;
+import org.eclipse.lspcommon.jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
+import org.eclipse.lspcommon.jdt.core.java.diagnostics.JavaDiagnosticsContext;
 import org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.PositionUtils;
+import org.eclipse.lspcommon.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lspcommon.jdt.core.utils.PositionUtils;
 import org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientConstants;
 import org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientErrorCode;
 

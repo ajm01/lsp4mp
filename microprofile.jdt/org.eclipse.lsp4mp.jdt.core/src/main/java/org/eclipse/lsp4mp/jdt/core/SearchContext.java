@@ -16,9 +16,9 @@ package org.eclipse.lsp4mp.jdt.core;
 import java.util.List;
 
 import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
+import org.eclipse.lspcommon.commons.DocumentFormat;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
 
 /**
  * The search context used to collect properties.

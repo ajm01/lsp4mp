@@ -13,8 +13,8 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.snippets;
 
-import org.eclipse.lsp4mp.commons.JavaCursorContextResult;
-import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.commons.JavaCursorContextResult;
+import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
 
 /**
  * Represents the context from the Java file needed in order to determine what
