@@ -26,7 +26,7 @@ import org.eclipse.lsp4j.launch.LSPLauncher.Builder;
 import org.eclipse.lsp4j.services.LanguageClient;
 import org.eclipse.lsp4j.services.LanguageServer;
 import org.eclipse.lsp4mp.ls.api.MicroProfileLanguageClientAPI;
-import org.eclipse.lsp4mp.ls.commons.ParentProcessWatcher;
+import org.eclipse.lspcommon.ls.commons.ParentProcessWatcher;
 
 /**
  * MicroProfile server launcher

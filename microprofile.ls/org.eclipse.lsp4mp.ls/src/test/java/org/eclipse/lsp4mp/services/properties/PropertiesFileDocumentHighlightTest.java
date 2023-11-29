@@ -17,7 +17,7 @@ package org.eclipse.lsp4mp.services.properties;
 import static org.eclipse.lsp4mp.services.properties.PropertiesFileAssert.assertDocumentHighlight;
 import static org.eclipse.lsp4mp.services.properties.PropertiesFileAssert.r;
 
-import org.eclipse.lsp4mp.ls.commons.BadLocationException;
+import org.eclipse.lspcommon.ls.commons.BadLocationException;
 import org.junit.Test;
 
 /**

@@ -24,13 +24,14 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.lsp4mp.jdt.core.MPNewPropertiesManagerForJava;
 import org.eclipse.lspcommon.jdt.core.ProjectLabelManager;
 import org.eclipse.lspcommon.commons.JavaProjectLabelsParams;
+import org.eclipse.lspcommon.jdt.internal.core.ls.AbstractDelegateCommandHandler;
 import org.eclipse.lspcommon.jdt.internal.core.ls.JDTUtilsLSImpl;
 
 /**
  * Delegate command handler for Java project information
  *
  */
-public class JavaProjectDelegateCommandHandler extends AbstractMicroProfileDelegateCommandHandler {
+public class JavaProjectDelegateCommandHandler extends AbstractDelegateCommandHandler {
 
 	private static final String PROJECT_LABELS_COMMAND_ID = "microprofile/java/projectLabels";
 	private static final String WORKSPACE_LABELS_COMMAND_ID = "microprofile/java/workspaceLabels";

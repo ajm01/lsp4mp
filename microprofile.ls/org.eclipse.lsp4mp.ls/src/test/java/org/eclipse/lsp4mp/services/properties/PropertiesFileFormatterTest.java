@@ -12,7 +12,7 @@ package org.eclipse.lsp4mp.services.properties;
 import static org.eclipse.lsp4mp.services.properties.PropertiesFileAssert.assertFormat;
 import static org.eclipse.lsp4mp.services.properties.PropertiesFileAssert.assertRangeFormat;
 
-import org.eclipse.lsp4mp.ls.commons.BadLocationException;
+import org.eclipse.lspcommon.ls.commons.BadLocationException;
 import org.junit.Test;
 
 /**

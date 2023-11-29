@@ -14,7 +14,7 @@ import static org.eclipse.lsp4mp.services.properties.PropertiesFileAssert.getDef
 import static org.eclipse.lsp4mp.services.properties.PropertiesFileAssert.testDiagnosticsFor;
 
 import org.eclipse.lsp4j.DiagnosticSeverity;
-import org.eclipse.lsp4mp.ls.commons.BadLocationException;
+import org.eclipse.lspcommon.ls.commons.BadLocationException;
 import org.eclipse.lsp4mp.services.properties.ValidationType;
 import org.eclipse.lsp4mp.settings.MicroProfileValidationSettings;
 import org.junit.Test;

@@ -24,7 +24,7 @@
     <jacoco.destFile>${project.build.directory}/jacoco.exec</jacoco.destFile>
     <sonar.jacoco.reportPath>${jacoco.destFile}</sonar.jacoco.reportPath>
     <surefire.timeout>600</surefire.timeout>
-    <jdt.ls.version>1.29.0-SNAPSHOT</jdt.ls.version>
+	<jdt.ls.version>1.29.0-SNAPSHOT</jdt.ls.version>
   </properties>
   <scm>
     <connection>scm:git:git@github.com:eclipse/lsp4mp.git</connection>
@@ -33,16 +33,16 @@
     <tag>${project.version}</tag>
   </scm>
   <repositories>
-    <repository>
-      <id>jdt.ls.p2</id>
-      <layout>p2</layout>
-      <url>https://download.eclipse.org/jdtls/snapshots/repository/latest/</url>
-    </repository>
+  		<repository>
+			<id>jdt.ls.p2</id>
+			<layout>p2</layout>
+			<url>
+				https://download.eclipse.org/jdtls/milestones/1.29.0/repository/</url>
+		</repository>
     <repository>
       <id>jdt.ls.maven</id>
       <url>https://repo.eclipse.org/content/repositories/jdtls-snapshots/</url>
-    </repository>
-  </repositories>
+    </repository></repositories>
   <build>
     <plugins>
       <plugin>
@@ -57,7 +57,6 @@
         <version>${tycho.version}</version>
         <configuration>
           <resolver>p2</resolver>
-	<pomDependencies>consider</pomDependencies>	  
           <target>
             <artifact>
               <groupId>org.eclipse.lsp4mp</groupId>
@@ -202,7 +201,7 @@
   <modules>
     <module>org.eclipse.lsp4mp.jdt.core</module>
     <module>org.eclipse.lsp4mp.jdt.tp</module>
-	    <!--    <module>org.eclipse.lsp4mp.jdt.test</module> -->
+	<!-- <module>org.eclipse.lsp4mp.jdt.test</module> -->
     <module>org.eclipse.lsp4mp.jdt.site</module>
   </modules>
 

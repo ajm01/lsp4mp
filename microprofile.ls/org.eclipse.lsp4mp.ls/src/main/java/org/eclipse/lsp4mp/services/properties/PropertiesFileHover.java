@@ -36,7 +36,7 @@ import org.eclipse.lsp4mp.commons.utils.IConfigSourcePropertiesProvider;
 import org.eclipse.lsp4mp.commons.utils.PropertyValueExpander;
 import org.eclipse.lsp4mp.commons.utils.StringUtils;
 import org.eclipse.lsp4mp.ls.api.MicroProfilePropertyDocumentationProvider;
-import org.eclipse.lsp4mp.ls.commons.BadLocationException;
+import org.eclipse.lspcommon.ls.commons.BadLocationException;
 import org.eclipse.lsp4mp.model.BasePropertyValue;
 import org.eclipse.lsp4mp.model.Node;
 import org.eclipse.lsp4mp.model.PropertiesModel;

@@ -55,6 +55,7 @@ import org.eclipse.lspcommon.commons.JavaHoverParams;
 import org.eclipse.lspcommon.commons.codeaction.CodeActionResolveData;
 import org.eclipse.lsp4mp.commons.utils.JSONUtility;
 import org.eclipse.lsp4mp.jdt.core.MPNewPropertiesManagerForJava;
+import org.eclipse.lspcommon.jdt.internal.core.ls.AbstractDelegateCommandHandler;
 import org.eclipse.lspcommon.jdt.internal.core.ls.JDTUtilsLSImpl;
 /**
  * JDT LS delegate command handler for Java file.
@@ -62,7 +63,7 @@ import org.eclipse.lspcommon.jdt.internal.core.ls.JDTUtilsLSImpl;
  * @author Angelo ZERR
  *
  */
-public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProfileDelegateCommandHandler {
+public class MicroProfileDelegateCommandHandlerForJava extends AbstractDelegateCommandHandler {
 
 	private static final String FILE_INFO_COMMAND_ID = "microprofile/java/fileInfo";
 	private static final String JAVA_CODEACTION_COMMAND_ID = "microprofile/java/codeAction";

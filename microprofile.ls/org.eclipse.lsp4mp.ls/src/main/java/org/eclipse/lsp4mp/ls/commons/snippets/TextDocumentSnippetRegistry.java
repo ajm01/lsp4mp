@@ -22,8 +22,8 @@ import java.util.logging.Logger;
 
 import org.eclipse.lsp4j.CompletionItem;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.ls.commons.BadLocationException;
-import org.eclipse.lsp4mp.ls.commons.TextDocument;
+import org.eclipse.lspcommon.ls.commons.BadLocationException;
+import org.eclipse.lspcommon.ls.commons.TextDocument;
 
 /**
  * Snippet registry which works with {@link TextDocument}.

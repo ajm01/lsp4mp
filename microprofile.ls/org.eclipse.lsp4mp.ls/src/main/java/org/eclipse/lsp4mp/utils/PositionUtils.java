@@ -14,8 +14,8 @@
 package org.eclipse.lsp4mp.utils;
 
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.ls.commons.BadLocationException;
-import org.eclipse.lsp4mp.ls.commons.TextDocument;
+import org.eclipse.lspcommon.ls.commons.BadLocationException;
+import org.eclipse.lspcommon.ls.commons.TextDocument;
 import org.eclipse.lsp4mp.model.Node;
 import org.eclipse.lsp4mp.model.PropertyValueExpression;
 

@@ -35,8 +35,8 @@ import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
 import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaFileInfoProvider;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelsProvider;
-import org.eclipse.lsp4mp.ls.commons.TextDocument;
-import org.eclipse.lsp4mp.ls.commons.TextDocuments;
+import org.eclipse.lspcommon.ls.commons.TextDocument;
+import org.eclipse.lspcommon.ls.commons.TextDocuments;
 import org.eclipse.lsp4mp.ls.java.JavaTextDocuments.JavaTextDocument;
 import org.eclipse.lspcommon.commons.JavaFileInfoParams;
 

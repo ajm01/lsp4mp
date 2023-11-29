@@ -41,7 +41,7 @@ import org.eclipse.lsp4mp.ls.api.MicroProfileJavaFileInfoProvider;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelsProvider;
 import org.eclipse.lsp4mp.ls.api.MicroProfileLanguageClientAPI;
 import org.eclipse.lsp4mp.ls.api.MicroProfileLanguageServerAPI;
-import org.eclipse.lsp4mp.ls.commons.ParentProcessWatcher.ProcessLanguageServer;
+import org.eclipse.lspcommon.ls.commons.ParentProcessWatcher.ProcessLanguageServer;
 import org.eclipse.lsp4mp.ls.commons.client.ExtendedClientCapabilities;
 import org.eclipse.lsp4mp.ls.commons.client.InitializationOptionsExtendedClientCapabilities;
 import org.eclipse.lsp4mp.ls.java.JavaTextDocuments;

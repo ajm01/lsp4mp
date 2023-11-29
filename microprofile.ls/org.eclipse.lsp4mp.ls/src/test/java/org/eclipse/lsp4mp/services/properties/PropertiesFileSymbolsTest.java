@@ -18,7 +18,7 @@ import static org.eclipse.lsp4mp.services.properties.PropertiesFileAssert.testSy
 import java.util.Arrays;
 
 import org.eclipse.lsp4j.SymbolKind;
-import org.eclipse.lsp4mp.ls.commons.BadLocationException;
+import org.eclipse.lspcommon.ls.commons.BadLocationException;
 import org.junit.Test;
 
 /**

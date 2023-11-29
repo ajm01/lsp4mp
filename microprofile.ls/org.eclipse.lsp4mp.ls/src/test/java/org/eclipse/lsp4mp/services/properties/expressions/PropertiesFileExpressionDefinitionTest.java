@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.concurrent.ExecutionException;
 
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;
-import org.eclipse.lsp4mp.ls.commons.BadLocationException;
+import org.eclipse.lspcommon.ls.commons.BadLocationException;
 import org.eclipse.lsp4mp.services.properties.PropertiesFileAssert;
 import org.junit.Test;
 

@@ -21,8 +21,8 @@ import java.util.function.BiPredicate;
 
 import org.eclipse.lsp4j.CompletionItem;
 import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.ls.commons.BadLocationException;
 import org.eclipse.lsp4mp.commons.utils.StringUtils;
-import org.eclipse.lsp4mp.ls.commons.BadLocationException;
 import org.eclipse.lsp4mp.ls.commons.snippets.ISnippetContext;
 import org.eclipse.lsp4mp.ls.commons.snippets.Snippet;
 import org.eclipse.lsp4mp.ls.commons.snippets.TextDocumentSnippetRegistry;

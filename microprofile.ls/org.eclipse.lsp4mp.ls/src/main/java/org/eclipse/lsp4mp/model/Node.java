@@ -19,8 +19,8 @@ import java.util.List;
 import java.util.function.Function;
 
 import org.eclipse.lsp4j.Position;
-import org.eclipse.lsp4mp.ls.commons.BadLocationException;
-import org.eclipse.lsp4mp.ls.commons.TextDocument;
+import org.eclipse.lspcommon.ls.commons.BadLocationException;
+import org.eclipse.lspcommon.ls.commons.TextDocument;
 
 /**
  * Node class

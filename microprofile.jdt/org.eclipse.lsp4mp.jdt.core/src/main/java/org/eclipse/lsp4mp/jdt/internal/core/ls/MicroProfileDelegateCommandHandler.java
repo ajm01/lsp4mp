@@ -28,6 +28,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.lsp4j.Location;
 import org.eclipse.lspcommon.commons.DocumentFormat;
+import org.eclipse.lspcommon.jdt.internal.core.ls.AbstractDelegateCommandHandler;
 import org.eclipse.lspcommon.jdt.internal.core.ls.JDTUtilsLSImpl;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfoParams;
@@ -42,7 +43,7 @@ import org.eclipse.lsp4mp.jdt.core.PropertiesManager;
  * @author Angelo ZERR
  *
  */
-public class MicroProfileDelegateCommandHandler extends AbstractMicroProfileDelegateCommandHandler {
+public class MicroProfileDelegateCommandHandler extends AbstractDelegateCommandHandler {
 
 	private static final Logger LOGGER = Logger.getLogger(MicroProfileDelegateCommandHandler.class.getName());
 
