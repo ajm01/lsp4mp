@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <bundle id="org.eclipse.lspcommon.jdt.core" version="0.0.0">
+      <category name="core"/>
+   </bundle>
+   <bundle id="org.eclipse.common.jdt.test" version="0.0.0">
+      <category name="sdk"/>
+   </bundle>
+   <category-def name="core" label="lspcommon.jdt.ls extension"/>
+   <category-def name="sdk" label="lspcommon.jdt.ls extension (Developer Resources)"/>
+</site>
