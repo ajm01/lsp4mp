@@ -28,17 +28,17 @@ import java.util.stream.Collectors;
 import org.eclipse.lsp4j.TextDocumentItem;
 import org.eclipse.lsp4j.jsonrpc.CancelChecker;
 import org.eclipse.lsp4j.jsonrpc.CompletableFutures.FutureCancelChecker;
-import org.eclipse.lspcommon.commons.JavaFileInfo;
-import org.eclipse.lspcommon.commons.JavaProjectLabelsParams;
+import org.eclipse.lspcommon.JavaFileInfo;
+import org.eclipse.lspcommon.JavaProjectLabelsParams;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesChangeEvent;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
-import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaFileInfoProvider;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelsProvider;
 import org.eclipse.lspcommon.ls.commons.TextDocument;
 import org.eclipse.lspcommon.ls.commons.TextDocuments;
 import org.eclipse.lsp4mp.ls.java.JavaTextDocuments.JavaTextDocument;
-import org.eclipse.lspcommon.commons.JavaFileInfoParams;
+import org.eclipse.lspcommon.JavaFileInfoParams;
 
 /**
  * Java Text documents registry which manages opened Java file.

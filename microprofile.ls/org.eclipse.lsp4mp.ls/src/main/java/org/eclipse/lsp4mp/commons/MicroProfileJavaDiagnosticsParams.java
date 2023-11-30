@@ -15,8 +15,8 @@ package org.eclipse.lsp4mp.commons;
 
 import java.util.List;
 
-import org.eclipse.lspcommon.commons.DocumentFormat;
-import org.eclipse.lspcommon.commons.JavaDiagnosticsParams;
+import org.eclipse.lspcommon.DocumentFormat;
+import org.eclipse.lspcommon.JavaDiagnosticsParams;
 
 /**
  * MicroProfile Java diagnostics parameters.

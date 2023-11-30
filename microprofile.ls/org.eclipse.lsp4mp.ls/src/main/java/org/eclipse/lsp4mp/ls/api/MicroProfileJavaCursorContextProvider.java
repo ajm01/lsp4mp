@@ -16,8 +16,8 @@ package org.eclipse.lsp4mp.ls.api;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lspcommon.commons.JavaCursorContextResult;
-import org.eclipse.lspcommon.commons.JavaCompletionParams;
+import org.eclipse.lspcommon.JavaCursorContextResult;
+import org.eclipse.lspcommon.JavaCompletionParams;
 
 /**
  * Returns context related to the cursor location in the given document, or null

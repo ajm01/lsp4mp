@@ -38,7 +38,7 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.lsp4j.CodeLens;
-import org.eclipse.lspcommon.commons.JavaCodeLensParams;
+import org.eclipse.lspcommon.JavaCodeLensParams;
 import org.eclipse.lspcommon.jdt.core.java.codelens.IJavaCodeLensParticipant;
 import org.eclipse.lspcommon.jdt.core.java.codelens.JavaCodeLensContext;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProject;

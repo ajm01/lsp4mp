@@ -15,7 +15,7 @@ package org.eclipse.lsp4mp.jdt.core.java.codelens;
 
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.lsp4mp.jdt.core.java.AbtractJavaContext;
-import org.eclipse.lspcommon.commons.JavaCodeLensParams;
+import org.eclipse.lspcommon.JavaCodeLensParams;
 import org.eclipse.lspcommon.jdt.core.utils.IJDTUtils;
 
 /**

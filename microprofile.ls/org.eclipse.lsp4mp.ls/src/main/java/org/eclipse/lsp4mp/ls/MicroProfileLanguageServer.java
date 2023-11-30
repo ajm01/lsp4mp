@@ -33,10 +33,10 @@ import org.eclipse.lsp4j.services.LanguageClient;
 import org.eclipse.lsp4j.services.LanguageServer;
 import org.eclipse.lsp4j.services.TextDocumentService;
 import org.eclipse.lsp4j.services.WorkspaceService;
-import org.eclipse.lspcommon.commons.JavaFileInfo;
+import org.eclipse.lspcommon.JavaFileInfo;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfoParams;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesChangeEvent;
-import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaFileInfoProvider;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelsProvider;
 import org.eclipse.lsp4mp.ls.api.MicroProfileLanguageClientAPI;
@@ -58,8 +58,8 @@ import org.eclipse.lsp4mp.settings.MicroProfileValidationSettings;
 import org.eclipse.lsp4mp.settings.SharedSettings;
 import org.eclipse.lsp4mp.settings.capabilities.MicroProfileCapabilityManager;
 import org.eclipse.lsp4mp.settings.capabilities.ServerCapabilitiesInitializer;
-import org.eclipse.lspcommon.commons.JavaFileInfoParams;
-import org.eclipse.lspcommon.commons.JavaProjectLabelsParams;
+import org.eclipse.lspcommon.JavaFileInfoParams;
+import org.eclipse.lspcommon.JavaProjectLabelsParams;
 
 /**
  * MicroProfile language server.

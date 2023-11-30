@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.CodeLens;
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lspcommon.commons.JavaCodeLensParams;
+import org.eclipse.lspcommon.JavaCodeLensParams;
 
 /**
  * MicroProfile Java code lens provider.

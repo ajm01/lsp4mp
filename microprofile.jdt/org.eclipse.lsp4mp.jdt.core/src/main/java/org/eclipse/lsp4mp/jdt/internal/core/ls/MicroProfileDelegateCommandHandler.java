@@ -27,7 +27,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.lsp4j.Location;
-import org.eclipse.lspcommon.commons.DocumentFormat;
+import org.eclipse.lspcommon.DocumentFormat;
 import org.eclipse.lspcommon.jdt.internal.core.ls.AbstractDelegateCommandHandler;
 import org.eclipse.lspcommon.jdt.internal.core.ls.JDTUtilsLSImpl;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;

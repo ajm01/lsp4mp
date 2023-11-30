@@ -16,8 +16,8 @@ package org.eclipse.lsp4mp.ls.api;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lspcommon.commons.JavaFileInfo;
-import org.eclipse.lspcommon.commons.JavaFileInfoParams;
+import org.eclipse.lspcommon.JavaFileInfo;
+import org.eclipse.lspcommon.JavaFileInfoParams;
 
 /**
  * MicroProfile Java file information provider.

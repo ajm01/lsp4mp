@@ -17,9 +17,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.lspcommon.commons.JavaCursorContextKind;
-import org.eclipse.lspcommon.commons.JavaCursorContextResult;
-import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.JavaCursorContextKind;
+import org.eclipse.lspcommon.JavaCursorContextResult;
+import org.eclipse.lspcommon.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.ls.commons.snippets.ISnippetContext;
 
 import com.google.gson.Gson;

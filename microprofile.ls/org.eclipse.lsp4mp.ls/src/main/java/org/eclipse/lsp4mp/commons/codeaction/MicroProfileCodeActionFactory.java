@@ -23,7 +23,7 @@ import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4mp.ls.commons.client.CommandKind;
 import org.eclipse.lsp4mp.ls.commons.client.ConfigurationItemEdit;
 import org.eclipse.lsp4mp.ls.commons.client.ConfigurationItemEditType;
-import org.eclipse.lspcommon.commons.codeaction.CodeActionData;
+import org.eclipse.lspcommon.core.codeaction.CodeActionData;
 
 /**
  * Specific code action factory for MicroProfile.

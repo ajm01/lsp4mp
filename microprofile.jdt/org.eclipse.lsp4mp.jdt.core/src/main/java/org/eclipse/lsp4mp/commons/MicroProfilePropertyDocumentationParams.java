@@ -13,7 +13,7 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.commons;
 
-import org.eclipse.lspcommon.commons.DocumentFormat;
+import org.eclipse.lspcommon.DocumentFormat;
 
 /**
  * MicroProfile property documentation parameters to retrieve the documentation

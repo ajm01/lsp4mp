@@ -33,7 +33,7 @@ import org.eclipse.lsp4j.CodeLens;
 import org.eclipse.lsp4j.Command;
 import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lspcommon.commons.JavaCodeLensParams;
+import org.eclipse.lspcommon.JavaCodeLensParams;
 import org.eclipse.lspcommon.jdt.core.java.codelens.IJavaCodeLensParticipant;
 import org.eclipse.lspcommon.jdt.core.java.codelens.JavaCodeLensContext;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.HttpMethod;

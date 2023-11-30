@@ -17,8 +17,8 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lspcommon.commons.JavaProjectLabelsParams;
-import org.eclipse.lspcommon.commons.ProjectLabelInfoEntry;
+import org.eclipse.lspcommon.JavaProjectLabelsParams;
+import org.eclipse.lspcommon.ProjectLabelInfoEntry;
 
 /**
  * MicroProfile Java project labels provider.
