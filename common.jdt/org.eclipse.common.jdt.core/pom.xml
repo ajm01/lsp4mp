@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+	    <groupId>org.eclipse.lspcommon</groupId>
+	    <artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>org.eclipse.lspcommon.jdt.core</artifactId>
+	<packaging>eclipse-plugin</packaging>
+
+	<name>Eclipse LSPCommon JDT Plugin</name>
+	<description>Eclipse LSPCommon JDT Plugin</description>
+
+	<organization>
+		<name>Eclipse LSPCommon</name>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>EPL-2.0</name>
+			<url>https://www.eclipse.org/legal/epl-2.0/</url>
+			<comments>Eclipse Public License 2.0</comments>
+		</license>
+	</licenses>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+	</build>
+</project>
