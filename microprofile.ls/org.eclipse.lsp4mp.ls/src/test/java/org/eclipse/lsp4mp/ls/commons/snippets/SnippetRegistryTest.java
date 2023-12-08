@@ -20,6 +20,9 @@ import java.io.StringReader;
 import java.util.Arrays;
 
 import org.eclipse.lsp4mp.ls.java.JavaTextDocumentSnippetRegistry;
+import org.eclipse.lspcommon.ls.commons.snippets.Snippet;
+import org.eclipse.lspcommon.ls.commons.snippets.SnippetRegistry;
+import org.eclipse.lspcommon.ls.commons.snippets.TextDocumentSnippetRegistry;
 import org.junit.Assert;
 import org.junit.Test;
 

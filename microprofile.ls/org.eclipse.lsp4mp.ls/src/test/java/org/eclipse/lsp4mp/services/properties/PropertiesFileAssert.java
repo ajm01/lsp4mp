@@ -72,7 +72,7 @@ import org.eclipse.lspcommon.ls.commons.TextDocument;
 import org.eclipse.lsp4mp.ls.commons.client.CommandCapabilities;
 import org.eclipse.lsp4mp.ls.commons.client.CommandKind;
 import org.eclipse.lsp4mp.ls.commons.client.CommandKindCapabilities;
-import org.eclipse.lsp4mp.ls.commons.snippets.TextDocumentSnippetRegistry;
+import org.eclipse.lspcommon.ls.commons.snippets.TextDocumentSnippetRegistry;
 import org.eclipse.lsp4mp.model.PropertiesModel;
 import org.eclipse.lsp4mp.settings.MicroProfileCommandCapabilities;
 import org.eclipse.lsp4mp.settings.MicroProfileCompletionCapabilities;

@@ -19,7 +19,7 @@ import java.util.List;
 
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;
 import org.eclipse.lsp4mp.commons.metadata.ItemMetadata;
-import org.eclipse.lsp4mp.ls.commons.snippets.ISnippetContext;
+import org.eclipse.lspcommon.ls.commons.snippets.ISnippetContext;
 import org.eclipse.lsp4mp.utils.PropertiesFileUtils;
 
 import com.google.gson.TypeAdapter;

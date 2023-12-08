@@ -15,8 +15,8 @@ package org.eclipse.lsp4mp.snippets;
 
 import java.io.IOException;
 
-import org.eclipse.lsp4mp.ls.commons.snippets.ISnippetRegistryLoader;
-import org.eclipse.lsp4mp.ls.commons.snippets.SnippetRegistry;
+import org.eclipse.lspcommon.ls.commons.snippets.ISnippetRegistryLoader;
+import org.eclipse.lspcommon.ls.commons.snippets.SnippetRegistry;
 
 /**
  * Snippet loader for MicroProfile in java files.
@@ -28,6 +28,7 @@ public class MicroProfileJavaSnippetRegistryLoader implements ISnippetRegistryLo
 
 	@Override
 	public void load(SnippetRegistry registry) throws IOException {
+		System.out.println("AJM: loading json files?");
 		registry.registerSnippets(MicroProfileJavaSnippetRegistryLoader.class.getResourceAsStream("mp-restclient.json"),
 				SnippetContextForJava.TYPE_ADAPTER);
 		registry.registerSnippets(MicroProfileJavaSnippetRegistryLoader.class.getResourceAsStream("mp-metrics.json"),
@@ -40,6 +41,7 @@ public class MicroProfileJavaSnippetRegistryLoader implements ISnippetRegistryLo
 				SnippetContextForJava.TYPE_ADAPTER);
 		registry.registerSnippets(MicroProfileJavaSnippetRegistryLoader.class.getResourceAsStream("jakarta-rest.json"),
 				SnippetContextForJava.TYPE_ADAPTER);
+		System.out.println("AJM: done loading json");
 
 	}
 

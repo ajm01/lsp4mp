@@ -20,7 +20,7 @@ import java.util.List;
 import org.eclipse.lspcommon.JavaCursorContextKind;
 import org.eclipse.lspcommon.JavaCursorContextResult;
 import org.eclipse.lspcommon.ProjectLabelInfoEntry;
-import org.eclipse.lsp4mp.ls.commons.snippets.ISnippetContext;
+import org.eclipse.lspcommon.ls.commons.snippets.ISnippetContext;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;

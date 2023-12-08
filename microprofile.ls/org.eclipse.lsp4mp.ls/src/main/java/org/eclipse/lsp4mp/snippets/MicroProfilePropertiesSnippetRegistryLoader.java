@@ -13,8 +13,8 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.snippets;
 
-import org.eclipse.lsp4mp.ls.commons.snippets.ISnippetRegistryLoader;
-import org.eclipse.lsp4mp.ls.commons.snippets.SnippetRegistry;
+import org.eclipse.lspcommon.ls.commons.snippets.ISnippetRegistryLoader;
+import org.eclipse.lspcommon.ls.commons.snippets.SnippetRegistry;
 
 /**
  * Snippet loader for MicroProfile in properties files.

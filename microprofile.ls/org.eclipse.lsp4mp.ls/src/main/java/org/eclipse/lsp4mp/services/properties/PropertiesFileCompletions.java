@@ -47,7 +47,7 @@ import org.eclipse.lsp4mp.commons.utils.StringUtils;
 import org.eclipse.lspcommon.ls.commons.BadLocationException;
 import org.eclipse.lsp4mp.ls.commons.SnippetsBuilder;
 import org.eclipse.lspcommon.ls.commons.TextDocument;
-import org.eclipse.lsp4mp.ls.commons.snippets.TextDocumentSnippetRegistry;
+import org.eclipse.lspcommon.ls.commons.snippets.TextDocumentSnippetRegistry;
 import org.eclipse.lsp4mp.model.Assign;
 import org.eclipse.lsp4mp.model.BasePropertyValue;
 import org.eclipse.lsp4mp.model.Node;
