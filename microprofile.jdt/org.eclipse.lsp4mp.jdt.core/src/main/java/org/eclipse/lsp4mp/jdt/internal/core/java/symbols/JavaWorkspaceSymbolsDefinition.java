@@ -22,7 +22,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.lsp4j.SymbolInformation;
 import org.eclipse.lsp4mp.jdt.core.java.symbols.IJavaWorkspaceSymbolsParticipant;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.core.java.AbstractJavaFeatureDefinition;
 
 /**

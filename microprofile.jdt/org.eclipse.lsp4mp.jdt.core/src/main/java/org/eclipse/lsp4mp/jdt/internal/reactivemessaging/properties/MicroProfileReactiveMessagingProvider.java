@@ -13,12 +13,12 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.reactivemessaging.properties;
 
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.isMatchAnnotation;
-import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getSourceField;
-import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getSourceMethod;
-import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getSourceType;
-import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.isBinary;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.isMatchAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getSourceField;
+import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getSourceMethod;
+import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getSourceType;
+import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.isBinary;
 import static org.eclipse.lsp4mp.jdt.internal.reactivemessaging.MicroProfileReactiveMessagingConstants.CHANNEL_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.internal.reactivemessaging.MicroProfileReactiveMessagingConstants.CONNECTOR_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.internal.reactivemessaging.MicroProfileReactiveMessagingConstants.EMITTER_CLASS;
@@ -40,7 +40,7 @@ import org.eclipse.lsp4mp.commons.metadata.ItemHint;
 import org.eclipse.lsp4mp.commons.metadata.ValueHint;
 import org.eclipse.lsp4mp.jdt.core.AbstractAnnotationTypeReferencePropertiesProvider;
 import org.eclipse.lsp4mp.jdt.core.SearchContext;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
 
 /**
  * Properties provider to collect MicroProfile properties from the MicroProfile

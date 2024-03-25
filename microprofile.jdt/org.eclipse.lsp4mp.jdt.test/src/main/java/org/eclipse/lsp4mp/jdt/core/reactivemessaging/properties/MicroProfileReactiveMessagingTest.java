@@ -30,12 +30,12 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.reactivemessaging.MicroProfileReactiveMessagingConstants;
 import org.eclipse.lsp4mp.jdt.internal.reactivemessaging.java.MicroProfileReactiveMessagingErrorCode;
 import org.junit.Test;
@@ -103,7 +103,7 @@ public class MicroProfileReactiveMessagingTest extends BasePropertiesManagerTest
                 MicroProfileMavenProjectName.microprofile_reactive_messaging);
         IJDTUtils utils = JDT_UTILS;
 
-        MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+        JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
         IFile javaFile = javaProject.getProject().getFile(
                 new Path("src/main/java/org/acme/kafka/PriceConverter.java"));
         diagnosticsParams.setUris(Arrays

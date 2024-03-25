@@ -25,11 +25,11 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaProjectLabelsParams;
+import org.eclipse.lsp4jdt.commons.JavaProjectLabelsParams;
 import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.core.utils.JDTMicroProfileUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
 import org.eclipse.lsp4mp.jdt.internal.core.ProjectLabelRegistry;
 
 /**
@@ -89,7 +89,7 @@ public class ProjectLabelManager {
 	 * @param monitor the progress monitor.
 	 * @return project label results for the given Java file uri parameter.
 	 */
-	public ProjectLabelInfoEntry getProjectLabelInfo(MicroProfileJavaProjectLabelsParams params, IJDTUtils utils,
+	public ProjectLabelInfoEntry getProjectLabelInfo(JavaProjectLabelsParams params, IJDTUtils utils,
 			IProgressMonitor monitor) {
 		IProject project = findProject(params.getUri(), utils);
 		if (project == null) {

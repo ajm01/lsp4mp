@@ -20,8 +20,8 @@ import java.util.logging.Logger;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.lsp4j.Diagnostic;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.JavaDiagnosticsContext;
+import org.eclipse.lsp4jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
+import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
 import org.eclipse.lsp4mp.jdt.internal.core.java.AbstractJavaFeatureDefinition;
 
 /**

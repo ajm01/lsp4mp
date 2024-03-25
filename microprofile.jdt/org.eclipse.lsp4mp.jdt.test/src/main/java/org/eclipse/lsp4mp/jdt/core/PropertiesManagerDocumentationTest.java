@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertyDocumentationParams;
 import org.junit.Test;
 

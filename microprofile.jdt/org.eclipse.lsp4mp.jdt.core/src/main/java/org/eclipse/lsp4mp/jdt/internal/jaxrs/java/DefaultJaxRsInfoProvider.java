@@ -17,8 +17,8 @@ import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsConstants.JAKARTA_WS_RS_PAT
 import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsConstants.JAVAX_WS_RS_PATH_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsUtils.getJaxRsPathValue;
 import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsUtils.isJaxRsRequestMethod;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.hasAnnotation;
-import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.overlaps;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.hasAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.overlaps;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -56,8 +56,8 @@ import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsConstants;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsContext;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsMethodInfo;
 import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
 
 /**
  * Locates JAX-RS methods in a project or class file using the default semantics.

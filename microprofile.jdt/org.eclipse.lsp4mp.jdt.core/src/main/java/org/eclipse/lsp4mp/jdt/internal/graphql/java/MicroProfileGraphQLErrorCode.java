@@ -13,7 +13,7 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.graphql.java;
 
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.IJavaErrorCode;
+import org.eclipse.lsp4jdt.core.java.diagnostics.IJavaErrorCode;
 
 /**
  * MicroProfile GraphQL diagnostics error code.

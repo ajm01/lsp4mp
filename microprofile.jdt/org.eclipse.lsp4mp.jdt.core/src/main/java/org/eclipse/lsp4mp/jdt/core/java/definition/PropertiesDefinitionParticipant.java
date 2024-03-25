@@ -26,6 +26,7 @@ import org.eclipse.lsp4j.Range;
 import org.eclipse.lsp4mp.commons.MicroProfileDefinition;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProjectManager;
 import org.eclipse.lsp4mp.jdt.core.project.MicroProfileConfigPropertyInformation;
+import org.eclipse.lsp4jdt.core.java.definition.JavaDefinitionContext;
 
 /**
  * Java definition participant to go to the definition of the the property
@@ -53,7 +54,7 @@ public class PropertiesDefinitionParticipant extends AbstractAnnotationDefinitio
 	}
 
 	@Override
-	protected List<MicroProfileDefinition> collectDefinitions(String propertyKey, Range propertyKeyRange,
+	protected List<Object> collectDefinitions(String propertyKey, Range propertyKeyRange,
 			IAnnotation annotation, JavaDefinitionContext context, IProgressMonitor monitor) throws JavaModelException {
 		IJavaProject javaProject = context.getJavaProject();
 		// Collect all properties files (properties, yaml files) where the given

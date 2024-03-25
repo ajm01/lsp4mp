@@ -27,7 +27,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.core.JavaProject;
-import org.eclipse.lsp4mp.commons.ClasspathKind;
+import org.eclipse.lsp4jdt.commons.ClasspathKind;
 import org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants;
 
 /**

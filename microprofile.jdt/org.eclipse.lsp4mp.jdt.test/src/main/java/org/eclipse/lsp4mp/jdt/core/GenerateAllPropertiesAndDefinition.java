@@ -13,7 +13,7 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.core;
 
-import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getOptionalTypeParameter;
+import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getOptionalTypeParameter;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -32,14 +32,14 @@ import org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin;
 import org.eclipse.lsp4j.ClientCapabilities;
 import org.eclipse.lsp4j.Location;
 import org.eclipse.lsp4j.jsonrpc.json.adapters.EnumTypeAdapter;
-import org.eclipse.lsp4mp.commons.ClasspathKind;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.ClasspathKind;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
 import org.eclipse.lsp4mp.commons.metadata.ItemHint;
 import org.eclipse.lsp4mp.commons.metadata.ItemMetadata;
 import org.eclipse.lsp4mp.commons.metadata.ValueHint;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 

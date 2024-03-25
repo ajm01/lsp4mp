@@ -17,9 +17,9 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import org.eclipse.lsp4j.TextDocumentItem;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaProjectLabelsParams;
-import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
-import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelsProvider;
+import org.eclipse.lsp4jdt.commons.JavaProjectLabelsParams;
+import org.eclipse.lsp4jdt.commons.ProjectLabelInfoEntry;
+import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelProvider;
 import org.eclipse.lsp4mp.ls.java.JavaTextDocuments.JavaTextDocument;
 import org.junit.Assert;
 import org.junit.Test;
@@ -37,11 +37,11 @@ public class JavaTextDocumentsTest {
 
 	private static final String NOMP_PROJECT = "nomp-project";
 
-	private static MicroProfileJavaProjectLabelsProvider PROVIDER = new MicroProfileJavaProjectLabelsProvider() {
+	private static MicroProfileJavaProjectLabelProvider PROVIDER = new MicroProfileJavaProjectLabelProvider() {
 
 		@Override
 		public CompletableFuture<ProjectLabelInfoEntry> getJavaProjectLabels(
-				MicroProfileJavaProjectLabelsParams javaParams) {
+				JavaProjectLabelsParams javaParams) {
 			String uri = javaParams.getUri();
 			List<String> labels = null;
 			if (uri.startsWith(MP_PROJECT)) {

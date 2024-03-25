@@ -30,9 +30,9 @@ import org.eclipse.lsp4j.LocationLink;
 import org.eclipse.lsp4j.Range;
 import org.eclipse.lsp4mp.commons.MicroProfileDefinition;
 import org.eclipse.lsp4mp.jdt.core.java.definition.AbstractAnnotationDefinitionParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.definition.JavaDefinitionContext;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.PositionUtils;
+import org.eclipse.lsp4jdt.core.java.definition.JavaDefinitionContext;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.PositionUtils;
 
 /**
  *
@@ -53,7 +53,7 @@ public class MicroProfileFaultToleranceDefinitionParticipant extends AbstractAnn
 	}
 
 	@Override
-	protected List<MicroProfileDefinition> collectDefinitions(String annotationValue, Range annotationValueRange,
+	protected List<Object> collectDefinitions(String annotationValue, Range annotationValueRange,
 			IAnnotation annotation, JavaDefinitionContext context, IProgressMonitor monitor) throws JavaModelException {
 		IType type = getOwnerType(annotation);
 		if (type != null) {

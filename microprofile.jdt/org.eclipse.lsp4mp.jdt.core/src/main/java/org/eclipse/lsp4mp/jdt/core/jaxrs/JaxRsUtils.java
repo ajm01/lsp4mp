@@ -21,9 +21,9 @@ import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsConstants.JAVAX_WS_RS_APPLI
 import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsConstants.JAVAX_WS_RS_GET_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsConstants.JAVAX_WS_RS_PATH_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsConstants.PATH_VALUE;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotation;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.hasAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.hasAnnotation;
 
 import java.util.Collections;
 
@@ -36,7 +36,7 @@ import org.eclipse.lsp4j.CodeLens;
 import org.eclipse.lsp4j.Command;
 import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 
 /**
  * JAX-RS utilities.

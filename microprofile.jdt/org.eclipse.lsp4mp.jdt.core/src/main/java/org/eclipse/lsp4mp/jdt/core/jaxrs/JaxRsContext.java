@@ -31,7 +31,7 @@ import org.eclipse.jdt.core.search.SearchParticipant;
 import org.eclipse.jdt.core.search.SearchPattern;
 import org.eclipse.jdt.core.search.SearchRequestor;
 import org.eclipse.lsp4mp.jdt.core.java.codelens.JavaCodeLensContext;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
 
 /**
  * JAX-RS context.

@@ -13,7 +13,7 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.core;
 
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.isMatchAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.isMatchAnnotation;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

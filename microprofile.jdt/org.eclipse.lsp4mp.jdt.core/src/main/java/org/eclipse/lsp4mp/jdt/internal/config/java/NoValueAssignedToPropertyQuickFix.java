@@ -17,8 +17,8 @@ import static org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionFactor
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PROPERTY_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PROPERTY_ANNOTATION_NAME;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.DIAGNOSTIC_DATA_NAME;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotation;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -43,15 +43,15 @@ import org.eclipse.lsp4j.TextEdit;
 import org.eclipse.lsp4j.VersionedTextDocumentIdentifier;
 import org.eclipse.lsp4j.WorkspaceEdit;
 import org.eclipse.lsp4j.jsonrpc.messages.Either;
-import org.eclipse.lsp4mp.commons.codeaction.CodeActionResolveData;
+import org.eclipse.lsp4jdt.commons.codeaction.CodeActionResolveData;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
-import org.eclipse.lsp4mp.jdt.core.java.codeaction.IJavaCodeActionParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.codeaction.JavaCodeActionContext;
-import org.eclipse.lsp4mp.jdt.core.java.codeaction.JavaCodeActionResolveContext;
+import org.eclipse.lsp4jdt.core.java.codeaction.IJavaCodeActionParticipant;
+import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionContext;
+import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionResolveContext;
 import org.eclipse.lsp4mp.jdt.core.project.IConfigSource;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProject;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProjectManager;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.ls.commons.CodeActionFactory;
 
 import com.google.gson.JsonElement;

@@ -28,10 +28,15 @@ import org.eclipse.lsp4j.CodeAction;
 import org.eclipse.lsp4j.CodeActionKind;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.WorkspaceEdit;
-import org.eclipse.lsp4mp.commons.codeaction.CodeActionResolveData;
+import org.eclipse.lsp4jdt.commons.codeaction.CodeActionResolveData;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
-import org.eclipse.lsp4mp.jdt.core.java.corrections.proposal.ChangeCorrectionProposal;
-import org.eclipse.lsp4mp.jdt.core.java.corrections.proposal.InsertAnnotationAttributeProposal;
+import org.eclipse.lsp4jdt.core.java.codeaction.ExtendedCodeAction;
+import org.eclipse.lsp4jdt.core.java.codeaction.IJavaCodeActionParticipant;
+import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionContext;
+import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionResolveContext;
+import org.eclipse.lsp4jdt.core.java.corrections.proposal.ChangeCorrectionProposal;
+import org.eclipse.lsp4jdt.core.java.corrections.proposal.InsertAnnotationAttributeProposal;
+
 
 /**
  * QuickFix for inserting attribute of a given annotation.

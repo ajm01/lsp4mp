@@ -31,10 +31,10 @@ import org.eclipse.lsp4j.PublishDiagnosticsParams;
 import org.eclipse.lsp4j.ShowMessageRequestParams;
 import org.eclipse.lsp4j.TextDocumentItem;
 import org.eclipse.lsp4j.jsonrpc.Launcher;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaProjectLabelsParams;
+import org.eclipse.lsp4jdt.commons.JavaProjectLabelsParams;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfoParams;
-import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
+import org.eclipse.lsp4jdt.commons.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.ls.MicroProfileServerLauncher;
 import org.eclipse.lsp4mp.ls.MockMicroProfileLanguageClient;
 import org.eclipse.lsp4mp.ls.api.MicroProfileLanguageServerAPI;
@@ -82,7 +82,7 @@ public class MicroProfileLanguageServerDeadlockTest {
         }
 
         @Override
-        public CompletableFuture<ProjectLabelInfoEntry> getJavaProjectLabels(MicroProfileJavaProjectLabelsParams javaParams) {
+        public CompletableFuture<ProjectLabelInfoEntry> getJavaProjectLabels(	JavaProjectLabelsParams javaParams) {
             latch.countDown();
             return CompletableFuture.completedFuture(null);
         }

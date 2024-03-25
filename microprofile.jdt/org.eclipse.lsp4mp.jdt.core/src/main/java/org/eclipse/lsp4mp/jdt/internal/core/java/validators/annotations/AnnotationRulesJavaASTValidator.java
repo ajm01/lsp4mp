@@ -28,8 +28,8 @@ import org.eclipse.jdt.core.dom.NumberLiteral;
 import org.eclipse.jdt.core.dom.PrefixExpression;
 import org.eclipse.jdt.core.dom.SingleMemberAnnotation;
 import org.eclipse.lsp4j.DiagnosticSeverity;
-import org.eclipse.lsp4mp.jdt.core.java.validators.JavaASTValidator;
-import org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils;
+import org.eclipse.lsp4jdt.core.java.validators.JavaASTValidator;
+import org.eclipse.lsp4jdt.core.utils.AnnotationUtils;
 import org.eclipse.lsp4mp.jdt.internal.core.java.validators.JavaASTValidatorRegistry;
 
 /**

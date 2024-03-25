@@ -15,6 +15,7 @@ package org.eclipse.lsp4mp.commons;
 
 import java.util.Collections;
 
+import org.eclipse.lsp4jdt.commons.ClasspathKind;
 import org.eclipse.lsp4mp.commons.metadata.ConfigurationMetadata;
 
 /**

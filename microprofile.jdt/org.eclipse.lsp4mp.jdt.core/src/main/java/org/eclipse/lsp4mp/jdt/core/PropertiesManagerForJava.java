@@ -56,26 +56,28 @@ import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.PublishDiagnosticsParams;
 import org.eclipse.lsp4j.jsonrpc.validation.NonNull;
 import org.eclipse.lsp4j.SymbolInformation;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.commons.JavaCursorContextKind;
-import org.eclipse.lsp4mp.commons.JavaCursorContextResult;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
+import org.eclipse.lsp4jdt.commons.JavaCursorContextKind;
+import org.eclipse.lsp4jdt.commons.JavaCursorContextResult;
 import org.eclipse.lsp4mp.commons.JavaFileInfo;
 import org.eclipse.lsp4mp.commons.MicroProfileDefinition;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDefinitionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsSettings;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaFileInfoParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaHoverParams;
+import org.eclipse.lsp4mp.commons.diagnostics.MicroProfileDiagnosticsHandler;
+import org.eclipse.lsp4jdt.commons.JavaCodeLensParams;
+import org.eclipse.lsp4jdt.commons.JavaCompletionParams;
+import org.eclipse.lsp4jdt.commons.JavaDefinitionParams;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsSettings;
+import org.eclipse.lsp4jdt.commons.JavaFileInfoParams;
+import org.eclipse.lsp4jdt.commons.JavaHoverParams;
 import org.eclipse.lsp4mp.jdt.core.java.codelens.JavaCodeLensContext;
 import org.eclipse.lsp4mp.jdt.core.java.completion.JavaCompletionContext;
-import org.eclipse.lsp4mp.jdt.core.java.definition.JavaDefinitionContext;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.JavaDiagnosticsContext;
-import org.eclipse.lsp4mp.jdt.core.java.hover.JavaHoverContext;
 import org.eclipse.lsp4mp.jdt.core.utils.ASTNodeUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.java.definition.JavaDefinitionContext;
+import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
+import org.eclipse.lsp4jdt.core.java.hover.JavaHoverContext;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.internal.core.java.diagnostics.AbstractDiagnosticsHandler;
 import org.eclipse.lsp4mp.jdt.core.utils.JDTMicroProfileUtils;
 import org.eclipse.lsp4mp.jdt.internal.core.java.JavaFeaturesRegistry;
 import org.eclipse.lsp4mp.jdt.internal.core.java.codeaction.CodeActionHandler;
@@ -116,7 +118,7 @@ public class PropertiesManagerForJava {
 	 * @return the Java file information (ex : package name) from the given file URI
 	 *         and null otherwise.
 	 */
-	public JavaFileInfo fileInfo(MicroProfileJavaFileInfoParams params, IJDTUtils utils, IProgressMonitor monitor) {
+	public JavaFileInfo fileInfo(JavaFileInfoParams params, IJDTUtils utils, IProgressMonitor monitor) {
 		String uri = params.getUri();
 		final ICompilationUnit unit = utils.resolveCompilationUnit(uri);
 		if (unit != null && unit.exists()) {
@@ -137,7 +139,7 @@ public class PropertiesManagerForJava {
 	 * @return the codeAction list according the given codeAction parameters.
 	 * @throws JavaModelException
 	 */
-	public List<? extends CodeAction> codeAction(MicroProfileJavaCodeActionParams params, IJDTUtils utils,
+	public List<? extends CodeAction> codeAction(JavaCodeActionParams params, IJDTUtils utils,
 			IProgressMonitor monitor) throws JavaModelException {
 		return codeActionHandler.codeAction(params, utils, monitor);
 	}
@@ -165,7 +167,7 @@ public class PropertiesManagerForJava {
 	 * @return the codelens list according the given codelens parameters.
 	 * @throws JavaModelException
 	 */
-	public List<? extends CodeLens> codeLens(MicroProfileJavaCodeLensParams params, IJDTUtils utils,
+	public List<? extends CodeLens> codeLens(JavaCodeLensParams params, IJDTUtils utils,
 			IProgressMonitor monitor) throws JavaModelException {
 		String uri = params.getUri();
 		ITypeRoot typeRoot = resolveTypeRoot(uri, utils, monitor);
@@ -180,7 +182,7 @@ public class PropertiesManagerForJava {
 		return lenses;
 	}
 
-	private void collectCodeLens(String uri, ITypeRoot typeRoot, IJDTUtils utils, MicroProfileJavaCodeLensParams params,
+	private void collectCodeLens(String uri, ITypeRoot typeRoot, IJDTUtils utils, JavaCodeLensParams params,
 			List<CodeLens> lenses, IProgressMonitor monitor) {
 		// Collect all adapted codeLens participant
 		JavaCodeLensContext context = new JavaCodeLensContext(uri, typeRoot, utils, params);
@@ -211,7 +213,7 @@ public class PropertiesManagerForJava {
 	 * @return the CompletionItems for the given the completion item params
 	 * @throws JavaModelException
 	 */
-	public CompletionList completion(MicroProfileJavaCompletionParams params, IJDTUtils utils, IProgressMonitor monitor)
+	public CompletionList completion(JavaCompletionParams params, IJDTUtils utils, IProgressMonitor monitor)
 			throws JavaModelException {
 		String uri = params.getUri();
 		ITypeRoot typeRoot = resolveTypeRoot(uri, utils, monitor);
@@ -259,7 +261,7 @@ public class PropertiesManagerForJava {
 	 * @return the definition list according the given definition parameters.
 	 * @throws JavaModelException
 	 */
-	public List<MicroProfileDefinition> definition(MicroProfileJavaDefinitionParams params, IJDTUtils utils,
+	public List<MicroProfileDefinition> definition(JavaDefinitionParams params, IJDTUtils utils,
 			IProgressMonitor monitor) throws JavaModelException {
 		String uri = params.getUri();
 		ITypeRoot typeRoot = resolveTypeRoot(uri, utils, monitor);
@@ -311,7 +313,7 @@ public class PropertiesManagerForJava {
 	 * @return diagnostics for the given uris list.
 	 * @throws JavaModelException
 	 */
-	public List<PublishDiagnosticsParams> diagnostics(MicroProfileJavaDiagnosticsParams params, IJDTUtils utils,
+	public List<PublishDiagnosticsParams> diagnostics(JavaDiagnosticsParams params, IJDTUtils utils,
 			IProgressMonitor monitor) throws JavaModelException {
 		List<String> uris = params.getUris();
 		if (uris == null) {
@@ -332,7 +334,7 @@ public class PropertiesManagerForJava {
 	}
 
 	private void collectDiagnostics(String uri, IJDTUtils utils, DocumentFormat documentFormat,
-			MicroProfileJavaDiagnosticsSettings settings, List<Diagnostic> diagnostics, IProgressMonitor monitor) {
+			JavaDiagnosticsSettings settings, List<Diagnostic> diagnostics, IProgressMonitor monitor) {
 		ITypeRoot typeRoot = resolveTypeRoot(uri, utils, monitor);
 		if (typeRoot == null) {
 			return;
@@ -367,7 +369,7 @@ public class PropertiesManagerForJava {
 	 * @return the hover information according to the given <code>params</code>
 	 * @throws JavaModelException
 	 */
-	public Hover hover(MicroProfileJavaHoverParams params, IJDTUtils utils, IProgressMonitor monitor)
+	public Hover hover(JavaHoverParams params, IJDTUtils utils, IProgressMonitor monitor)
 			throws JavaModelException {
 		String uri = params.getUri();
 		ITypeRoot typeRoot = resolveTypeRoot(uri, utils, monitor);
@@ -405,7 +407,7 @@ public class PropertiesManagerForJava {
 	 * @throws JavaModelException when the buffer for the file cannot be accessed or
 	 *                            the Java model cannot be accessed
 	 */
-	public JavaCursorContextResult javaCursorContext(MicroProfileJavaCompletionParams params, IJDTUtils utils,
+	public JavaCursorContextResult javaCursorContext(JavaCompletionParams params, IJDTUtils utils,
 			IProgressMonitor monitor) throws JavaModelException {
 		String uri = params.getUri();
 		ITypeRoot typeRoot = resolveTypeRoot(uri, utils, monitor);
@@ -421,7 +423,7 @@ public class PropertiesManagerForJava {
 		return new JavaCursorContextResult(kind, prefix);
 	}
 
-	private static JavaCursorContextKind getJavaCursorContextKind(MicroProfileJavaCompletionParams params,
+	private static JavaCursorContextKind getJavaCursorContextKind(JavaCompletionParams params,
 			ITypeRoot typeRoot, CompilationUnit ast, IJDTUtils utils, IProgressMonitor monitor)
 			throws JavaModelException {
 
@@ -496,7 +498,7 @@ public class PropertiesManagerForJava {
 		}
 	}
 
-	private static @NonNull String getJavaCursorPrefix(MicroProfileJavaCompletionParams params, ITypeRoot typeRoot,
+	private static @NonNull String getJavaCursorPrefix(JavaCompletionParams params, ITypeRoot typeRoot,
 			CompilationUnit ast, IJDTUtils utils, IProgressMonitor monitor) throws JavaModelException {
 		Position completionPosition = params.getPosition();
 		int completionOffset = utils.toOffset(typeRoot.getBuffer(), completionPosition.getLine(),
@@ -817,5 +819,12 @@ public class PropertiesManagerForJava {
 			return false;
 		}
 	}
+	
+    /**
+     * {@inheritDoc}
+     */
+    public AbstractDiagnosticsHandler getDiagnosticsHandler() {
+        return MicroProfileDiagnosticsHandler.getInstance();
+    }
 
 }

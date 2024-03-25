@@ -25,10 +25,10 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.lsp4j.CodeLens;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
+import org.eclipse.lsp4jdt.commons.JavaCodeLensParams;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
 import org.eclipse.lsp4mp.jdt.core.PropertiesManagerForJava;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.core.providers.MicroProfileConfigSourceProvider;
 import org.junit.Assert;
 import org.junit.Test;
@@ -49,7 +49,7 @@ public class MicroProfileRestClientJavaCodeLensTest extends BasePropertiesManage
 		// Initialize file
 		initConfigFile(javaProject);
 
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams();
+		JavaCodeLensParams params = new JavaCodeLensParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/restclient/CountriesService.java"));
 		params.setUri(javaFile.getLocation().toFile().toURI().toString());
@@ -82,7 +82,7 @@ public class MicroProfileRestClientJavaCodeLensTest extends BasePropertiesManage
 		// Initialize file
 		initConfigFile(javaProject);
 
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams();
+		JavaCodeLensParams params = new JavaCodeLensParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/restclient/CountriesService.java"));
 		params.setUri(javaFile.getLocation().toFile().toURI().toString());
@@ -166,7 +166,7 @@ public class MicroProfileRestClientJavaCodeLensTest extends BasePropertiesManage
 		// Initialize file
 		initConfigFile(javaProject);
 
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams();
+		JavaCodeLensParams params = new JavaCodeLensParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/restclient/CountriesServiceWithBaseUri.java"));
 		params.setUri(javaFile.getLocation().toFile().toURI().toString());
@@ -191,7 +191,7 @@ public class MicroProfileRestClientJavaCodeLensTest extends BasePropertiesManage
 		assertCodeLenses("https://restcountries.uri/rest", params, utils);
 	}
 
-	private static void assertCodeLenses(String baseURL, MicroProfileJavaCodeLensParams params, IJDTUtils utils)
+	private static void assertCodeLenses(String baseURL, JavaCodeLensParams params, IJDTUtils utils)
 			throws JavaModelException {
 		assertCodeLens(params, utils, //
 				cl(baseURL + "/v2/name/{name}", "", r(24, 33, 33)), //

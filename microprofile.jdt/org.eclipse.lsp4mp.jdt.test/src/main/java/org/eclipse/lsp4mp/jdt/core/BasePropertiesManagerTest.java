@@ -40,13 +40,13 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.internal.core.JavaModelManager;
-import org.eclipse.lsp4mp.commons.ClasspathKind;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.ClasspathKind;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.core.JobHelpers;
-import org.eclipse.lsp4mp.jdt.internal.core.ls.JDTUtilsLSImpl;
+import org.eclipse.lsp4jdt.internal.core.ls.JDTUtilsLSImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 

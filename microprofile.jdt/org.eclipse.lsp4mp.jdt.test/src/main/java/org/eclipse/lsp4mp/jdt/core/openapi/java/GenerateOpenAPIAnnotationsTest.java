@@ -24,10 +24,10 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
+import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.junit.Test;
 
 /**
@@ -49,7 +49,7 @@ public class GenerateOpenAPIAnnotationsTest extends BasePropertiesManagerTest {
 		Diagnostic d = new Diagnostic();
 		Position start = new Position(8, 23);
 		d.setRange(new Range(start, start));
-		MicroProfileJavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
+		JavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
 
 		String newText = "\n\nimport org.eclipse.microprofile.openapi.annotations.Operation;" +
 				"\n\n@RequestScoped\n@Path(\"/systems\")\npublic class NoOperationAnnotation {" +

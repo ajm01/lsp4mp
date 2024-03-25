@@ -28,7 +28,7 @@ import org.eclipse.lsp4j.TextEdit;
 import org.eclipse.lsp4j.VersionedTextDocumentIdentifier;
 import org.eclipse.lsp4j.WorkspaceEdit;
 import org.eclipse.lsp4j.jsonrpc.messages.Either;
-import org.eclipse.lsp4mp.commons.codeaction.CodeActionData;
+import org.eclipse.lsp4jdt.commons.codeaction.CodeActionData;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
 
 /**

@@ -28,14 +28,14 @@ import java.util.stream.Collectors;
 import org.eclipse.lsp4j.TextDocumentItem;
 import org.eclipse.lsp4j.jsonrpc.CancelChecker;
 import org.eclipse.lsp4j.jsonrpc.CompletableFutures.FutureCancelChecker;
-import org.eclipse.lsp4mp.commons.JavaFileInfo;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaFileInfoParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaProjectLabelsParams;
+import org.eclipse.lsp4jdt.commons.JavaFileInfo;
+import org.eclipse.lsp4jdt.commons.JavaFileInfoParams;
+import org.eclipse.lsp4jdt.commons.JavaProjectLabelsParams;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesChangeEvent;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
-import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
+import org.eclipse.lsp4jdt.commons.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaFileInfoProvider;
-import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelsProvider;
+import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelProvider;
 import org.eclipse.lsp4mp.ls.commons.TextDocument;
 import org.eclipse.lsp4mp.ls.commons.TextDocuments;
 import org.eclipse.lsp4mp.ls.java.JavaTextDocuments.JavaTextDocument;
@@ -58,7 +58,7 @@ public class JavaTextDocuments extends TextDocuments<JavaTextDocument> {
 
 	private final Map<String /* project URI */, CompletableFuture<ProjectLabelInfoEntry>> projectCache;
 
-	private final MicroProfileJavaProjectLabelsProvider projectInfoProvider;
+	private final MicroProfileJavaProjectLabelProvider projectInfoProvider;
 
 	private final MicroProfileJavaFileInfoProvider fileInfoProvider;
 
@@ -90,7 +90,7 @@ public class JavaTextDocuments extends TextDocuments<JavaTextDocument> {
 			if (fileInfoProvider != null) {
 				if (fileInfoFuture == null || fileInfoFuture.isCancelled()
 						|| fileInfoFuture.isCompletedExceptionally()) {
-					MicroProfileJavaFileInfoParams params = new MicroProfileJavaFileInfoParams();
+					JavaFileInfoParams params = new JavaFileInfoParams();
 					params.setUri(super.getUri());
 					fileInfoFuture = fileInfoProvider.getJavaFileInfo(params);
 				}
@@ -195,7 +195,7 @@ public class JavaTextDocuments extends TextDocuments<JavaTextDocument> {
 		}
 	}
 
-	public JavaTextDocuments(MicroProfileJavaProjectLabelsProvider projectInfoProvider,
+	public JavaTextDocuments(MicroProfileJavaProjectLabelProvider projectInfoProvider,
 			MicroProfileJavaFileInfoProvider fileInfoProvider) {
 		this.projectInfoProvider = projectInfoProvider;
 		this.fileInfoProvider = fileInfoProvider;
@@ -242,7 +242,7 @@ public class JavaTextDocuments extends TextDocuments<JavaTextDocument> {
 		}
 		if (projectInfo == null || projectInfo.isCancelled() || projectInfo.isCompletedExceptionally()) {
 			// not found in the cache, load the project info from the JDT LS Extension
-			MicroProfileJavaProjectLabelsParams params = new MicroProfileJavaProjectLabelsParams();
+			JavaProjectLabelsParams params = new JavaProjectLabelsParams();
 			params.setUri(documentURI);
 			params.setTypes(getSnippetRegistry().getTypes());
 			final CompletableFuture<ProjectLabelInfoEntry> future = projectInfoProvider.getJavaProjectLabels(params);

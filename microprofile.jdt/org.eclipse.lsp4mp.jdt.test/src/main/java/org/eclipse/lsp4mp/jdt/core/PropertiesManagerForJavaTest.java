@@ -20,7 +20,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.lsp4mp.commons.JavaFileInfo;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaFileInfoParams;
+import org.eclipse.lsp4jdt.commons.JavaFileInfoParams;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -39,7 +39,7 @@ public class PropertiesManagerForJavaTest extends BasePropertiesManagerTest {
 		IFile javaFile = project.getFile(new Path("src/main/java/org/acme/config/GreetingResource.java"));
 		String javaFileUri = javaFile.getLocation().toFile().toURI().toString();
 
-		MicroProfileJavaFileInfoParams params = new MicroProfileJavaFileInfoParams();
+		JavaFileInfoParams params = new JavaFileInfoParams();
 		params.setUri(javaFileUri);
 		JavaFileInfo javaFileInfo = PropertiesManagerForJava.getInstance().fileInfo(params, JDT_UTILS,
 				new NullProgressMonitor());
@@ -54,7 +54,7 @@ public class PropertiesManagerForJavaTest extends BasePropertiesManagerTest {
 		IFile javaFile = project.getFile(new Path("src/main/java/NoPackage.java"));
 		String javaFileUri = javaFile.getLocation().toFile().toURI().toString();
 
-		MicroProfileJavaFileInfoParams params = new MicroProfileJavaFileInfoParams();
+		JavaFileInfoParams params = new JavaFileInfoParams();
 		params.setUri(javaFileUri);
 		JavaFileInfo javaFileInfo = PropertiesManagerForJava.getInstance().fileInfo(params, JDT_UTILS,
 				new NullProgressMonitor());
@@ -69,7 +69,7 @@ public class PropertiesManagerForJavaTest extends BasePropertiesManagerTest {
 		IFile javaFile = project.getFile(new Path("src/main/java/BAD_JAVA_FILE.java"));
 		String javaFileUri = javaFile.getLocation().toFile().toURI().toString();
 
-		MicroProfileJavaFileInfoParams params = new MicroProfileJavaFileInfoParams();
+		JavaFileInfoParams params = new JavaFileInfoParams();
 		params.setUri(javaFileUri);
 		JavaFileInfo javaFileInfo = PropertiesManagerForJava.getInstance().fileInfo(params, JDT_UTILS,
 				new NullProgressMonitor());

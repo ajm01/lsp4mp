@@ -13,8 +13,8 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.core.ls;
 
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getFirst;
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getString;
+import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getFirst;
+import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +27,16 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.lsp4j.Location;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils;
+import org.eclipse.lsp4jdt.internal.core.ls.JDTUtilsLSImpl;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfoParams;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertyDefinitionParams;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertyDocumentationParams;
 import org.eclipse.lsp4mp.jdt.core.PropertiesManager;
+import org.eclipse.lsp4jdt.internal.core.ls.AbstractDelegateCommandHandler;
 
 /**
  * JDT LS delegate command handler for application.properties file.
@@ -41,7 +44,7 @@ import org.eclipse.lsp4mp.jdt.core.PropertiesManager;
  * @author Angelo ZERR
  *
  */
-public class MicroProfileDelegateCommandHandler extends AbstractMicroProfileDelegateCommandHandler {
+public class MicroProfileDelegateCommandHandler extends AbstractDelegateCommandHandler {
 
 	private static final Logger LOGGER = Logger.getLogger(MicroProfileDelegateCommandHandler.class.getName());
 
