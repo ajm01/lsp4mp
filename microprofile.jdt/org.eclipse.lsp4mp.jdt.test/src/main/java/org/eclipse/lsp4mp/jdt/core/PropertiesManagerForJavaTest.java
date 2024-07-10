@@ -19,7 +19,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.lsp4mp.commons.JavaFileInfo;
+import org.eclipse.lsp4jdt.commons.JavaFileInfo;
 import org.eclipse.lsp4jdt.commons.JavaFileInfoParams;
 import org.junit.Assert;
 import org.junit.Test;
@@ -41,7 +41,7 @@ public class PropertiesManagerForJavaTest extends BasePropertiesManagerTest {
 
 		JavaFileInfoParams params = new JavaFileInfoParams();
 		params.setUri(javaFileUri);
-		JavaFileInfo javaFileInfo = PropertiesManagerForJava.getInstance().fileInfo(params, JDT_UTILS,
+		JavaFileInfo javaFileInfo = MPNewPropertiesManagerForJava.getInstance().fileInfo(params, JDT_UTILS, 
 				new NullProgressMonitor());
 		Assert.assertNotNull(javaFileInfo);
 		Assert.assertEquals("org.acme.config", javaFileInfo.getPackageName());
@@ -56,7 +56,7 @@ public class PropertiesManagerForJavaTest extends BasePropertiesManagerTest {
 
 		JavaFileInfoParams params = new JavaFileInfoParams();
 		params.setUri(javaFileUri);
-		JavaFileInfo javaFileInfo = PropertiesManagerForJava.getInstance().fileInfo(params, JDT_UTILS,
+		JavaFileInfo javaFileInfo = MPNewPropertiesManagerForJava.getInstance().fileInfo(params, JDT_UTILS,
 				new NullProgressMonitor());
 		Assert.assertNotNull(javaFileInfo);
 		Assert.assertEquals("", javaFileInfo.getPackageName());
@@ -71,7 +71,7 @@ public class PropertiesManagerForJavaTest extends BasePropertiesManagerTest {
 
 		JavaFileInfoParams params = new JavaFileInfoParams();
 		params.setUri(javaFileUri);
-		JavaFileInfo javaFileInfo = PropertiesManagerForJava.getInstance().fileInfo(params, JDT_UTILS,
+		JavaFileInfo javaFileInfo = MPNewPropertiesManagerForJava.getInstance().fileInfo(params, JDT_UTILS,
 				new NullProgressMonitor());
 		Assert.assertNull(javaFileInfo);
 

@@ -25,7 +25,6 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
 import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
-import org.eclipse.lsp4jdt.core.java.validators.JavaASTValidator;
 
 /**
  * The java diagnostic participant which visit one time a given AST compilation

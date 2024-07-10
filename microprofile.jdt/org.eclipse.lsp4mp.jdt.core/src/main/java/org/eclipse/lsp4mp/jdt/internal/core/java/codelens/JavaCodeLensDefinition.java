@@ -20,9 +20,9 @@ import java.util.logging.Logger;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.lsp4j.CodeLens;
+import org.eclipse.lsp4jdt.participants.core.java.AbstractJavaFeatureDefinition;
 import org.eclipse.lsp4mp.jdt.core.java.codelens.IJavaCodeLensParticipant;
 import org.eclipse.lsp4mp.jdt.core.java.codelens.JavaCodeLensContext;
-import org.eclipse.lsp4mp.jdt.internal.core.java.AbstractJavaFeatureDefinition;
 
 /**
  * Wrapper class around java participants {@link IJavaCodeLensParticipant}.

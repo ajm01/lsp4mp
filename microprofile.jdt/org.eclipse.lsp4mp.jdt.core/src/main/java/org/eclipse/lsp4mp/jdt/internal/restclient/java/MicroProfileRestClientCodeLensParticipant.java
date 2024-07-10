@@ -13,13 +13,13 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.restclient.java;
 
-import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsUtils.createURLCodeLens;
-import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsUtils.getJaxRsPathValue;
-import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsUtils.isJaxRsRequestMethod;
-import static org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsUtils.isClickableJaxRsRequestMethod;
+import static org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils.createURLCodeLens;
+import static org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils.getJaxRsPathValue;
+import static org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils.isJaxRsRequestMethod;
+import static org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils.isClickableJaxRsRequestMethod;
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotation;
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.overlaps;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.overlaps;
 import static org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientConstants.REGISTER_REST_CLIENT_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientConstants.REGISTER_REST_CLIENT_ANNOTATION_BASE_URI;
 
@@ -39,12 +39,12 @@ import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.lsp4j.CodeLens;
 import org.eclipse.lsp4jdt.commons.JavaCodeLensParams;
-import org.eclipse.lsp4mp.jdt.core.java.codelens.IJavaCodeLensParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.codelens.JavaCodeLensContext;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProject;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProjectManager;
+import org.eclipse.lsp4jdt.core.java.codelens.IJavaCodeLensParticipant;
+import org.eclipse.lsp4jdt.core.java.codelens.JavaCodeLensContext;
 import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
 
 /**
  *

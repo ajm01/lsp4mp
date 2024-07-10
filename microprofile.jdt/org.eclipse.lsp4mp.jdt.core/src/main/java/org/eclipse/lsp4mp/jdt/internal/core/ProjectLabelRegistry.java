@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.lsp4mp.jdt.core.IProjectLabelProvider;
+import org.eclipse.lsp4jdt.core.IProjectLabelProvider;
 import org.eclipse.lsp4mp.jdt.core.MicroProfileCorePlugin;
 import org.eclipse.lsp4mp.jdt.core.ProjectLabelDefinition;
 

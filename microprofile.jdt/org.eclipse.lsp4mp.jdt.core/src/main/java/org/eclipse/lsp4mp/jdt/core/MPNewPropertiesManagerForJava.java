@@ -3,8 +3,8 @@ package org.eclipse.lsp4mp.jdt.core;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionHandler;
 import org.eclipse.lsp4mp.commons.diagnostics.MicroProfileDiagnosticsHandler;
 import org.eclipse.lsp4jdt.core.AbstractPropertiesManagerForJava;
-import org.eclipse.lsp4jdt.internal.core.java.codeaction.AbstractCodeActionHandler;
-import org.eclipse.lsp4jdt.internal.core.java.diagnostics.AbstractDiagnosticsHandler;
+import org.eclipse.lsp4jdt.participants.core.java.codeaction.AbstractCodeActionHandler;
+import org.eclipse.lsp4jdt.participants.core.java.diagnostics.AbstractDiagnosticsHandler;
 
 public class MPNewPropertiesManagerForJava extends AbstractPropertiesManagerForJava {
 

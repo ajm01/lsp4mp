@@ -30,8 +30,8 @@ import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
 import org.eclipse.lsp4jdt.commons.DocumentFormat;
 import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
-import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
-import org.eclipse.lsp4jdt.commons.JavaDiagnosticsSettings;
+import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
+import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsSettings;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionFactory;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
@@ -48,7 +48,7 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 		IJavaProject javaProject = loadMavenProject(MicroProfileMavenProjectName.config_quickstart);
 		IJDTUtils utils = JDT_UTILS;
 
-		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
+		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/config/DefaultValueResource.java"));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
@@ -84,7 +84,7 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 		IJavaProject javaProject = loadMavenProject(MicroProfileMavenProjectName.config_quickstart);
 		IJDTUtils utils = JDT_UTILS;
 
-		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
+		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/config/DefaultValueListResource.java"));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
@@ -119,10 +119,10 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 		IJavaProject javaProject = loadMavenProject(MicroProfileMavenProjectName.config_quickstart);
 		IJDTUtils utils = JDT_UTILS;
 
-		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
+		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/config/DefaultValueResource.java"));
-		diagnosticsParams.setSettings(new JavaDiagnosticsSettings(Arrays.asList("greeting?")));
+		diagnosticsParams.setSettings(new MicroProfileJavaDiagnosticsSettings(Arrays.asList("greeting?")));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
 		diagnosticsParams.setDocumentFormat(DocumentFormat.Markdown);
 
@@ -138,12 +138,17 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 				MicroProfileConfigConstants.MICRO_PROFILE_CONFIG_DIAGNOSTIC_SOURCE,
 				MicroProfileConfigErrorCode.DEFAULT_VALUE_IS_WRONG_TYPE);
 
-		Diagnostic d4 = d(35, 54, 58, "'AB' does not match the expected type of 'char'.", DiagnosticSeverity.Error,
+		Diagnostic d4 = d(32, 27, 38, "The property 'greeting9' is not assigned a value in any config file, and must be assigned at runtime.", DiagnosticSeverity.Warning,
+				MicroProfileConfigConstants.MICRO_PROFILE_CONFIG_DIAGNOSTIC_SOURCE,
+				MicroProfileConfigErrorCode.NO_VALUE_ASSIGNED_TO_PROPERTY);
+		setDataForUnassigned("greeting9", d4);
+		
+		Diagnostic d5 = d(35, 54, 58, "'AB' does not match the expected type of 'char'.", DiagnosticSeverity.Error,
 				MicroProfileConfigConstants.MICRO_PROFILE_CONFIG_DIAGNOSTIC_SOURCE,
 				MicroProfileConfigErrorCode.DEFAULT_VALUE_IS_WRONG_TYPE);
-
+		
 		assertJavaDiagnostics(diagnosticsParams, utils, //
-				d1, d2, d3, d4);
+				d1, d2, d3, d4, d5);
 	}
 
 	@Test
@@ -151,7 +156,7 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 		IJavaProject javaProject = loadMavenProject(MicroProfileMavenProjectName.microprofile_configproperties);
 		IJDTUtils utils = JDT_UTILS;
 
-		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
+		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path("src/main/java/org/acme/Details.java"));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
 		diagnosticsParams.setDocumentFormat(DocumentFormat.Markdown);
@@ -175,7 +180,7 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 		IFile propertiesFile = javaProject.getProject()
 				.getFile(new Path("src/main/resources/META-INF/microprofile-config.properties"));
 
-		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
+		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/config/UnassignedValue.java"));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
@@ -249,7 +254,7 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 		IJavaProject javaProject = loadMavenProject(MicroProfileMavenProjectName.microprofile_configproperties);
 		IJDTUtils utils = JDT_UTILS;
 
-		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
+		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path("src/main/java/org/acme/EmptyKey.java"));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
 		diagnosticsParams.setDocumentFormat(DocumentFormat.Markdown);

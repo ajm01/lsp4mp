@@ -27,7 +27,7 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.lsp4j.CodeLens;
 import org.eclipse.lsp4jdt.commons.JavaCodeLensParams;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
-import org.eclipse.lsp4mp.jdt.core.PropertiesManagerForJava;
+import org.eclipse.lsp4mp.jdt.core.MPNewPropertiesManagerForJava;
 import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.core.providers.MicroProfileConfigSourceProvider;
 import org.junit.Assert;
@@ -56,7 +56,7 @@ public class MicroProfileRestClientJavaCodeLensTest extends BasePropertiesManage
 		params.setUrlCodeLensEnabled(true);
 
 		// No configuration of base url
-		List<? extends CodeLens> lenses = PropertiesManagerForJava.getInstance().codeLens(params, utils,
+		List<? extends CodeLens> lenses = MPNewPropertiesManagerForJava.getInstance().codeLens(params, utils,
 				new NullProgressMonitor());
 		Assert.assertEquals(0, lenses.size());
 
@@ -89,7 +89,7 @@ public class MicroProfileRestClientJavaCodeLensTest extends BasePropertiesManage
 		params.setUrlCodeLensEnabled(true);
 
 		// No configuration of base url
-		List<? extends CodeLens> lenses = PropertiesManagerForJava.getInstance().codeLens(params, utils,
+		List<? extends CodeLens> lenses = MPNewPropertiesManagerForJava.getInstance().codeLens(params, utils,
 				new NullProgressMonitor());
 		Assert.assertEquals(0, lenses.size());
 

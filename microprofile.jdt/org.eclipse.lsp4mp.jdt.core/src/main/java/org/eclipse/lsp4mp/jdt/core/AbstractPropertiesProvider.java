@@ -13,7 +13,7 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.core;
 
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getPropertyType;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getPropertyType;
 
 import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IJavaElement;

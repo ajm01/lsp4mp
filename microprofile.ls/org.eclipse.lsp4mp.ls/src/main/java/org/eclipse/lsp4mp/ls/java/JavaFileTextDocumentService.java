@@ -56,6 +56,8 @@ import org.eclipse.lsp4jdt.commons.JavaDefinitionParams;
 import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
 import org.eclipse.lsp4jdt.commons.JavaDiagnosticsSettings;
 import org.eclipse.lsp4jdt.commons.JavaHoverParams;
+import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
+import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsSettings;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesChangeEvent;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
 import org.eclipse.lsp4mp.ls.AbstractTextDocumentService;
@@ -372,8 +374,8 @@ public class JavaFileTextDocumentService extends AbstractTextDocumentService {
 		}
 		List<String> excludedUnassignedProperties = sharedSettings.getValidationSettings().getUnassigned()
 				.getExcluded();
-		JavaDiagnosticsParams javaParams = new JavaDiagnosticsParams(uris,
-				new JavaDiagnosticsSettings(excludedUnassignedProperties));
+		JavaDiagnosticsParams javaParams = new MicroProfileJavaDiagnosticsParams(uris,
+				new MicroProfileJavaDiagnosticsSettings(excludedUnassignedProperties));
 		boolean markdownSupported = sharedSettings.getHoverSettings().isContentFormatSupported(MarkupKind.MARKDOWN);
 		if (markdownSupported) {
 			javaParams.setDocumentFormat(DocumentFormat.Markdown);

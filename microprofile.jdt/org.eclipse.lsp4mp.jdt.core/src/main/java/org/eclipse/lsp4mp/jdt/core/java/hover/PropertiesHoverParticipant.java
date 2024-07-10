@@ -37,11 +37,11 @@ import org.eclipse.lsp4jdt.commons.DocumentFormat;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProject;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProjectManager;
 import org.eclipse.lsp4mp.jdt.core.project.MicroProfileConfigPropertyInformation;
+import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
 import org.eclipse.lsp4jdt.core.utils.AnnotationMemberInfo;
 import org.eclipse.lsp4jdt.core.java.hover.IJavaHoverParticipant;
 import org.eclipse.lsp4jdt.core.java.hover.JavaHoverContext;
 import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
 
 /**
  *

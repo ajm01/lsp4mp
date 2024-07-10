@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.lsp4j.CodeActionKind;
-import org.eclipse.lsp4jdt.internal.core.java.codeaction.AbstractCodeActionHandler;
+import org.eclipse.lsp4jdt.participants.core.java.codeaction.AbstractCodeActionHandler;
 
 public class MicroProfileCodeActionHandler extends AbstractCodeActionHandler {
 

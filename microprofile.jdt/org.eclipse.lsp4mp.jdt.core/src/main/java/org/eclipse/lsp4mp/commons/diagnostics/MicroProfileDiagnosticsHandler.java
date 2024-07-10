@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.lsp4jdt.commons.utils.JSONUtility;
+import org.eclipse.lsp4jdt.participants.core.java.diagnostics.AbstractDiagnosticsHandler;
 import org.eclipse.lsp4jdt.commons.DocumentFormat;
 import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
-import org.eclipse.lsp4jdt.internal.core.java.diagnostics.AbstractDiagnosticsHandler;
 
 public class MicroProfileDiagnosticsHandler extends AbstractDiagnosticsHandler {
 

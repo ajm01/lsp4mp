@@ -57,6 +57,11 @@
    <extension point="org.eclipse.lsp4mp.jdt.core.configSourceProviders">
       <provider class="org.eclipse.lsp4mp.jdt.internal.core.providers.MicroProfileConfigSourceProvider" />
    </extension>
+   
+      <extension point="org.eclipse.lsp4jdt.core.javaFeatureParticipants" >
+      <!-- Diagnostics managed with Java AST vistor -->
+   	  <diagnostics class="org.eclipse.lsp4mp.jdt.internal.core.java.validators.JavaASTDiagnosticsParticipant" />
+   </extension>
 
 
    <!-- Java Util Logging Config support -->

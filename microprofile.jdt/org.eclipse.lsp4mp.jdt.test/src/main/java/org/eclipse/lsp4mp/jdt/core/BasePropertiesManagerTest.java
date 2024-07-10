@@ -45,8 +45,8 @@ import org.eclipse.lsp4jdt.commons.DocumentFormat;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfo;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
 import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.participants.core.ls.JDTUtilsLSImpl;
 import org.eclipse.lsp4mp.jdt.internal.core.JobHelpers;
-import org.eclipse.lsp4jdt.internal.core.ls.JDTUtilsLSImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 

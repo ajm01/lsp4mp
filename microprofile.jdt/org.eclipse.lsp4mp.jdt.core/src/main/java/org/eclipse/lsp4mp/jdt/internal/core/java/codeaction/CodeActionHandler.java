@@ -40,7 +40,8 @@ import org.eclipse.lsp4jdt.core.java.codeaction.IJavaCodeActionParticipant;
 import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionContext;
 import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionResolveContext;
 import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4mp.jdt.internal.core.java.JavaFeaturesRegistry;
+import org.eclipse.lsp4jdt.participants.core.java.JavaFeaturesRegistry;
+import org.eclipse.lsp4jdt.participants.core.java.codeaction.JavaCodeActionDefinition;
 import org.eclipse.lsp4mp.jdt.internal.core.java.corrections.DiagnosticsHelper;
 
 /**

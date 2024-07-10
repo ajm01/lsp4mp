@@ -19,14 +19,14 @@ import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PRO
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PROPERTY_ANNOTATION_NAME;
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.hasAnnotation;
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.findType;
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getEnclosedType;
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getPropertyType;
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getResolvedTypeName;
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getSourceField;
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getSourceMethod;
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getSourceType;
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.isBinary;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.findType;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getEnclosedType;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getPropertyType;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getResolvedTypeName;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getSourceField;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getSourceMethod;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getSourceType;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.isBinary;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.core.runtime.IProgressMonitor;

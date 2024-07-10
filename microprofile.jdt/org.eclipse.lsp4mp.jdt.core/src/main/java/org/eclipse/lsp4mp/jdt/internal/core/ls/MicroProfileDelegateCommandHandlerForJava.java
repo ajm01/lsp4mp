@@ -11,16 +11,16 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.core.ls;
 
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getBoolean;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getCodeActionContext;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getFirst;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getInt;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getObject;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getPosition;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getRange;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getString;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getStringList;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getTextDocumentIdentifier;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getBoolean;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getCodeActionContext;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getFirst;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getInt;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getObject;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getPosition;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getRange;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getString;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getStringList;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getTextDocumentIdentifier;
 
 import java.util.List;
 import java.util.Map;
@@ -53,11 +53,10 @@ import org.eclipse.lsp4jdt.commons.JavaDiagnosticsSettings;
 import org.eclipse.lsp4jdt.commons.JavaFileInfoParams;
 import org.eclipse.lsp4jdt.commons.JavaHoverParams;
 import org.eclipse.lsp4jdt.commons.codeaction.CodeActionResolveData;
-import org.eclipse.lsp4jdt.internal.core.ls.JDTUtilsLSImpl;
+import org.eclipse.lsp4jdt.participants.core.ls.AbstractDelegateCommandHandler;
+import org.eclipse.lsp4jdt.participants.core.ls.JDTUtilsLSImpl;
 import org.eclipse.lsp4mp.commons.utils.JSONUtility;
 import org.eclipse.lsp4mp.jdt.core.MPNewPropertiesManagerForJava;
-import org.eclipse.lsp4mp.jdt.core.PropertiesManagerForJava;
-import org.eclipse.lsp4jdt.internal.core.ls.AbstractDelegateCommandHandler;
 
 /**
  * JDT LS delegate command handler for Java file.
@@ -121,7 +120,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractDelegateC
 		// Create java file information parameter
 		JavaFileInfoParams params = createJavaFileInfoParams(arguments, commandId);
 		// Return file information from the parameter
-		return MPNewPropertiesManagerForJava.getInstance().fileInfo(params, JDTUtilsLSImpl.getInstance());
+		return MPNewPropertiesManagerForJava.getInstance().fileInfo(params, JDTUtilsLSImpl.getInstance(), monitor);
 	}
 
 	/**

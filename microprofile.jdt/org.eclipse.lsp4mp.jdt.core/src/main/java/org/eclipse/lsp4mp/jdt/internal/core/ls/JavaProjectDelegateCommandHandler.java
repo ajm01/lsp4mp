@@ -13,19 +13,19 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.core.ls;
 
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getFirst;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getString;
-import static org.eclipse.lsp4jdt.internal.core.ls.ArgumentUtils.getStringList;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getFirst;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getString;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getStringList;
 
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.lsp4jdt.commons.JavaProjectLabelsParams;
-import org.eclipse.lsp4jdt.internal.core.ls.AbstractDelegateCommandHandler;
-import org.eclipse.lsp4jdt.internal.core.ls.JDTUtilsLSImpl;
-import org.eclipse.lsp4mp.jdt.core.MPNewPropertiesManagerForJava;
 import org.eclipse.lsp4jdt.core.ProjectLabelManager;
+import org.eclipse.lsp4jdt.participants.core.ls.AbstractDelegateCommandHandler;
+import org.eclipse.lsp4jdt.participants.core.ls.JDTUtilsLSImpl;
+import org.eclipse.lsp4mp.jdt.core.MPNewPropertiesManagerForJava;
 
 /**
  * Delegate command handler for Java project information

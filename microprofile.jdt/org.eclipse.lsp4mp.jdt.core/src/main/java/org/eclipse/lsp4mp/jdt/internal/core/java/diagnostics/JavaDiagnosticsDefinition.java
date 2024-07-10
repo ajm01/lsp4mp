@@ -22,7 +22,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
 import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
-import org.eclipse.lsp4mp.jdt.internal.core.java.AbstractJavaFeatureDefinition;
+import org.eclipse.lsp4jdt.participants.core.java.AbstractJavaFeatureDefinition;
 
 /**
  * Wrapper class around java participants {@link IJavaDiagnosticsParticipant}.

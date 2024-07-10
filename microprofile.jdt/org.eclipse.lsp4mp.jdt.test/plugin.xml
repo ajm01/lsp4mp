@@ -6,7 +6,7 @@
    </extension>
 
    <!-- test jax-rs provider: all public methods in CustomJaxRsResolving.java are JAX-RS endpoints -->
-   <extension point="org.eclipse.lsp4mp.jdt.core.javaFeatureParticipants">
+   <extension point="org.eclipse.lsp4jdt.core.javaFeatureParticipants">
       <jaxrs class="org.eclipse.lsp4mp.jdt.core.jaxrs.TestJaxRsInfoProvider">
       </jaxrs>
    </extension>
