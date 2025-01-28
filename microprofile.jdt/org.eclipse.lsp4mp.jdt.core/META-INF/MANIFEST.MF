@@ -59,7 +59,7 @@ Bundle-ClassPath: .
 Import-Package: com.google.common.graph,
  com.google.gson,
  com.google.gson.stream,
- io.smallrye.common.constraint,
- io.smallrye.common.expression,
- io.smallrye.common.function,
- org.jboss.logging
+ io.smallrye.common.constraint;resolution:=optional,
+ io.smallrye.common.expression;resolution:=optional,
+ io.smallrye.common.function;resolution:=optional,
+ org.jboss.logging;resolution:=optional

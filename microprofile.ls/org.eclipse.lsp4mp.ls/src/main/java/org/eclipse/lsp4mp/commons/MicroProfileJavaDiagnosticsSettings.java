@@ -16,14 +16,17 @@ package org.eclipse.lsp4mp.commons;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsSettings;
+
 /**
  * Represents settings used by the MicroProfile JDT component while validating
  * Java class files
  *
  */
-public class MicroProfileJavaDiagnosticsSettings {
+public class MicroProfileJavaDiagnosticsSettings extends JavaDiagnosticsSettings {
 
 	public MicroProfileJavaDiagnosticsSettings(List<String> patterns) {
+		super(patterns);
 		this.patterns = patterns;
 	}
 
