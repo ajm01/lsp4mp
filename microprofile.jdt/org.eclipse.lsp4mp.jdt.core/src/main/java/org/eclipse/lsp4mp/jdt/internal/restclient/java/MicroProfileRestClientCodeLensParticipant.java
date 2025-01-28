@@ -17,7 +17,7 @@ import static org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils.createURLCodeLens;
 import static org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils.getJaxRsPathValue;
 import static org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils.isJaxRsRequestMethod;
 import static org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils.isClickableJaxRsRequestMethod;
-import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getFirstAnnotation;
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
 import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.overlaps;
 import static org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientConstants.REGISTER_REST_CLIENT_ANNOTATION;

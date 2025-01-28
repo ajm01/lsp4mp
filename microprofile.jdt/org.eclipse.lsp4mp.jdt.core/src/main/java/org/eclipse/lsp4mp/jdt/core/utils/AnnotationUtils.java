@@ -41,6 +41,7 @@ import org.eclipse.jdt.internal.core.JavaModelManager;
 import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.Range;
 import org.eclipse.lsp4j.util.Ranges;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 
 /**
  * Java annotations utilities.

@@ -12,6 +12,49 @@
 package org.eclipse.lsp4mp.jdt.internal.faulttolerance.properties;
 
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getFirstAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.findType;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getDefaultValue;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getEnclosedType;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getPropertyType;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getResolvedResultTypeName;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getSourceMethod;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getSourceType;
+import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.ASYNCHRONOUS_ANNOTATION;
+import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.BULKHEAD_ANNOTATION;
+import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.CIRCUITBREAKER_ANNOTATION;
+import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.FALLBACK_ANNOTATION;
+import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.MP_FAULT_TOLERANCE_NONFALLBACK_ENABLED_DESCRIPTION;
+import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.MP_FAULT_TOLERANCE_NON_FALLBACK_ENABLED;
+import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.RETRY_ANNOTATION;
+import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.TIMEOUT_ANNOTATION;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jdt.core.IAnnotation;
+import org.eclipse.jdt.core.IClassFile;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IMember;
+import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4mp.jdt.core.AbstractAnnotationTypeReferencePropertiesProvider;
+import org.eclipse.lsp4mp.jdt.core.IPropertiesCollector;
+import org.eclipse.lsp4mp.jdt.core.SearchContext;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
+
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
 import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.findType;
 import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getDefaultValue;

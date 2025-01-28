@@ -14,6 +14,7 @@
 package org.eclipse.lsp4mp.jdt.core.java.definition;
 
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getFirstAnnotation;
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberAt;
 
 import java.util.List;

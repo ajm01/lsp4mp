@@ -367,4 +367,3 @@ public class JDTTypeUtils {
 		return SIG_VOID.equals(method.getReturnType());
 	}
 }
->>>>>>> CommonJDTOnlyPOC

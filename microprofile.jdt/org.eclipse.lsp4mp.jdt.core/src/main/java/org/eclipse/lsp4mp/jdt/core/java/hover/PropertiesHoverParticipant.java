@@ -14,6 +14,7 @@
 package org.eclipse.lsp4mp.jdt.core.java.hover;
 
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getFirstAnnotation;
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberAt;
 import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
 

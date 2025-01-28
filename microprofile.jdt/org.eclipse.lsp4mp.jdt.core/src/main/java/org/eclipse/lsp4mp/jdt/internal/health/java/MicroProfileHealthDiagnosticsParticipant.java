@@ -13,6 +13,8 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.health.java;
 
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.hasAnyAnnotation;
+
 import static org.eclipse.lsp4mp.jdt.internal.health.MicroProfileHealthConstants.HEALTH_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.internal.health.MicroProfileHealthConstants.HEALTH_CHECK_INTERFACE;
 import static org.eclipse.lsp4mp.jdt.internal.health.MicroProfileHealthConstants.HEALTH_CHECK_INTERFACE_NAME;
@@ -112,7 +114,7 @@ public class MicroProfileHealthDiagnosticsParticipant implements IJavaDiagnostic
 		IType[] interfaces = findImplementedInterfaces(classType, monitor);
 		boolean implementsHealthCheck = Stream.of(interfaces)
 				.anyMatch(interfaceType -> HEALTH_CHECK_INTERFACE_NAME.equals(interfaceType.getElementName()));
-		boolean hasOneOfHealthAnnotation = AnnotationUtils.hasAnyAnnotation(classType, LIVENESS_ANNOTATION,
+		boolean hasOneOfHealthAnnotation = hasAnyAnnotation(classType, LIVENESS_ANNOTATION,
 				READINESS_ANNOTATION, STARTUP_ANNOTATION, HEALTH_ANNOTATION);
 		// Diagnostic 1:display Health annotation diagnostic message if
 		// Health/Liveness/Readiness/Startup annotation exists but HealthCheck interface

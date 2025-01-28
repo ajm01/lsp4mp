@@ -32,7 +32,7 @@
     <url>https://github.com/eclipse/lsp4mp</url>
     <tag>${project.version}</tag>
   </scm>
-  <repositories>
+<!--  <repositories>
       <repository>
       <id>jdt.ls.p2</id>
       <layout>p2</layout>
@@ -47,7 +47,7 @@
       <id>jdt.ls.maven</id>
       <url>https://repo.eclipse.org/content/repositories/jdtls-snapshots/</url>
     </repository>
-  </repositories>
+  </repositories> -->
   <build>
     <plugins>
       <plugin>
