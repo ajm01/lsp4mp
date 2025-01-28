@@ -23,9 +23,8 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.lsp4j.Diagnostic;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.JavaDiagnosticsContext;
-import org.eclipse.lsp4mp.jdt.core.java.validators.JavaASTValidator;
+import org.eclipse.lsp4jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
+import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
 
 /**
  * The java diagnostic participant which visit one time a given AST compilation

@@ -29,9 +29,10 @@ import org.eclipse.core.runtime.IRegistryChangeListener;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.lsp4j.Diagnostic;
+import org.eclipse.lsp4jdt.core.LSP4JDTCorePlugin;
+import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
+import org.eclipse.lsp4jdt.core.java.validators.JavaASTValidator;
 import org.eclipse.lsp4mp.jdt.core.MicroProfileCorePlugin;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.JavaDiagnosticsContext;
-import org.eclipse.lsp4mp.jdt.core.java.validators.JavaASTValidator;
 import org.eclipse.lsp4mp.jdt.internal.core.java.validators.annotations.AnnotationAttributeRule;
 import org.eclipse.lsp4mp.jdt.internal.core.java.validators.annotations.AnnotationRule;
 import org.eclipse.lsp4mp.jdt.internal.core.java.validators.annotations.AnnotationRulesJavaASTValidator;
@@ -111,7 +112,7 @@ public class JavaASTValidatorRegistry extends AnnotationValidator implements IRe
 		LOGGER.log(Level.INFO, "->- Loading ." + getExtensionId() + " extension point ->-");
 
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
-		IConfigurationElement[] cf = registry.getConfigurationElementsFor(MicroProfileCorePlugin.PLUGIN_ID,
+		IConfigurationElement[] cf = registry.getConfigurationElementsFor(LSP4JDTCorePlugin.PLUGIN_ID,
 				getExtensionId());
 		addExtensionJavaASTValidators(cf);
 		addRegistryListenerIfNeeded();

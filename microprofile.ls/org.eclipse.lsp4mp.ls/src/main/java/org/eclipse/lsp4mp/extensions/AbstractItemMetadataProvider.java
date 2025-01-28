@@ -15,7 +15,6 @@ package org.eclipse.lsp4mp.extensions;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.lsp4mp.commons.metadata.ItemMetadata;
 import org.eclipse.lsp4mp.model.PropertiesModel;
 

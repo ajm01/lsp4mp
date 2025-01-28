@@ -16,8 +16,8 @@ package org.eclipse.lsp4mp.ls.api;
 import java.util.concurrent.CompletableFuture;
 
 import org.eclipse.lsp4j.jsonrpc.services.JsonRequest;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionResult;
+import org.eclipse.lsp4jdt.commons.JavaCompletionParams;
+import org.eclipse.lsp4jdt.commons.JavaCompletionResult;
 
 /**
  * Interface for MicroProfile specific completion in Java files
@@ -27,6 +27,6 @@ import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionResult;
 public interface MicroProfileJavaCompletionProvider {
 
 	@JsonRequest("microprofile/java/completion")
-	CompletableFuture<MicroProfileJavaCompletionResult> getJavaCompletion(MicroProfileJavaCompletionParams javaParams);
+	CompletableFuture<JavaCompletionResult> getJavaCompletion(JavaCompletionParams javaParams);
 
 }

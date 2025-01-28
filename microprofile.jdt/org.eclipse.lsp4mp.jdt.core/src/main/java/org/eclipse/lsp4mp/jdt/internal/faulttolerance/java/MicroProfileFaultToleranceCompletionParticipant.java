@@ -37,10 +37,10 @@ import org.eclipse.lsp4j.CompletionItemKind;
 import org.eclipse.lsp4j.Range;
 import org.eclipse.lsp4j.TextEdit;
 import org.eclipse.lsp4j.jsonrpc.messages.Either;
-import org.eclipse.lsp4mp.jdt.core.java.completion.IJavaCompletionParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.completion.JavaCompletionContext;
-import org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.java.completion.IJavaCompletionParticipant;
+import org.eclipse.lsp4jdt.core.java.completion.JavaCompletionContext;
+import org.eclipse.lsp4jdt.core.utils.AnnotationUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
 
 /**

@@ -33,13 +33,13 @@ import org.eclipse.jdt.core.ITypeHierarchy;
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.Range;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.JavaDiagnosticsContext;
-import org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
+import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
+import org.eclipse.lsp4jdt.core.utils.AnnotationUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.PositionUtils;
 import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.PositionUtils;
 import org.eclipse.lsp4mp.jdt.internal.health.MicroProfileHealthConstants;
 
 /**
@@ -74,6 +74,7 @@ public class MicroProfileHealthDiagnosticsParticipant implements IJavaDiagnostic
 		// Collection of diagnostics for MicroProfile Health is done only if
 		// microprofile-health is on the classpath
 		IJavaProject javaProject = context.getJavaProject();
+		boolean yes = JDTTypeUtils.findType(javaProject, HEALTH_CHECK_INTERFACE) != null;
 		return JDTTypeUtils.findType(javaProject, HEALTH_CHECK_INTERFACE) != null;
 	}
 

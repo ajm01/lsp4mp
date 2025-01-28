@@ -12,4 +12,10 @@
 	<packaging>eclipse-plugin</packaging>
 	<name>MicroProfile JDT LS Extension</name>
 	<description>MicroProfile JDT LS Extension - Core</description>
+	
+	<dependencies>		<dependency>
+			<groupId>io.smallrye.common</groupId>
+			<artifactId>smallrye-common-expression</artifactId>
+			<version>1.12.0</version>
+		</dependency></dependencies>
 </project>

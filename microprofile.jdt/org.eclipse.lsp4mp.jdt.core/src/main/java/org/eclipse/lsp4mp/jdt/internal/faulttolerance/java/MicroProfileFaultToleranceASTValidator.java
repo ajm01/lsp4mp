@@ -16,8 +16,8 @@ package org.eclipse.lsp4mp.jdt.internal.faulttolerance.java;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.COMPLETION_STAGE_TYPE_UTILITY;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.FUTURE_TYPE_UTILITY;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.UNI_TYPE_UTILITY;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotationMemberValueExpression;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.isMatchAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValueExpression;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.isMatchAnnotation;
 import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.ASYNCHRONOUS_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.DELAY_RETRY_ANNOTATION_MEMBER;
 import static org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants.DELAY_UNIT_RETRY_ANNOTATION_MEMBER;
@@ -63,8 +63,8 @@ import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.lsp4j.DiagnosticSeverity;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.JavaDiagnosticsContext;
-import org.eclipse.lsp4mp.jdt.core.java.validators.JavaASTValidator;
+import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
+import org.eclipse.lsp4jdt.core.java.validators.JavaASTValidator;
 import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
 
 /**

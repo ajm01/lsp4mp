@@ -16,6 +16,7 @@ package org.eclipse.lsp4mp.jdt.internal.core.ls;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

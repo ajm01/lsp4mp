@@ -11,8 +11,8 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.faulttolerance.properties;
 
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getFirstAnnotation;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
 import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.findType;
 import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getDefaultValue;
 import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getEnclosedType;
@@ -48,11 +48,11 @@ import org.eclipse.jdt.core.IMember;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
 import org.eclipse.lsp4mp.jdt.core.AbstractAnnotationTypeReferencePropertiesProvider;
 import org.eclipse.lsp4mp.jdt.core.IPropertiesCollector;
 import org.eclipse.lsp4mp.jdt.core.SearchContext;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 
 /**
  * Properties provider to collect MicroProfile properties from the MicroProfile

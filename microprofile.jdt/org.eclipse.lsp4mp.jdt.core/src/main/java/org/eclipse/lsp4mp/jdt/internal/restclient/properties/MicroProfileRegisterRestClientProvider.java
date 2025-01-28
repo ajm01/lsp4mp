@@ -13,7 +13,7 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.restclient.properties;
 
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
 import static org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientConstants.REGISTER_REST_CLIENT_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientConstants.REGISTER_REST_CLIENT_ANNOTATION_CONFIG_KEY;
 

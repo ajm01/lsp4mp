@@ -19,9 +19,9 @@ import java.util.logging.Logger;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.lsp4j.Hover;
-import org.eclipse.lsp4mp.jdt.core.java.hover.IJavaHoverParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.hover.JavaHoverContext;
-import org.eclipse.lsp4mp.jdt.internal.core.java.AbstractJavaFeatureDefinition;
+import org.eclipse.lsp4jdt.core.java.hover.IJavaHoverParticipant;
+import org.eclipse.lsp4jdt.core.java.hover.JavaHoverContext;
+import org.eclipse.lsp4jdt.participants.core.java.AbstractJavaFeatureDefinition;
 
 /**
  * Wrapper class around java participants {@link IJavaHoverParticipant}.

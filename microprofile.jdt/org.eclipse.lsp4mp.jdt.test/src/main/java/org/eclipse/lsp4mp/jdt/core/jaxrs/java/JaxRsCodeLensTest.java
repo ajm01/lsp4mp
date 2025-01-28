@@ -22,10 +22,9 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.ls.core.internal.ProjectUtils;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
+import org.eclipse.lsp4jdt.commons.JavaCodeLensParams;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
-import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest.MicroProfileMavenProjectName;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -50,7 +49,7 @@ public class JaxRsCodeLensTest extends BasePropertiesManagerTest {
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.hibernate_orm_resteasy);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams();
+		JavaCodeLensParams params = new JavaCodeLensParams();
 		params.setCheckServerAvailable(false);
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/hibernate/orm/FruitResource.java"));
@@ -66,7 +65,7 @@ public class JaxRsCodeLensTest extends BasePropertiesManagerTest {
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.hibernate_orm_resteasy_yaml);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams();
+		JavaCodeLensParams params = new JavaCodeLensParams();
 		params.setCheckServerAvailable(false);
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/hibernate/orm/FruitResource.java"));
@@ -82,7 +81,7 @@ public class JaxRsCodeLensTest extends BasePropertiesManagerTest {
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.hibernate_orm_resteasy);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams();
+		JavaCodeLensParams params = new JavaCodeLensParams();
 		params.setCheckServerAvailable(false);
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/hibernate/orm/CustomJaxRsResolving.java"));
@@ -93,8 +92,7 @@ public class JaxRsCodeLensTest extends BasePropertiesManagerTest {
 				cl("http://localhost:8080/myPath", "", r(7, 18, 26)));
 	}
 
-	private static void assertCodeLenses(int port, MicroProfileJavaCodeLensParams params, IJDTUtils utils)
-			throws JavaModelException {
+	private static void assertCodeLenses(int port, JavaCodeLensParams params, IJDTUtils utils) throws JavaModelException {
 		assertCodeLens(params, utils, //
 				cl("http://localhost:" + port + "/fruits", "", r(31, 8, 8)), //
 				cl("http://localhost:" + port + "/fruits/{id}", "", r(38, 17, 17)), //

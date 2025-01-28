@@ -31,12 +31,12 @@ import org.eclipse.lsp4j.Location;
 import org.eclipse.lsp4j.Range;
 import org.eclipse.lsp4j.SymbolInformation;
 import org.eclipse.lsp4j.SymbolKind;
-import org.eclipse.lsp4mp.jdt.core.java.symbols.IJavaWorkspaceSymbolsParticipant;
-import org.eclipse.lsp4mp.jdt.core.jaxrs.IJaxRsInfoProvider;
-import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsContext;
-import org.eclipse.lsp4mp.jdt.core.jaxrs.JaxRsMethodInfo;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4mp.jdt.internal.core.java.JavaFeaturesRegistry;
+import org.eclipse.lsp4jdt.core.java.symbols.IJavaWorkspaceSymbolsParticipant;
+import org.eclipse.lsp4jdt.core.jaxrs.IJaxRsInfoProvider;
+import org.eclipse.lsp4jdt.core.jaxrs.JaxRsContext;
+import org.eclipse.lsp4jdt.core.jaxrs.JaxRsMethodInfo;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.participants.core.java.JavaFeaturesRegistry;
 
 /**
  * Collects workspace symbols for JAX-RS REST endpoints.

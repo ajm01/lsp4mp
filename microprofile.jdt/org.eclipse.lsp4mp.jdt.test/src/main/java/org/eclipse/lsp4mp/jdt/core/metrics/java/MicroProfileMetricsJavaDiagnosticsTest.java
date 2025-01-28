@@ -27,12 +27,12 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.metrics.MicroProfileMetricsConstants;
 import org.eclipse.lsp4mp.jdt.internal.metrics.java.MicroProfileMetricsErrorCode;
 import org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientConstants;
@@ -50,7 +50,7 @@ public class MicroProfileMetricsJavaDiagnosticsTest extends BasePropertiesManage
 		IJavaProject javaProject = loadMavenProject(MicroProfileMavenProjectName.microprofile_metrics);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path("src/main/java/org/acme/IncorrectScope.java"));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
 		diagnosticsParams.setDocumentFormat(DocumentFormat.Markdown);
@@ -64,7 +64,7 @@ public class MicroProfileMetricsJavaDiagnosticsTest extends BasePropertiesManage
 		assertJavaDiagnostics(diagnosticsParams, utils, d);
 
 		String uri = javaFile.getLocation().toFile().toURI().toString();
-		MicroProfileJavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
+		JavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
 		// check for MicroProfile metrics quick fix code action associated with diagnostic warning
 		assertJavaCodeAction(codeActionParams, utils, //
 			ca(uri, "Replace current scope with @ApplicationScoped", MicroProfileCodeActionId.InsertApplicationScopedAnnotation, d, //
@@ -78,7 +78,7 @@ public class MicroProfileMetricsJavaDiagnosticsTest extends BasePropertiesManage
 		IJavaProject javaProject = loadMavenProject(MicroProfileMavenProjectName.open_liberty);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject()
 		.getFile(new Path("src/main/java/com/demo/rest/IncorrectScopeJakarta.java"));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
@@ -96,7 +96,7 @@ public class MicroProfileMetricsJavaDiagnosticsTest extends BasePropertiesManage
 		assertJavaDiagnostics(diagnosticsParams, utils, d1, d2);
 
 		String uri = javaFile.getLocation().toFile().toURI().toString();
-		MicroProfileJavaCodeActionParams codeActionParams = createCodeActionParams(uri, d1);
+		JavaCodeActionParams codeActionParams = createCodeActionParams(uri, d1);
 		// check for MicroProfile metrics quick fix code action associated with
 		// diagnostic warning
 		assertJavaCodeAction(codeActionParams, utils, //

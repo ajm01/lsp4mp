@@ -20,6 +20,7 @@ import org.eclipse.lsp4j.CodeAction;
 import org.eclipse.lsp4j.CodeActionKind;
 import org.eclipse.lsp4j.Command;
 import org.eclipse.lsp4j.Diagnostic;
+import org.eclipse.lsp4jdt.commons.codeaction.CodeActionData;
 import org.eclipse.lsp4mp.ls.commons.client.CommandKind;
 import org.eclipse.lsp4mp.ls.commons.client.ConfigurationItemEdit;
 import org.eclipse.lsp4mp.ls.commons.client.ConfigurationItemEditType;

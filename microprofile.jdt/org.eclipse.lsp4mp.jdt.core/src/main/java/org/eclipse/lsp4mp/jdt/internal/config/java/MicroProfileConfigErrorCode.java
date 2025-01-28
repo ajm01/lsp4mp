@@ -13,7 +13,7 @@
  *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.config.java;
 
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.IJavaErrorCode;
+import org.eclipse.lsp4jdt.core.java.diagnostics.IJavaErrorCode;
 
 /**
  * Represents the error code for an error related to configuration properties

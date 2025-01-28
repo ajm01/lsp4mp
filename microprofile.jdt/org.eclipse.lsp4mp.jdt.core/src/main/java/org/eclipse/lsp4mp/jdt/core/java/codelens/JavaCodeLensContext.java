@@ -14,9 +14,9 @@
 package org.eclipse.lsp4mp.jdt.core.java.codelens;
 
 import org.eclipse.jdt.core.ITypeRoot;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
-import org.eclipse.lsp4mp.jdt.core.java.AbtractJavaContext;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.commons.JavaCodeLensParams;
+import org.eclipse.lsp4jdt.core.java.AbtractJavaContext;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 
 /**
  * Java codeLens context for a given compilation unit.
@@ -26,14 +26,14 @@ import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
  */
 public class JavaCodeLensContext extends AbtractJavaContext {
 
-	private final MicroProfileJavaCodeLensParams params;
+	private final JavaCodeLensParams params;
 
-	public JavaCodeLensContext(String uri, ITypeRoot typeRoot, IJDTUtils utils, MicroProfileJavaCodeLensParams params) {
+	public JavaCodeLensContext(String uri, ITypeRoot typeRoot, IJDTUtils utils, JavaCodeLensParams params) {
 		super(uri, typeRoot, utils);
 		this.params = params;
 	}
 
-	public MicroProfileJavaCodeLensParams getParams() {
+	public JavaCodeLensParams getParams() {
 		return params;
 	}
 

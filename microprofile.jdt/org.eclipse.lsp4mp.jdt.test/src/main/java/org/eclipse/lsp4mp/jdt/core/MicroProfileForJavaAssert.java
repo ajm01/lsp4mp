@@ -49,18 +49,19 @@ import org.eclipse.lsp4j.TextEdit;
 import org.eclipse.lsp4j.VersionedTextDocumentIdentifier;
 import org.eclipse.lsp4j.WorkspaceEdit;
 import org.eclipse.lsp4j.jsonrpc.messages.Either;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
 import org.eclipse.lsp4mp.commons.MicroProfileDefinition;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDefinitionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaHoverParams;
-import org.eclipse.lsp4mp.commons.codeaction.CodeActionData;
+import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
+import org.eclipse.lsp4jdt.commons.JavaCodeLensParams;
+import org.eclipse.lsp4jdt.commons.JavaCompletionParams;
+import org.eclipse.lsp4jdt.commons.JavaDefinitionParams;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
+import org.eclipse.lsp4jdt.commons.JavaHoverParams;
+import org.eclipse.lsp4jdt.commons.codeaction.CodeActionData;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.IJavaErrorCode;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.java.diagnostics.IJavaErrorCode;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.core.utils.JDTMicroProfileUtils;
 import org.junit.Assert;
 
@@ -74,17 +75,17 @@ public class MicroProfileForJavaAssert {
 
 	// ------------------- Assert for CodeAction
 
-	public static MicroProfileJavaCodeActionParams createCodeActionParams(String uri, Diagnostic d) {
+	public static JavaCodeActionParams createCodeActionParams(String uri, Diagnostic d) {
 		return createCodeActionParams(uri, d, true);
 	}
 
-	public static MicroProfileJavaCodeActionParams createCodeActionParams(String uri, Diagnostic d,
+	public static JavaCodeActionParams createCodeActionParams(String uri, Diagnostic d,
 			boolean commandSupported) {
 		TextDocumentIdentifier textDocument = new TextDocumentIdentifier(uri);
 		Range range = d.getRange();
 		CodeActionContext context = new CodeActionContext();
 		context.setDiagnostics(Arrays.asList(d));
-		MicroProfileJavaCodeActionParams codeActionParams = new MicroProfileJavaCodeActionParams(textDocument, range,
+		JavaCodeActionParams codeActionParams = new JavaCodeActionParams(textDocument, range,
 				context);
 		codeActionParams.setResourceOperationSupported(true);
 		codeActionParams.setCommandConfigurationUpdateSupported(commandSupported);
@@ -92,9 +93,9 @@ public class MicroProfileForJavaAssert {
 		return codeActionParams;
 	}
 
-	public static void assertJavaCodeAction(MicroProfileJavaCodeActionParams params, IJDTUtils utils,
+	public static void assertJavaCodeAction(JavaCodeActionParams params, IJDTUtils utils,
 			CodeAction... expected) throws JavaModelException {
-		List<? extends CodeAction> actual = PropertiesManagerForJava.getInstance().codeAction(params, utils,
+		List<? extends CodeAction> actual = MPNewPropertiesManagerForJava.getInstance().codeAction(params, utils,
 				new NullProgressMonitor());
 		assertCodeActions(actual != null && actual.size() > 0 ? actual : Collections.emptyList(), expected);
 	}
@@ -149,9 +150,9 @@ public class MicroProfileForJavaAssert {
 
 	// ------------------- Assert for Completion
 
-	public static void assertJavaCompletion(MicroProfileJavaCompletionParams params, IJDTUtils utils,
+	public static void assertJavaCompletion(JavaCompletionParams params, IJDTUtils utils,
 			CompletionItem... expected) throws JavaModelException {
-		CompletionList actual = PropertiesManagerForJava.getInstance().completion(params, utils,
+		CompletionList actual = MPNewPropertiesManagerForJava.getInstance().completion(params, utils,
 				new NullProgressMonitor());
 		assertCompletion(actual != null && actual.getItems() != null && actual.getItems().size() > 0 ? actual.getItems()
 				: Collections.emptyList(), expected);
@@ -206,9 +207,9 @@ public class MicroProfileForJavaAssert {
 		return new Position(line, character);
 	}
 
-	public static void assertJavaDiagnostics(MicroProfileJavaDiagnosticsParams params, IJDTUtils utils,
+	public static void assertJavaDiagnostics(JavaDiagnosticsParams params, IJDTUtils utils,
 			Diagnostic... expected) throws JavaModelException {
-		List<PublishDiagnosticsParams> actual = PropertiesManagerForJava.getInstance().diagnostics(params, utils,
+		List<PublishDiagnosticsParams> actual = MPNewPropertiesManagerForJava.getInstance().diagnostics(params, utils,
 				new NullProgressMonitor());
 		assertDiagnostics(
 				actual != null && actual.size() > 0 ? actual.get(0).getDiagnostics() : Collections.emptyList(),
@@ -245,7 +246,7 @@ public class MicroProfileForJavaAssert {
 
 	public static void assertJavaHover(Position hoverPosition, String javaFileUri, IJDTUtils utils, Hover expected)
 			throws JavaModelException {
-		MicroProfileJavaHoverParams params = new MicroProfileJavaHoverParams();
+		JavaHoverParams params = new JavaHoverParams();
 		params.setDocumentFormat(DocumentFormat.Markdown);
 		params.setPosition(hoverPosition);
 		params.setUri(javaFileUri);
@@ -253,9 +254,9 @@ public class MicroProfileForJavaAssert {
 		assertJavaHover(params, utils, expected);
 	}
 
-	public static void assertJavaHover(MicroProfileJavaHoverParams params, IJDTUtils utils, Hover expected)
+	public static void assertJavaHover(JavaHoverParams params, IJDTUtils utils, Hover expected)
 			throws JavaModelException {
-		Hover actual = PropertiesManagerForJava.getInstance().hover(params, utils, new NullProgressMonitor());
+		Hover actual = MPNewPropertiesManagerForJava.getInstance().hover(params, utils, new NullProgressMonitor());
 		assertHover(expected, actual);
 	}
 
@@ -284,20 +285,24 @@ public class MicroProfileForJavaAssert {
 
 	public static void assertJavaDefinitions(Position position, String javaFileUri, IJDTUtils utils,
 			MicroProfileDefinition... expected) throws JavaModelException {
-		MicroProfileJavaDefinitionParams params = new MicroProfileJavaDefinitionParams();
+		JavaDefinitionParams params = new JavaDefinitionParams();
 		params.setPosition(position);
 		params.setUri(javaFileUri);
-		List<MicroProfileDefinition> actual = PropertiesManagerForJava.getInstance().definition(params, utils,
+		List<Object> actual = MPNewPropertiesManagerForJava.getInstance().definition(params, utils,
 				new NullProgressMonitor());
 		assertDefinitions(actual, expected);
 	}
 
-	public static void assertDefinitions(List<MicroProfileDefinition> actual, MicroProfileDefinition... expected) {
+	public static void assertDefinitions(List<Object> actual, MicroProfileDefinition... expected) {
 		Assert.assertEquals(expected.length, actual.size());
+		List<MicroProfileDefinition> mpActual = actual.stream()
+                .map(object -> (MicroProfileDefinition) object)
+                .toList();
+
 		for (int i = 0; i < expected.length; i++) {
 			Assert.assertEquals("Assert selectPropertyName [" + i + "]", expected[i].getSelectPropertyName(),
-					actual.get(i).getSelectPropertyName());
-			Assert.assertEquals("Assert location [" + i + "]", expected[i].getLocation(), actual.get(i).getLocation());
+					mpActual.get(i).getSelectPropertyName());
+			Assert.assertEquals("Assert location [" + i + "]", expected[i].getLocation(), mpActual.get(i).getLocation());
 		}
 	}
 
@@ -357,7 +362,7 @@ public class MicroProfileForJavaAssert {
 	 */
 	public static void assertWorkspaceSymbols(IJavaProject javaProject, IJDTUtils utils, SymbolInformation... expected)
 			throws JavaModelException {
-		List<SymbolInformation> actual = PropertiesManagerForJava.getInstance()
+		List<SymbolInformation> actual = MPNewPropertiesManagerForJava.getInstance()
 				.workspaceSymbols(JDTMicroProfileUtils.getProjectURI(javaProject), utils, new NullProgressMonitor());
 		MicroProfileForJavaAssert.assertWorkspaceSymbols(Arrays.asList(expected), actual);
 	}
@@ -404,9 +409,9 @@ public class MicroProfileForJavaAssert {
 	 * @param expected the list of expected code lens
 	 * @throws JavaModelException
 	 */
-	public static void assertCodeLens(MicroProfileJavaCodeLensParams params, IJDTUtils utils, CodeLens... expected)
+	public static void assertCodeLens(JavaCodeLensParams params, IJDTUtils utils, CodeLens... expected)
 			throws JavaModelException {
-		List<? extends CodeLens> actual = PropertiesManagerForJava.getInstance().codeLens(params, utils,
+		List<? extends CodeLens> actual = MPNewPropertiesManagerForJava.getInstance().codeLens(params, utils,
 				new NullProgressMonitor());
 		assertEquals(expected.length, actual.size());
 

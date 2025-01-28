@@ -23,10 +23,10 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.faulttolerance.MicroProfileFaultToleranceConstants;
 import org.eclipse.lsp4mp.jdt.internal.faulttolerance.java.MicroProfileFaultToleranceErrorCode;
 import org.junit.Test;
@@ -47,7 +47,7 @@ public class MicroProfileFaultToleranceJavaDiagnosticsTest
 				MicroProfileMavenProjectName.microprofile_fault_tolerance);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(
 				new Path("src/main/java/org/acme/FaultTolerantResource.java"));
 		diagnosticsParams.setUris(Arrays
@@ -68,7 +68,7 @@ public class MicroProfileFaultToleranceJavaDiagnosticsTest
 				MicroProfileMavenProjectName.microprofile_fault_tolerance);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path(
 				"src/main/java/org/acme/AsynchronousFaultToleranceResource.java"));
 		diagnosticsParams.setUris(Arrays
@@ -102,7 +102,7 @@ public class MicroProfileFaultToleranceJavaDiagnosticsTest
 				MicroProfileMavenProjectName.microprofile_fault_tolerance);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path(
 				"src/main/java/org/acme/AsynchronousFaultToleranceClassResource.java"));
 		diagnosticsParams.setUris(Arrays
@@ -136,7 +136,7 @@ public class MicroProfileFaultToleranceJavaDiagnosticsTest
 				MicroProfileMavenProjectName.microprofile_fault_tolerance);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path(
 				"src/main/java/org/acme/OtherFaultTolerantResource.java"));
 		diagnosticsParams.setUris(Arrays
@@ -151,7 +151,7 @@ public class MicroProfileFaultToleranceJavaDiagnosticsTest
 				MicroProfileMavenProjectName.microprofile_fault_tolerance);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path(
 				"src/main/java/org/eclipse/microprofile/fault/tolerance/tck/invalidParameters/CircuitBreakerClientForValidationDelay.java"));
 		diagnosticsParams.setUris(Arrays
@@ -177,7 +177,7 @@ public class MicroProfileFaultToleranceJavaDiagnosticsTest
 				MicroProfileMavenProjectName.microprofile_fault_tolerance);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path(
 				"src/main/java/org/eclipse/microprofile/fault/tolerance/tck/invalidParameters/BulkheadClientForValidation.java"));
 		diagnosticsParams.setUris(Arrays
@@ -229,7 +229,7 @@ public class MicroProfileFaultToleranceJavaDiagnosticsTest
 				MicroProfileMavenProjectName.microprofile_fault_tolerance);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path(
 				"src/main/java/org/eclipse/microprofile/fault/tolerance/tck/invalidParameters/TimeoutClientForValidation.java"));
 		diagnosticsParams.setUris(Arrays
@@ -255,7 +255,7 @@ public class MicroProfileFaultToleranceJavaDiagnosticsTest
 				MicroProfileMavenProjectName.microprofile_fault_tolerance);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path(
 				"src/main/java/org/eclipse/microprofile/fault/tolerance/tck/invalidParameters/RetryClientForValidation.java"));
 		diagnosticsParams.setUris(Arrays
@@ -327,7 +327,7 @@ public class MicroProfileFaultToleranceJavaDiagnosticsTest
 				MicroProfileMavenProjectName.microprofile_fault_tolerance);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path(
 				"src/main/java/org/eclipse/microprofile/fault/tolerance/tck/invalidParameters/RetryClientForValidationClass.java"));
 		diagnosticsParams.setUris(Arrays
@@ -369,7 +369,7 @@ public class MicroProfileFaultToleranceJavaDiagnosticsTest
 				MicroProfileMavenProjectName.microprofile_fault_tolerance);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path(
 				"src/main/java/org/eclipse/microprofile/fault/tolerance/tck/invalidParameters/RetryClientForValidationChronoUnit.java"));
 		diagnosticsParams.setUris(Arrays

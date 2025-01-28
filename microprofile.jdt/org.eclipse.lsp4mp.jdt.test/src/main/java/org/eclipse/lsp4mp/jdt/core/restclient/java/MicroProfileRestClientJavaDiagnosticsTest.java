@@ -28,13 +28,12 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.ls.core.internal.ProjectUtils;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
-import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest.MicroProfileMavenProjectName;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientConstants;
 import org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientErrorCode;
 import org.junit.BeforeClass;
@@ -61,7 +60,7 @@ public class MicroProfileRestClientJavaDiagnosticsTest extends BasePropertiesMan
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.rest_client_quickstart);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams params = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams params = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path("src/main/java/org/acme/restclient/Fields.java"));
 		params.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
 		params.setDocumentFormat(DocumentFormat.Markdown);
@@ -94,7 +93,7 @@ public class MicroProfileRestClientJavaDiagnosticsTest extends BasePropertiesMan
 
 		String uri = javaFile.getLocation().toFile().toURI().toString();
 
-		MicroProfileJavaCodeActionParams codeActionParams = createCodeActionParams(uri, d3);
+		JavaCodeActionParams codeActionParams = createCodeActionParams(uri, d3);
 		assertJavaCodeAction(codeActionParams, utils, //
 				ca(uri, "Insert @RestClient", MicroProfileCodeActionId.InsertRestClientAnnotation, d3, //
 						te(14, 1, 14, 1, "@RestClient\r\n\t")));
@@ -116,7 +115,7 @@ public class MicroProfileRestClientJavaDiagnosticsTest extends BasePropertiesMan
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.open_liberty);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams params = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams params = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/com/demo/rest/injectAnnotation.java"));
 		params.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
@@ -141,7 +140,7 @@ public class MicroProfileRestClientJavaDiagnosticsTest extends BasePropertiesMan
 
 		String uri = javaFile.getLocation().toFile().toURI().toString();
 
-		MicroProfileJavaCodeActionParams codeActionParams = createCodeActionParams(uri, d2);
+		JavaCodeActionParams codeActionParams = createCodeActionParams(uri, d2);
 		assertJavaCodeAction(codeActionParams, utils, //
 				ca(uri, "Insert @Inject",  MicroProfileCodeActionId.InsertInjectAnnotation, d2, //
 						te(12, 4, 12, 4, "@Inject\n\t")),
@@ -162,7 +161,7 @@ public class MicroProfileRestClientJavaDiagnosticsTest extends BasePropertiesMan
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.rest_client_quickstart);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams params = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams params = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path("src/main/java/org/acme/restclient/MyService.java"));
 		params.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
 		params.setDocumentFormat(DocumentFormat.Markdown);
@@ -176,7 +175,7 @@ public class MicroProfileRestClientJavaDiagnosticsTest extends BasePropertiesMan
 				d);
 
 		String uri = javaFile.getLocation().toFile().toURI().toString();
-		MicroProfileJavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
+		JavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
 		assertJavaCodeAction(codeActionParams, utils, //
 				ca(uri, "Insert @RegisterRestClient", MicroProfileCodeActionId.InsertRegisterRestClient, d, //
 						te(0, 28, 2, 0,
@@ -188,7 +187,7 @@ public class MicroProfileRestClientJavaDiagnosticsTest extends BasePropertiesMan
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.open_liberty);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams params = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams params = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/com/demo/rest/MyService.java"));
 		params.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
@@ -203,7 +202,7 @@ public class MicroProfileRestClientJavaDiagnosticsTest extends BasePropertiesMan
 				d);
 
 		String uri = javaFile.getLocation().toFile().toURI().toString();
-		MicroProfileJavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
+		JavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
 		assertJavaCodeAction(codeActionParams, utils, //
 				ca(uri, "Insert @RegisterRestClient", MicroProfileCodeActionId.InsertRegisterRestClient, d, //
 						te(0, 22, 2, 0,

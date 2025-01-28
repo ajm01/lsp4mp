@@ -23,11 +23,9 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.ls.core.internal.ProjectUtils;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
+import org.eclipse.lsp4jdt.commons.JavaCodeLensParams;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
-import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest.GradleProjectName;
-import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest.MicroProfileMavenProjectName;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -50,7 +48,7 @@ public class JaxRsApplicationPathCodeLensTest extends BasePropertiesManagerTest 
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.microprofile_applicationpath);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams();
+		JavaCodeLensParams params = new JavaCodeLensParams();
 		params.setCheckServerAvailable(false);
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/ApplicationPathResource.java"));
@@ -72,7 +70,7 @@ public class JaxRsApplicationPathCodeLensTest extends BasePropertiesManagerTest 
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.microprofile_applicationpath);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams();
+		JavaCodeLensParams params = new JavaCodeLensParams();
 		params.setCheckServerAvailable(false);
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/ApplicationPathResource.java"));
@@ -94,7 +92,7 @@ public class JaxRsApplicationPathCodeLensTest extends BasePropertiesManagerTest 
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.microprofile_applicationpath);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams();
+		JavaCodeLensParams params = new JavaCodeLensParams();
 		params.setCheckServerAvailable(false);
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/ApplicationPathResource.java"));
@@ -124,7 +122,7 @@ public class JaxRsApplicationPathCodeLensTest extends BasePropertiesManagerTest 
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.open_liberty);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams();
+		JavaCodeLensParams params = new JavaCodeLensParams();
 		params.setCheckServerAvailable(false);
 		IFile javaFile = javaProject.getProject().getFile(new Path("src/main/java/com/demo/rest/MyResource.java"));
 		params.setUri(javaFile.getLocation().toFile().toURI().toString());
@@ -134,7 +132,7 @@ public class JaxRsApplicationPathCodeLensTest extends BasePropertiesManagerTest 
 				cl("http://localhost:8080/api/api/resource", "", r(13, 5, 5)));
 	}
 
-	private static void assertCodeLenses(int port, MicroProfileJavaCodeLensParams params, IJDTUtils utils,
+	private static void assertCodeLenses(int port, JavaCodeLensParams params, IJDTUtils utils,
 			String actualEndpoint) throws JavaModelException {
 		assertCodeLens(params, utils, //
 				cl("http://localhost:" + port + actualEndpoint, "", r(12, 35, 35)));

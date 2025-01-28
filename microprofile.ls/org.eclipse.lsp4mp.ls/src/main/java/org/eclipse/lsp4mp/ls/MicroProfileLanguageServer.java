@@ -33,14 +33,14 @@ import org.eclipse.lsp4j.services.LanguageClient;
 import org.eclipse.lsp4j.services.LanguageServer;
 import org.eclipse.lsp4j.services.TextDocumentService;
 import org.eclipse.lsp4j.services.WorkspaceService;
-import org.eclipse.lsp4mp.commons.JavaFileInfo;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaFileInfoParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaProjectLabelsParams;
+import org.eclipse.lsp4jdt.commons.JavaFileInfo;
+import org.eclipse.lsp4jdt.commons.JavaFileInfoParams;
+import org.eclipse.lsp4jdt.commons.JavaProjectLabelsParams;
+import org.eclipse.lsp4jdt.commons.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.commons.MicroProfileProjectInfoParams;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesChangeEvent;
-import org.eclipse.lsp4mp.commons.ProjectLabelInfoEntry;
 import org.eclipse.lsp4mp.ls.api.MicroProfileJavaFileInfoProvider;
-import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelsProvider;
+import org.eclipse.lsp4mp.ls.api.MicroProfileJavaProjectLabelProvider;
 import org.eclipse.lsp4mp.ls.api.MicroProfileLanguageClientAPI;
 import org.eclipse.lsp4mp.ls.api.MicroProfileLanguageServerAPI;
 import org.eclipse.lsp4mp.ls.commons.ParentProcessWatcher.ProcessLanguageServer;
@@ -66,7 +66,7 @@ import org.eclipse.lsp4mp.settings.capabilities.ServerCapabilitiesInitializer;
  *
  */
 public class MicroProfileLanguageServer implements LanguageServer, ProcessLanguageServer, MicroProfileLanguageServerAPI,
-		MicroProfileJavaProjectLabelsProvider, MicroProfileJavaFileInfoProvider {
+		MicroProfileJavaProjectLabelProvider, MicroProfileJavaFileInfoProvider {
 
 	private static final Logger LOGGER = Logger.getLogger(MicroProfileLanguageServer.class.getName());
 
@@ -235,7 +235,7 @@ public class MicroProfileLanguageServer implements LanguageServer, ProcessLangua
 
 	@Override
 	public CompletableFuture<ProjectLabelInfoEntry> getJavaProjectLabels(
-			MicroProfileJavaProjectLabelsParams javaParams) {
+			JavaProjectLabelsParams javaParams) {
 		return getLanguageClient().getJavaProjectLabels(javaParams);
 	}
 
@@ -245,7 +245,7 @@ public class MicroProfileLanguageServer implements LanguageServer, ProcessLangua
 	}
 
 	@Override
-	public CompletableFuture<JavaFileInfo> getJavaFileInfo(MicroProfileJavaFileInfoParams javaParams) {
+	public CompletableFuture<JavaFileInfo> getJavaFileInfo(JavaFileInfoParams javaParams) {
 		return getLanguageClient().getJavaFileInfo(javaParams);
 	}
 }

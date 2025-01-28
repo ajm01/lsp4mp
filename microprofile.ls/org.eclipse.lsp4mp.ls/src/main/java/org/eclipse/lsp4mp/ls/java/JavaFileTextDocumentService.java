@@ -46,16 +46,18 @@ import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.PublishDiagnosticsParams;
 import org.eclipse.lsp4j.Range;
 import org.eclipse.lsp4j.jsonrpc.messages.Either;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.commons.JavaCursorContextResult;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionResult;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDefinitionParams;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.JavaCursorContextResult;
+import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
+import org.eclipse.lsp4jdt.commons.JavaCodeLensParams;
+import org.eclipse.lsp4jdt.commons.JavaCompletionParams;
+import org.eclipse.lsp4jdt.commons.JavaCompletionResult;
+import org.eclipse.lsp4jdt.commons.JavaDefinitionParams;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsSettings;
+import org.eclipse.lsp4jdt.commons.JavaHoverParams;
 import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
 import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsSettings;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaHoverParams;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesChangeEvent;
 import org.eclipse.lsp4mp.commons.MicroProfilePropertiesScope;
 import org.eclipse.lsp4mp.ls.AbstractTextDocumentService;
@@ -135,11 +137,11 @@ public class JavaFileTextDocumentService extends AbstractTextDocumentService {
 	public CompletableFuture<Either<List<CompletionItem>, CompletionList>> completion(CompletionParams params) {
 		JavaTextDocument document = documents.get(params.getTextDocument().getUri());
 		return document.executeIfInMicroProfileProject((projectInfo, cancelChecker) -> {
-			MicroProfileJavaCompletionParams javaParams = new MicroProfileJavaCompletionParams(
+			JavaCompletionParams javaParams = new JavaCompletionParams(
 					params.getTextDocument().getUri(), params.getPosition());
 
 			// get the completion capabilities from the java language server component
-			CompletableFuture<MicroProfileJavaCompletionResult> javaParticipantCompletionsFuture = microprofileLanguageServer
+			CompletableFuture<JavaCompletionResult> javaParticipantCompletionsFuture = microprofileLanguageServer
 					.getLanguageClient().getJavaCompletion(javaParams);
 
 			// calculate params for Java snippets
@@ -201,7 +203,7 @@ public class JavaFileTextDocumentService extends AbstractTextDocumentService {
 		}
 		JavaTextDocument document = documents.get(params.getTextDocument().getUri());
 		return document.executeIfInMicroProfileProject((projectInfo, cancelChecker) -> {
-			MicroProfileJavaCodeLensParams javaParams = new MicroProfileJavaCodeLensParams(
+			JavaCodeLensParams javaParams = new JavaCodeLensParams(
 					params.getTextDocument().getUri());
 			if (sharedSettings.getCommandCapabilities().isCommandSupported(CommandKind.COMMAND_OPEN_URI)) {
 				javaParams.setOpenURICommand(CommandKind.COMMAND_OPEN_URI);
@@ -225,7 +227,7 @@ public class JavaFileTextDocumentService extends AbstractTextDocumentService {
 		return document.executeIfInMicroProfileProject((projectInfo, cancelChecker) -> {
 			boolean commandConfigurationUpdateSupported = sharedSettings.getCommandCapabilities()
 					.isCommandSupported(CommandKind.COMMAND_CONFIGURATION_UPDATE);
-			MicroProfileJavaCodeActionParams javaParams = new MicroProfileJavaCodeActionParams();
+			JavaCodeActionParams javaParams = new JavaCodeActionParams();
 			javaParams.setTextDocument(params.getTextDocument());
 			javaParams.setRange(params.getRange());
 			javaParams.setContext(params.getContext());
@@ -259,7 +261,7 @@ public class JavaFileTextDocumentService extends AbstractTextDocumentService {
 			DefinitionParams params) {
 		JavaTextDocument document = documents.get(params.getTextDocument().getUri());
 		return document.executeIfInMicroProfileProject((projectinfo, cancelChecker) -> {
-			MicroProfileJavaDefinitionParams javaParams = new MicroProfileJavaDefinitionParams(
+			JavaDefinitionParams javaParams = new JavaDefinitionParams(
 					params.getTextDocument().getUri(), params.getPosition());
 			return microprofileLanguageServer.getLanguageClient().getJavaDefinition(javaParams)
 					.thenApply(definitions -> {
@@ -320,7 +322,7 @@ public class JavaFileTextDocumentService extends AbstractTextDocumentService {
 			boolean markdownSupported = sharedSettings.getHoverSettings().isContentFormatSupported(MarkupKind.MARKDOWN);
 			boolean surroundEqualsWithSpaces = sharedSettings.getFormattingSettings().isSurroundEqualsWithSpaces();
 			DocumentFormat documentFormat = markdownSupported ? DocumentFormat.Markdown : DocumentFormat.PlainText;
-			MicroProfileJavaHoverParams javaParams = new MicroProfileJavaHoverParams(params.getTextDocument().getUri(),
+			JavaHoverParams javaParams = new JavaHoverParams(params.getTextDocument().getUri(),
 					params.getPosition(), documentFormat, surroundEqualsWithSpaces);
 			return microprofileLanguageServer.getLanguageClient().getJavaHover(javaParams);
 		}, null);
@@ -372,7 +374,7 @@ public class JavaFileTextDocumentService extends AbstractTextDocumentService {
 		}
 		List<String> excludedUnassignedProperties = sharedSettings.getValidationSettings().getUnassigned()
 				.getExcluded();
-		MicroProfileJavaDiagnosticsParams javaParams = new MicroProfileJavaDiagnosticsParams(uris,
+		JavaDiagnosticsParams javaParams = new MicroProfileJavaDiagnosticsParams(uris,
 				new MicroProfileJavaDiagnosticsSettings(excludedUnassignedProperties));
 		boolean markdownSupported = sharedSettings.getHoverSettings().isContentFormatSupported(MarkupKind.MARKDOWN);
 		if (markdownSupported) {

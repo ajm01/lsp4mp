@@ -33,14 +33,15 @@ import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.TextDocumentIdentifier;
 import org.eclipse.lsp4j.VersionedTextDocumentIdentifier;
 import org.eclipse.lsp4j.jsonrpc.messages.Either;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
-import org.eclipse.lsp4mp.commons.codeaction.CodeActionResolveData;
-import org.eclipse.lsp4mp.jdt.core.java.codeaction.ExtendedCodeAction;
-import org.eclipse.lsp4mp.jdt.core.java.codeaction.IJavaCodeActionParticipant;
-import org.eclipse.lsp4mp.jdt.core.java.codeaction.JavaCodeActionContext;
-import org.eclipse.lsp4mp.jdt.core.java.codeaction.JavaCodeActionResolveContext;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4mp.jdt.internal.core.java.JavaFeaturesRegistry;
+import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
+import org.eclipse.lsp4jdt.commons.codeaction.CodeActionResolveData;
+import org.eclipse.lsp4jdt.core.java.codeaction.ExtendedCodeAction;
+import org.eclipse.lsp4jdt.core.java.codeaction.IJavaCodeActionParticipant;
+import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionContext;
+import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionResolveContext;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.participants.core.java.JavaFeaturesRegistry;
+import org.eclipse.lsp4jdt.participants.core.java.codeaction.JavaCodeActionDefinition;
 import org.eclipse.lsp4mp.jdt.internal.core.java.corrections.DiagnosticsHelper;
 
 /**
@@ -64,7 +65,7 @@ public class CodeActionHandler {
 	 * @return all the code actions applicable for the context given by the
 	 *         parameters
 	 */
-	public List<? extends CodeAction> codeAction(MicroProfileJavaCodeActionParams params, IJDTUtils utils,
+	public List<? extends CodeAction> codeAction(JavaCodeActionParams params, IJDTUtils utils,
 			IProgressMonitor monitor) {
 		// Get the compilation unit
 		String uri = params.getUri();
@@ -184,7 +185,7 @@ public class CodeActionHandler {
 		int start = DiagnosticsHelper.getStartOffset(unit, data.getRange(), utils);
 		int end = DiagnosticsHelper.getEndOffset(unit, data.getRange(), utils);
 
-		var params = new MicroProfileJavaCodeActionParams();
+		var params = new JavaCodeActionParams();
 		params.setContext(new CodeActionContext(
 				unresolved.getDiagnostics() == null ? Collections.emptyList() : unresolved.getDiagnostics()));
 		params.setResourceOperationSupported(data.isResourceOperationSupported());

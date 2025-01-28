@@ -25,7 +25,7 @@ public interface MicroProfileLanguageClientAPI
 		extends LanguageClient, MicroProfileProjectInfoProvider, MicroProfilePropertyDefinitionProvider,
 		MicroProfilePropertyDocumentationProvider, MicroProfileJavaCodeActionProvider, MicroProfileJavaCodeLensProvider,
 		MicroProfileJavaCompletionProvider, MicroProfileJavaDiagnosticsProvider, MicroProfileJavaDefinitionProvider,
-		MicroProfileJavaHoverProvider, MicroProfileJavaProjectLabelsProvider, MicroProfileJavaFileInfoProvider,
+		MicroProfileJavaHoverProvider, MicroProfileJavaProjectLabelProvider, MicroProfileJavaFileInfoProvider,
 		MicroProfileJavaCodeActionResolveProvider, MicroProfileJavaCursorContextProvider, MicroProfileJavaWorkspaceSymbolsProvider {
 
 }

@@ -20,7 +20,7 @@ import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PRO
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PROPERTY_ANNOTATION_NAME;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.DIAGNOSTIC_DATA_NAME;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.MICRO_PROFILE_CONFIG_DIAGNOSTIC_SOURCE;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotationMemberValueExpression;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValueExpression;
 
 import java.text.MessageFormat;
 import java.util.List;
@@ -43,12 +43,12 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
 import org.eclipse.lsp4mp.commons.utils.AntPathMatcher;
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.JavaDiagnosticsContext;
-import org.eclipse.lsp4mp.jdt.core.java.validators.JavaASTValidator;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProject;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProjectManager;
-import org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils;
 import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
+import org.eclipse.lsp4jdt.core.java.validators.JavaASTValidator;
+import org.eclipse.lsp4jdt.core.utils.AnnotationUtils;
 import org.eclipse.lsp4mp.jdt.internal.config.properties.MicroProfileConfigPropertyProvider;
 
 import com.google.gson.JsonObject;
@@ -101,7 +101,9 @@ public class MicroProfileConfigASTValidator extends JavaASTValidator {
 	}
 
 	private static List<String> getPatternsFromContext(JavaDiagnosticsContext context) {
-		return context.getSettings().getPatterns();
+		//return context.getSettings().getPatterns();
+		//FIXME
+		return java.util.Collections.emptyList();
 	}
 
 	@Override

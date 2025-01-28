@@ -17,8 +17,8 @@ import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PRO
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PROPERTY_ANNOTATION;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PROPERTY_ANNOTATION_DEFAULT_VALUE;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PROPERTY_ANNOTATION_NAME;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
-import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.hasAnnotation;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValue;
+import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.hasAnnotation;
 import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.findType;
 import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getEnclosedType;
 import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getPropertyType;

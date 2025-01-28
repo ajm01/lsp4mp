@@ -69,7 +69,10 @@
 							<artifactId>tycho-surefire-plugin</artifactId>
 							<version>${tycho.version}</version>
 							<configuration>
-								<dependencies>
+								
+<argLine>-Xdebug -Xrunjdwp:transport=dt_socket,address=8010,server=y,suspend=y</argLine>
+								
+<dependencies>
 									<dependency>
 										<artifactId>org.eclipse.jdt.launching.macosx</artifactId>
 										<version>0.0.0</version>

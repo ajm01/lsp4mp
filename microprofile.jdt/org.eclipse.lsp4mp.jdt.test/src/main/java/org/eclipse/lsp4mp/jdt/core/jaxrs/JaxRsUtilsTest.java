@@ -13,6 +13,7 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.core.jaxrs;
 
+import org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils;
 import org.junit.Assert;
 import org.junit.Test;
 

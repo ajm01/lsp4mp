@@ -13,6 +13,8 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.commons.codeaction;
 
+import org.eclipse.lsp4jdt.commons.codeaction.ICodeActionId;
+
 /**
  * Represents id of an lsp4mp code action.
  */

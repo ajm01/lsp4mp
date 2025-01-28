@@ -29,16 +29,15 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.ls.core.internal.ProjectUtils;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
 import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
 import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsSettings;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionFactory;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
 import org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants;
-import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest.MicroProfileMavenProjectName;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.config.java.MicroProfileConfigErrorCode;
 import org.eclipse.lsp4mp.jdt.internal.core.java.validators.JavaASTValidatorRegistry;
 import org.eclipse.lsp4mp.jdt.internal.core.providers.MicroProfileConfigSourceProvider;
@@ -150,12 +149,17 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 				MicroProfileConfigConstants.MICRO_PROFILE_CONFIG_DIAGNOSTIC_SOURCE,
 				MicroProfileConfigErrorCode.DEFAULT_VALUE_IS_WRONG_TYPE);
 
-		Diagnostic d4 = d(35, 54, 58, "'AB' does not match the expected type of 'char'.", DiagnosticSeverity.Error,
+		Diagnostic d4 = d(32, 27, 38, "The property 'greeting9' is not assigned a value in any config file, and must be assigned at runtime.", DiagnosticSeverity.Warning,
+				MicroProfileConfigConstants.MICRO_PROFILE_CONFIG_DIAGNOSTIC_SOURCE,
+				MicroProfileConfigErrorCode.NO_VALUE_ASSIGNED_TO_PROPERTY);
+		setDataForUnassigned("greeting9", d4);
+		
+		Diagnostic d5 = d(35, 54, 58, "'AB' does not match the expected type of 'char'.", DiagnosticSeverity.Error,
 				MicroProfileConfigConstants.MICRO_PROFILE_CONFIG_DIAGNOSTIC_SOURCE,
 				MicroProfileConfigErrorCode.DEFAULT_VALUE_IS_WRONG_TYPE);
-
+		
 		assertJavaDiagnostics(diagnosticsParams, utils, //
-				d1, d2, d3, d4);
+				d1, d2, d3, d4, d5);
 	}
 
 	@Test
@@ -209,14 +213,14 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 		String javaUri = fixURI(javaFile.getLocation().toFile().toURI().toString());
 		String propertiesUri = fixURI(propertiesFile.getLocation().toFile().toURI().toString());
 
-		MicroProfileJavaCodeActionParams codeActionParams1 = createCodeActionParams(javaUri, d1, false);
+		JavaCodeActionParams codeActionParams1 = createCodeActionParams(javaUri, d1, false);
 		assertJavaCodeAction(codeActionParams1, utils, //
 				ca(javaUri, "Insert 'defaultValue' attribute", MicroProfileCodeActionId.ConfigPropertyInsertDefaultValue, d1, //
 						te(8, 29, 8, 29, ", defaultValue = \"\"")),
 				ca(propertiesUri, "Insert 'foo' property in 'META-INF/microprofile-config.properties'", MicroProfileCodeActionId.AssignValueToProperty, d1, //
 						te(0, 0, 0, 0, "foo=\r\n")));
 
-		MicroProfileJavaCodeActionParams codeActionParams2 = createCodeActionParams(javaUri, d2, false);
+		JavaCodeActionParams codeActionParams2 = createCodeActionParams(javaUri, d2, false);
 		assertJavaCodeAction(codeActionParams2, utils, //
 				ca(javaUri, "Insert 'defaultValue' attribute", MicroProfileCodeActionId.ConfigPropertyInsertDefaultValue, d2, //
 						te(14, 30, 14, 30, ", defaultValue = \"\"")),
@@ -235,7 +239,7 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 				MicroProfileConfigErrorCode.NO_VALUE_ASSIGNED_TO_PROPERTY);
 		setDataForUnassigned("server.url", d2_1);
 
-		MicroProfileJavaCodeActionParams codeActionParams1_1 = createCodeActionParams(javaUri, d1_1);
+		JavaCodeActionParams codeActionParams1_1 = createCodeActionParams(javaUri, d1_1);
 		codeActionParams1_1.setCommandConfigurationUpdateSupported(true);
 		assertJavaCodeAction(codeActionParams1_1, utils, //
 				MicroProfileCodeActionFactory.createAddToUnassignedExcludedCodeAction("foo", d1_1),
@@ -245,7 +249,7 @@ public class MicroProfileConfigJavaDiagnosticsTest extends BasePropertiesManager
 						MicroProfileCodeActionId.AssignValueToProperty, d1_1, //
 						te(0, 0, 0, 0, "foo=\r\n")));
 
-		MicroProfileJavaCodeActionParams codeActionParams2_1 = createCodeActionParams(javaUri, d2_1);
+		JavaCodeActionParams codeActionParams2_1 = createCodeActionParams(javaUri, d2_1);
 		codeActionParams2_1.setCommandConfigurationUpdateSupported(true);
 		assertJavaCodeAction(codeActionParams2_1, utils, //
 				MicroProfileCodeActionFactory.createAddToUnassignedExcludedCodeAction("server.url", d2_1),

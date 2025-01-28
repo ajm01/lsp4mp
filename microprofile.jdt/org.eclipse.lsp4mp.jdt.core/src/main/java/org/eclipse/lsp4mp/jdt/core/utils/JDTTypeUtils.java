@@ -18,8 +18,6 @@ import static org.eclipse.jdt.core.Signature.SIG_VOID;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.IJarEntryResource;
 import org.eclipse.jdt.core.IJavaElement;
@@ -45,13 +43,6 @@ public class JDTTypeUtils {
 	private static final List<String> NUMBER_TYPES = Arrays.asList("short", "int", "long", "double", "float");
 
 	public static IType findType(IJavaProject project, String name) {
-		try {
-			IType type = project.findType(name, new NullProgressMonitor());
-			if (type != null && type.exists()) {
-				return type;
-			}
-		} catch (JavaModelException e) {
-		}
 		try {
 			return project.findType(name);
 		} catch (JavaModelException e) {
@@ -376,3 +367,4 @@ public class JDTTypeUtils {
 		return SIG_VOID.equals(method.getReturnType());
 	}
 }
+>>>>>>> CommonJDTOnlyPOC

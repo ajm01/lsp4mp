@@ -28,13 +28,12 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.ls.core.internal.ProjectUtils;
 import org.eclipse.lsp4j.Diagnostic;
 import org.eclipse.lsp4j.DiagnosticSeverity;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
 import org.eclipse.lsp4mp.commons.codeaction.MicroProfileCodeActionId;
 import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest;
-import org.eclipse.lsp4mp.jdt.core.BasePropertiesManagerTest.MicroProfileMavenProjectName;
-import org.eclipse.lsp4mp.jdt.core.utils.IJDTUtils;
+import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4mp.jdt.internal.health.MicroProfileHealthConstants;
 import org.eclipse.lsp4mp.jdt.internal.health.java.MicroProfileHealthErrorCode;
 import org.junit.BeforeClass;
@@ -61,7 +60,7 @@ public class MicroProfileHealthJavaDiagnosticsTest extends BasePropertiesManager
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.microprofile_health_quickstart);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/health/DontImplementHealthCheck.java"));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
@@ -75,7 +74,7 @@ public class MicroProfileHealthJavaDiagnosticsTest extends BasePropertiesManager
 				d);
 
 		String uri = javaFile.getLocation().toFile().toURI().toString();
-		MicroProfileJavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
+		JavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
 		codeActionParams.setResourceOperationSupported(true);
 		codeActionParams.setCommandConfigurationUpdateSupported(true);
 		assertJavaCodeAction(codeActionParams, utils, //
@@ -94,7 +93,7 @@ public class MicroProfileHealthJavaDiagnosticsTest extends BasePropertiesManager
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.microprofile_health_quickstart);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject()
 				.getFile(new Path("src/main/java/org/acme/health/ImplementHealthCheck.java"));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
@@ -108,7 +107,7 @@ public class MicroProfileHealthJavaDiagnosticsTest extends BasePropertiesManager
 				d);
 
 		String uri = javaFile.getLocation().toFile().toURI().toString();
-		MicroProfileJavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
+		JavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
 		assertJavaCodeAction(codeActionParams, utils, //
 				ca(uri, "Insert @Health", MicroProfileCodeActionId.InsertMissingHealthAnnotation, d, //
 						te(2, 0, 5, 0, "import org.eclipse.microprofile.health.Health;\r\n" + //
@@ -131,7 +130,7 @@ public class MicroProfileHealthJavaDiagnosticsTest extends BasePropertiesManager
 		IJavaProject javaProject = ProjectUtils.getJavaProject(MicroProfileMavenProjectName.microprofile_health_3);
 		IJDTUtils utils = JDT_UTILS;
 
-		MicroProfileJavaDiagnosticsParams diagnosticsParams = new MicroProfileJavaDiagnosticsParams();
+		JavaDiagnosticsParams diagnosticsParams = new JavaDiagnosticsParams();
 		IFile javaFile = javaProject.getProject().getFile(new Path("src/main/java/org/acme/MyLivenessCheck.java"));
 		diagnosticsParams.setUris(Arrays.asList(javaFile.getLocation().toFile().toURI().toString()));
 		diagnosticsParams.setDocumentFormat(DocumentFormat.Markdown);
@@ -144,7 +143,7 @@ public class MicroProfileHealthJavaDiagnosticsTest extends BasePropertiesManager
 				d);
 
 		String uri = javaFile.getLocation().toFile().toURI().toString();
-		MicroProfileJavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
+		JavaCodeActionParams codeActionParams = createCodeActionParams(uri, d);
 		assertJavaCodeAction(codeActionParams, utils, //
 				ca(uri, "Insert @Liveness", MicroProfileCodeActionId.InsertMissingHealthAnnotation, d, //
 						te(3, 59, 5, 0, "\n" + //

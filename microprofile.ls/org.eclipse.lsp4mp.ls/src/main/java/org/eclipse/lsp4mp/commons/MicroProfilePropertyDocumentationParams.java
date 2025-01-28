@@ -13,6 +13,8 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.commons;
 
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+
 /**
  * MicroProfile property documentation parameters to retrieve the documentation
  * of the MicroProfile property in Java class field or Java method.

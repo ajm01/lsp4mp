@@ -11,16 +11,16 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.core.ls;
 
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getBoolean;
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getCodeActionContext;
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getFirst;
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getInt;
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getObject;
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getPosition;
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getRange;
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getString;
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getStringList;
-import static org.eclipse.lsp4mp.jdt.internal.core.ls.ArgumentUtils.getTextDocumentIdentifier;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getBoolean;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getCodeActionContext;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getFirst;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getInt;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getObject;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getPosition;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getRange;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getString;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getStringList;
+import static org.eclipse.lsp4jdt.participants.core.ls.ArgumentUtils.getTextDocumentIdentifier;
 
 import java.util.List;
 import java.util.Map;
@@ -38,23 +38,25 @@ import org.eclipse.lsp4j.PublishDiagnosticsParams;
 import org.eclipse.lsp4j.Range;
 import org.eclipse.lsp4j.SymbolInformation;
 import org.eclipse.lsp4j.TextDocumentIdentifier;
-import org.eclipse.lsp4mp.commons.DocumentFormat;
-import org.eclipse.lsp4mp.commons.JavaCursorContextKind;
-import org.eclipse.lsp4mp.commons.JavaCursorContextResult;
-import org.eclipse.lsp4mp.commons.JavaFileInfo;
+import org.eclipse.lsp4jdt.commons.DocumentFormat;
+import org.eclipse.lsp4jdt.commons.JavaCursorContextKind;
+import org.eclipse.lsp4jdt.commons.JavaCursorContextResult;
+import org.eclipse.lsp4jdt.commons.JavaFileInfo;
 import org.eclipse.lsp4mp.commons.MicroProfileDefinition;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeActionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCodeLensParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaCompletionResult;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDefinitionParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaDiagnosticsSettings;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaFileInfoParams;
-import org.eclipse.lsp4mp.commons.MicroProfileJavaHoverParams;
-import org.eclipse.lsp4mp.commons.codeaction.CodeActionResolveData;
+import org.eclipse.lsp4jdt.commons.JavaCodeActionParams;
+import org.eclipse.lsp4jdt.commons.JavaCodeLensParams;
+import org.eclipse.lsp4jdt.commons.JavaCompletionParams;
+import org.eclipse.lsp4jdt.commons.JavaCompletionResult;
+import org.eclipse.lsp4jdt.commons.JavaDefinitionParams;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsParams;
+import org.eclipse.lsp4jdt.commons.JavaDiagnosticsSettings;
+import org.eclipse.lsp4jdt.commons.JavaFileInfoParams;
+import org.eclipse.lsp4jdt.commons.JavaHoverParams;
+import org.eclipse.lsp4jdt.commons.codeaction.CodeActionResolveData;
+import org.eclipse.lsp4jdt.participants.core.ls.AbstractDelegateCommandHandler;
+import org.eclipse.lsp4jdt.participants.core.ls.JDTUtilsLSImpl;
 import org.eclipse.lsp4mp.commons.utils.JSONUtility;
-import org.eclipse.lsp4mp.jdt.core.PropertiesManagerForJava;
+import org.eclipse.lsp4mp.jdt.core.MPNewPropertiesManagerForJava;
 
 /**
  * JDT LS delegate command handler for Java file.
@@ -62,7 +64,7 @@ import org.eclipse.lsp4mp.jdt.core.PropertiesManagerForJava;
  * @author Angelo ZERR
  *
  */
-public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProfileDelegateCommandHandler {
+public class MicroProfileDelegateCommandHandlerForJava extends AbstractDelegateCommandHandler {
 
 	private static final String FILE_INFO_COMMAND_ID = "microprofile/java/fileInfo";
 	private static final String JAVA_CODEACTION_COMMAND_ID = "microprofile/java/codeAction";
@@ -116,9 +118,9 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	private static JavaFileInfo getFileInfo(List<Object> arguments, String commandId, IProgressMonitor monitor)
 			throws JavaModelException, CoreException {
 		// Create java file information parameter
-		MicroProfileJavaFileInfoParams params = createJavaFileInfoParams(arguments, commandId);
+		JavaFileInfoParams params = createJavaFileInfoParams(arguments, commandId);
 		// Return file information from the parameter
-		return PropertiesManagerForJava.getInstance().fileInfo(params, JDTUtilsLSImpl.getInstance(), monitor);
+		return MPNewPropertiesManagerForJava.getInstance().fileInfo(params, JDTUtilsLSImpl.getInstance(), monitor);
 	}
 
 	/**
@@ -129,7 +131,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	 *
 	 * @return the Java file information parameter.
 	 */
-	private static MicroProfileJavaFileInfoParams createJavaFileInfoParams(List<Object> arguments, String commandId) {
+	private static JavaFileInfoParams createJavaFileInfoParams(List<Object> arguments, String commandId) {
 		Map<String, Object> obj = getFirst(arguments);
 		if (obj == null) {
 			throw new UnsupportedOperationException(String.format(
@@ -142,7 +144,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 					"Command '%s' must be called with required MicroProfileJavaFileInfoParams.uri (java file URI)!",
 					commandId));
 		}
-		MicroProfileJavaFileInfoParams params = new MicroProfileJavaFileInfoParams();
+		JavaFileInfoParams params = new JavaFileInfoParams();
 		params.setUri(javaFileUri);
 		return params;
 	}
@@ -160,9 +162,9 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	private static List<? extends CodeAction> getCodeActionForJava(List<Object> arguments, String commandId,
 			IProgressMonitor monitor) throws JavaModelException, CoreException {
 		// Create java code action parameter
-		MicroProfileJavaCodeActionParams params = createMicroProfileJavaCodeActionParams(arguments, commandId);
+		JavaCodeActionParams params = createMicroProfileJavaCodeActionParams(arguments, commandId);
 		// Return code action from the code action parameter
-		return PropertiesManagerForJava.getInstance().codeAction(params, JDTUtilsLSImpl.getInstance(), monitor);
+		return MPNewPropertiesManagerForJava.getInstance().codeAction(params, JDTUtilsLSImpl.getInstance(), monitor);
 	}
 
 	/**
@@ -173,7 +175,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	 *
 	 * @return java code action parameter
 	 */
-	private static MicroProfileJavaCodeActionParams createMicroProfileJavaCodeActionParams(List<Object> arguments,
+	private static JavaCodeActionParams createMicroProfileJavaCodeActionParams(List<Object> arguments,
 			String commandId) {
 		Map<String, Object> obj = getFirst(arguments);
 		if (obj == null) {
@@ -191,7 +193,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 		boolean resourceOperationSupported = getBoolean(obj, "resourceOperationSupported");
 		boolean commandConfigurationUpdateSupported = getBoolean(obj, "commandConfigurationUpdateSupported");
 		boolean resolveSupported = getBoolean(obj, "resolveSupported");
-		MicroProfileJavaCodeActionParams params = new MicroProfileJavaCodeActionParams();
+		JavaCodeActionParams params = new JavaCodeActionParams();
 		params.setTextDocument(texdDocumentIdentifier);
 		params.setRange(range);
 		params.setContext(context);
@@ -206,7 +208,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 		// Create java code action parameter
 		CodeAction unresolved = createMicroProfileJavaCodeActionResolveParams(arguments, commandId);
 		// Return code action from the code action parameter
-		return PropertiesManagerForJava.getInstance().resolveCodeAction(unresolved, JDTUtilsLSImpl.getInstance(),
+		return MPNewPropertiesManagerForJava.getInstance().resolveCodeAction(unresolved, JDTUtilsLSImpl.getInstance(),
 				monitor);
 	}
 
@@ -243,9 +245,9 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	private static List<? extends CodeLens> getCodeLensForJava(List<Object> arguments, String commandId,
 			IProgressMonitor monitor) throws JavaModelException, CoreException {
 		// Create java code lens parameter
-		MicroProfileJavaCodeLensParams params = createMicroProfileJavaCodeLensParams(arguments, commandId);
+		JavaCodeLensParams params = createMicroProfileJavaCodeLensParams(arguments, commandId);
 		// Return code lenses from the lens parameter
-		return PropertiesManagerForJava.getInstance().codeLens(params, JDTUtilsLSImpl.getInstance(), monitor);
+		return MPNewPropertiesManagerForJava.getInstance().codeLens(params, JDTUtilsLSImpl.getInstance(), monitor);
 	}
 
 	/**
@@ -256,7 +258,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	 *
 	 * @return java code lens parameter
 	 */
-	private static MicroProfileJavaCodeLensParams createMicroProfileJavaCodeLensParams(List<Object> arguments,
+	private static JavaCodeLensParams createMicroProfileJavaCodeLensParams(List<Object> arguments,
 			String commandId) {
 		Map<String, Object> obj = getFirst(arguments);
 		if (obj == null) {
@@ -269,7 +271,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 					"Command '%s' must be called with required MicroProfileJavaCodeLensParams.uri (java URI)!",
 					commandId));
 		}
-		MicroProfileJavaCodeLensParams params = new MicroProfileJavaCodeLensParams(javaFileUri);
+		JavaCodeLensParams params = new JavaCodeLensParams(javaFileUri);
 		params.setUrlCodeLensEnabled(getBoolean(obj, "urlCodeLensEnabled"));
 		params.setCheckServerAvailable(getBoolean(obj, "checkServerAvailable"));
 		params.setOpenURICommand(getString(obj, "openURICommand"));
@@ -287,12 +289,12 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	 * @throws JavaModelException
 	 * @throws CoreException
 	 */
-	private static MicroProfileJavaCompletionResult getCompletionForJava(List<Object> arguments, String commandId,
+	private static JavaCompletionResult getCompletionForJava(List<Object> arguments, String commandId,
 			IProgressMonitor monitor) throws JavaModelException, CoreException {
-		MicroProfileJavaCompletionParams params = createMicroProfileJavaCompletionParams(arguments, commandId);
-		CompletionList completionList = PropertiesManagerForJava.getInstance().completion(params, JDTUtilsLSImpl.getInstance(), monitor);
-		JavaCursorContextResult cursorContext = PropertiesManagerForJava.getInstance().javaCursorContext(params, JDTUtilsLSImpl.getInstance(), monitor);
-		return new MicroProfileJavaCompletionResult(completionList, cursorContext);
+		JavaCompletionParams params = createJavaCompletionParams(arguments, commandId);
+		CompletionList completionList = MPNewPropertiesManagerForJava.getInstance().completion(params, JDTUtilsLSImpl.getInstance(), monitor);
+		JavaCursorContextResult cursorContext = MPNewPropertiesManagerForJava.getInstance().javaCursorContext(params, JDTUtilsLSImpl.getInstance(), monitor);
+		return new JavaCompletionResult(completionList, cursorContext);
 	}
 
 	/**
@@ -302,7 +304,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	 * @param commandId
 	 * @return the completion parameters from the given argument map
 	 */
-	private static MicroProfileJavaCompletionParams createMicroProfileJavaCompletionParams(List<Object> arguments,
+	private static JavaCompletionParams createJavaCompletionParams(List<Object> arguments,
 			String commandId) {
 		Map<String, Object> obj = getFirst(arguments);
 		if (obj == null) {
@@ -321,7 +323,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 					"Command '%s' must be called with required MicroProfileJavaCompletionParams.position (completion trigger location)!",
 					commandId));
 		}
-		MicroProfileJavaCompletionParams params = new MicroProfileJavaCompletionParams(javaFileUri, position);
+		JavaCompletionParams params = new JavaCompletionParams(javaFileUri, position);
 		return params;
 	}
 
@@ -336,12 +338,12 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	 * @throws JavaModelException
 	 * @throws CoreException
 	 */
-	private static List<MicroProfileDefinition> getDefinitionForJava(List<Object> arguments, String commandId,
+	private static List<Object> getDefinitionForJava(List<Object> arguments, String commandId,
 			IProgressMonitor monitor) throws JavaModelException, CoreException {
 		// Create java definition parameter
-		MicroProfileJavaDefinitionParams params = createMicroProfileJavaDefinitionParams(arguments, commandId);
+		JavaDefinitionParams params = createMicroProfileJavaDefinitionParams(arguments, commandId);
 		// Return hover info from hover parameter
-		return PropertiesManagerForJava.getInstance().definition(params, JDTUtilsLSImpl.getInstance(), monitor);
+		return MPNewPropertiesManagerForJava.getInstance().definition(params, JDTUtilsLSImpl.getInstance(), monitor);
 	}
 
 	/**
@@ -352,7 +354,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	 *
 	 * @return the definition hover parameters
 	 */
-	private static MicroProfileJavaDefinitionParams createMicroProfileJavaDefinitionParams(List<Object> arguments,
+	private static JavaDefinitionParams createMicroProfileJavaDefinitionParams(List<Object> arguments,
 			String commandId) {
 		Map<String, Object> obj = getFirst(arguments);
 		if (obj == null) {
@@ -367,7 +369,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 		}
 
 		Position hoverPosition = getPosition(obj, "position");
-		return new MicroProfileJavaDefinitionParams(javaFileUri, hoverPosition);
+		return new JavaDefinitionParams(javaFileUri, hoverPosition);
 	}
 
 	/**
@@ -382,9 +384,9 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	private static List<PublishDiagnosticsParams> getDiagnosticsForJava(List<Object> arguments, String commandId,
 			IProgressMonitor monitor) throws JavaModelException {
 		// Create java diagnostics parameter
-		MicroProfileJavaDiagnosticsParams params = createMicroProfileJavaDiagnosticsParams(arguments, commandId);
+		JavaDiagnosticsParams params = createMicroProfileJavaDiagnosticsParams(arguments, commandId);
 		// Return diagnostics from parameter
-		return PropertiesManagerForJava.getInstance().diagnostics(params, JDTUtilsLSImpl.getInstance(), monitor);
+		return MPNewPropertiesManagerForJava.getInstance().diagnostics(params, JDTUtilsLSImpl.getInstance(), monitor);
 	}
 
 	/**
@@ -395,7 +397,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	 *
 	 * @return the java diagnostics parameters
 	 */
-	private static MicroProfileJavaDiagnosticsParams createMicroProfileJavaDiagnosticsParams(List<Object> arguments,
+	private static JavaDiagnosticsParams createMicroProfileJavaDiagnosticsParams(List<Object> arguments,
 			String commandId) {
 		Map<String, Object> obj = getFirst(arguments);
 		if (obj == null) {
@@ -408,13 +410,14 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 					"Command '%s' must be called with required MicroProfileJavaDiagnosticsParams.uri (java URIs)!",
 					commandId));
 		}
-		MicroProfileJavaDiagnosticsSettings settings = null;
+		JavaDiagnosticsSettings settings = null;
 		Map<String, Object> settingsObj = getObject(obj, "settings");
 		if (settingsObj != null) {
 			List<String> patterns = getStringList(settingsObj, "patterns");
-			settings = new MicroProfileJavaDiagnosticsSettings(patterns);
+			settings = new JavaDiagnosticsSettings(patterns);
 		}
-		return new MicroProfileJavaDiagnosticsParams(javaFileUri, settings);
+		//return new JavaDiagnosticsParams(javaFileUri, settings);
+		return new JavaDiagnosticsParams(javaFileUri);
 	}
 
 	/**
@@ -431,9 +434,9 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	private static Hover getHoverForJava(List<Object> arguments, String commandId, IProgressMonitor monitor)
 			throws JavaModelException, CoreException {
 		// Create java hover parameter
-		MicroProfileJavaHoverParams params = createMicroProfileJavaHoverParams(arguments, commandId);
+		JavaHoverParams params = createMicroProfileJavaHoverParams(arguments, commandId);
 		// Return hover info from hover parameter
-		return PropertiesManagerForJava.getInstance().hover(params, JDTUtilsLSImpl.getInstance(), monitor);
+		return MPNewPropertiesManagerForJava.getInstance().hover(params, JDTUtilsLSImpl.getInstance(), monitor);
 	}
 
 	/**
@@ -444,7 +447,7 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 	 *
 	 * @return the java hover parameters
 	 */
-	private static MicroProfileJavaHoverParams createMicroProfileJavaHoverParams(List<Object> arguments,
+	private static JavaHoverParams createMicroProfileJavaHoverParams(List<Object> arguments,
 			String commandId) {
 		Map<String, Object> obj = getFirst(arguments);
 		if (obj == null) {
@@ -465,13 +468,13 @@ public class MicroProfileDelegateCommandHandlerForJava extends AbstractMicroProf
 			documentFormat = DocumentFormat.forValue(documentFormatIndex.intValue());
 		}
 		boolean surroundEqualsWithSpaces = ((Boolean) obj.get("surroundEqualsWithSpaces")).booleanValue();
-		return new MicroProfileJavaHoverParams(javaFileUri, hoverPosition, documentFormat, surroundEqualsWithSpaces);
+		return new JavaHoverParams(javaFileUri, hoverPosition, documentFormat, surroundEqualsWithSpaces);
 	}
 
 	private List<SymbolInformation> getWorkspaceSymbolsForJava(List<Object> arguments, String commandId,
 			IProgressMonitor monitor) {
 		String projectUri = createMicroProfileJavaWorkspaceSymbolParams(arguments, commandId);
-		return PropertiesManagerForJava.getInstance().workspaceSymbols(projectUri, JDTUtilsLSImpl.getInstance(),
+		return MPNewPropertiesManagerForJava.getInstance().workspaceSymbols(projectUri, JDTUtilsLSImpl.getInstance(),
 				monitor);
 	}
 

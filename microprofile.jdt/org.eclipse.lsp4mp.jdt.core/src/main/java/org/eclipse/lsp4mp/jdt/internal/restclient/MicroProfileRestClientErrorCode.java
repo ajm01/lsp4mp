@@ -13,7 +13,7 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.internal.restclient;
 
-import org.eclipse.lsp4mp.jdt.core.java.diagnostics.IJavaErrorCode;
+import org.eclipse.lsp4jdt.core.java.diagnostics.IJavaErrorCode;
 
 /**
  * MicroProfile RestClient diagnostics error code.
