@@ -37,7 +37,7 @@ import org.eclipse.lsp4jdt.core.java.codeaction.IJavaCodeActionParticipant;
 import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionContext;
 import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionResolveContext;
 import org.eclipse.lsp4jdt.core.java.corrections.proposal.ChangeCorrectionProposal;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
 import org.eclipse.lsp4mp.jdt.internal.openapi.MicroProfileOpenAPIConstants;
 
 /**

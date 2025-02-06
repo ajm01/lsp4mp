@@ -45,7 +45,7 @@ import org.eclipse.lsp4j.DiagnosticSeverity;
 import org.eclipse.lsp4mp.commons.utils.AntPathMatcher;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProject;
 import org.eclipse.lsp4mp.jdt.core.project.JDTMicroProfileProjectManager;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
 import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
 import org.eclipse.lsp4jdt.core.java.validators.JavaASTValidator;
 import org.eclipse.lsp4jdt.core.utils.AnnotationUtils;

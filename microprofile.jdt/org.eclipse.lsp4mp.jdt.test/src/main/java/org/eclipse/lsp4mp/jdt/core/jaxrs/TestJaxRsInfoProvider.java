@@ -14,7 +14,7 @@
 package org.eclipse.lsp4mp.jdt.core.jaxrs;
 
 import static org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils.getJaxRsPathValue;
-import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.overlaps;
+import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.overlaps;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,7 +39,7 @@ import org.eclipse.lsp4jdt.core.jaxrs.JaxRsContext;
 import org.eclipse.lsp4jdt.core.jaxrs.JaxRsMethodInfo;
 import org.eclipse.lsp4jdt.core.jaxrs.JaxRsUtils;
 import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
 
 /**
  * A copy of {@link jdt.internal.jaxrs.java.DefaultJaxRsInfoProvider} that only
