@@ -21,7 +21,7 @@ import org.eclipse.lsp4mp.jdt.core.AbstractStaticPropertiesProvider;
 import org.eclipse.lsp4mp.jdt.core.IPropertiesCollector.MergingStrategy;
 import org.eclipse.lsp4mp.jdt.core.MicroProfileCorePlugin;
 import org.eclipse.lsp4mp.jdt.core.SearchContext;
-import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
 
 /**
  * JBoss Logging Manager provider for {@link Level}.

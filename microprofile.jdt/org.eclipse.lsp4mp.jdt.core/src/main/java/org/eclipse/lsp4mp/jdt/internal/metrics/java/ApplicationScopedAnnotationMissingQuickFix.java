@@ -36,7 +36,7 @@ import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionContext;
 import org.eclipse.lsp4jdt.core.java.codeaction.JavaCodeActionResolveContext;
 import org.eclipse.lsp4jdt.core.java.corrections.proposal.ChangeCorrectionProposal;
 import org.eclipse.lsp4jdt.core.java.corrections.proposal.ReplaceAnnotationProposal;
-import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
 import org.eclipse.lsp4mp.jdt.internal.metrics.MicroProfileMetricsConstants;
 
 /**

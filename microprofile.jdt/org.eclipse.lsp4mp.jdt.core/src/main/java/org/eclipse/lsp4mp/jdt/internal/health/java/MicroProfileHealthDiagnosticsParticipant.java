@@ -41,7 +41,7 @@ import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
 import org.eclipse.lsp4jdt.core.utils.AnnotationUtils;
 import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
 import org.eclipse.lsp4jdt.core.utils.PositionUtils;
-import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
 import org.eclipse.lsp4mp.jdt.internal.health.MicroProfileHealthConstants;
 
 /**

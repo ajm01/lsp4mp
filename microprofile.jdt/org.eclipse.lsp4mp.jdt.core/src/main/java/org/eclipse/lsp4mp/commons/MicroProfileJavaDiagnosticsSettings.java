@@ -25,12 +25,12 @@ import org.eclipse.lsp4jdt.commons.JavaDiagnosticsSettings;
  */
 public class MicroProfileJavaDiagnosticsSettings extends JavaDiagnosticsSettings {
 
-	public MicroProfileJavaDiagnosticsSettings(List<String> patterns) {
-		super(patterns);
-		this.patterns = patterns;
+	public MicroProfileJavaDiagnosticsSettings(List<String> inpatterns) {
+		super(inpatterns);
+		this.mppatterns = inpatterns;
 	}
 
-	private List<String> patterns;
+	private List<String> mppatterns;
 
 	/**
 	 * Returns a list of patterns representing the properties to ignore validation
@@ -40,7 +40,7 @@ public class MicroProfileJavaDiagnosticsSettings extends JavaDiagnosticsSettings
 	 *         when adding diagnostics for properties without values.
 	 */
 	public List<String> getPatterns() {
-		return patterns == null ? Collections.emptyList() : this.patterns;
+		return super.getPatterns() == null ? Collections.emptyList() : this.mppatterns;
 	}
 
 }

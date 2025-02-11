@@ -374,8 +374,8 @@ public class JavaFileTextDocumentService extends AbstractTextDocumentService {
 		}
 		List<String> excludedUnassignedProperties = sharedSettings.getValidationSettings().getUnassigned()
 				.getExcluded();
-		JavaDiagnosticsParams javaParams = new MicroProfileJavaDiagnosticsParams(uris,
-				new MicroProfileJavaDiagnosticsSettings(excludedUnassignedProperties));
+		JavaDiagnosticsParams javaParams = new JavaDiagnosticsParams(uris,
+				new JavaDiagnosticsSettings(excludedUnassignedProperties));
 		boolean markdownSupported = sharedSettings.getHoverSettings().isContentFormatSupported(MarkupKind.MARKDOWN);
 		if (markdownSupported) {
 			javaParams.setDocumentFormat(DocumentFormat.Markdown);

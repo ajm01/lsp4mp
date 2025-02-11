@@ -13,7 +13,7 @@
 *******************************************************************************/
 package org.eclipse.lsp4mp.jdt.core;
 
-import static org.eclipse.lsp4jdt.core.utils.JDTTypeUtils.getOptionalTypeParameter;
+import static org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils.getOptionalTypeParameter;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

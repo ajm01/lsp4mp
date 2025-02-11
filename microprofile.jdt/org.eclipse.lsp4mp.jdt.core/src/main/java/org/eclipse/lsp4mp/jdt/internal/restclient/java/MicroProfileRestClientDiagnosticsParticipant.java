@@ -43,7 +43,7 @@ import org.eclipse.lsp4jdt.core.java.diagnostics.IJavaDiagnosticsParticipant;
 import org.eclipse.lsp4jdt.core.java.diagnostics.JavaDiagnosticsContext;
 import org.eclipse.lsp4jdt.core.utils.AnnotationUtils;
 import org.eclipse.lsp4jdt.core.utils.PositionUtils;
-import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
 import org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientConstants;
 import org.eclipse.lsp4mp.jdt.internal.restclient.MicroProfileRestClientErrorCode;
 

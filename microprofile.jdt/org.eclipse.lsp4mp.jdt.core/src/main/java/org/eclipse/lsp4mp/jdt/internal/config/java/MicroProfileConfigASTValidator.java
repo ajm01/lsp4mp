@@ -20,7 +20,7 @@ import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PRO
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.CONFIG_PROPERTY_ANNOTATION_NAME;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.DIAGNOSTIC_DATA_NAME;
 import static org.eclipse.lsp4mp.jdt.core.MicroProfileConfigConstants.MICRO_PROFILE_CONFIG_DIAGNOSTIC_SOURCE;
-import static org.eclipse.lsp4jdt.core.utils.AnnotationUtils.getAnnotationMemberValueExpression;
+import static org.eclipse.lsp4mp.jdt.core.utils.AnnotationUtils.getAnnotationMemberValueExpression;
 
 import java.text.MessageFormat;
 import java.util.List;

@@ -41,7 +41,7 @@ import org.eclipse.lsp4jdt.core.java.completion.IJavaCompletionParticipant;
 import org.eclipse.lsp4jdt.core.java.completion.JavaCompletionContext;
 import org.eclipse.lsp4jdt.core.utils.AnnotationUtils;
 import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
+import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
 
 /**
  * Completion for <code>fallbackMethod</code>

@@ -23,5 +23,12 @@
 				</dependency>
 			</dependencies>
 		</location>
+		<!--
+		lsp4jdt-poc/org.eclipse.lsp4jdt.site/target/org.eclipse.lsp4jdt.site-0.0.1-SNAPSHOT.zip!
+		-->
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+            <repository location="REPLACE_WITH_LSP4JDT_POC_SITE_DIRECTORY"/>
+            <unit id="org.eclipse.lsp4jdt.core" version="0.0.0"/>
+        </location>
 	</locations>
 </target>

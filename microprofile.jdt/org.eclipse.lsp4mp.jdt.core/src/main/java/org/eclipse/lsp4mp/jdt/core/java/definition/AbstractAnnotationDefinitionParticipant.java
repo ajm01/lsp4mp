@@ -32,11 +32,11 @@ import org.eclipse.lsp4j.Position;
 import org.eclipse.lsp4j.Range;
 import org.eclipse.lsp4mp.commons.MicroProfileDefinition;
 import org.eclipse.lsp4mp.jdt.core.java.PropertyReplacerStrategy;
+import org.eclipse.lsp4mp.jdt.core.utils.JDTTypeUtils;
 import org.eclipse.lsp4jdt.core.java.definition.IJavaDefinitionParticipant;
 import org.eclipse.lsp4jdt.core.java.definition.JavaDefinitionContext;
 import org.eclipse.lsp4jdt.core.utils.AnnotationMemberInfo;
 import org.eclipse.lsp4jdt.core.utils.IJDTUtils;
-import org.eclipse.lsp4jdt.core.utils.JDTTypeUtils;
 
 /**
  *
